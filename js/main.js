@@ -1,28 +1,24 @@
 /**
- * Patta Care — Interactive Core Engine
+ * PattaCare — Post-Operative Recovery & Continuous Clinical Visibility Engine
  * Handles:
  * 1. Mobile Menu & Sticky Navigation
  * 2. YouTube Video Embed, Click-to-Play & Protocol Fallbacks
- * 3. Regional Solution Tabs (US, UK, CA, IN)
- * 4. Interactive Practice ROI & Impact Calculator
- * 5. Interactive WhatsApp Live Care Simulator (with typing indicators & delivery ticks)
- * 6. Clinician Dashboard Table Filter & Triage
- * 7. FAQ Accordion
- * 8. Consultation Booking Form Handling
+ * 3. Interactive Post-Operative Recovery Demo (Synchronized WhatsApp Simulation ⇄ Care Team Triage)
+ * 4. Care Team Capacity & Workload Estimator
+ * 5. FAQ Accordion
+ * 6. Surgical Consultation / Demo Booking Form Handling
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initVideoPlayer();
-  initRegionalTabs();
-  initRoiCalculator();
-  initWhatsAppSimulator();
-  initDashboardFilter();
+  initPostOpInteractiveDemo();
+  initCapacityEstimator();
   initFaqAccordion();
   initDemoForm();
 });
 
-/* 1. Navigation */
+/* 1. Sticky Navigation & Mobile Menu */
 function initNavigation() {
   const header = document.querySelector('.site-header');
   const mobileToggle = document.querySelector('.mobile-nav-toggle');
@@ -68,7 +64,6 @@ function initNavigation() {
 function initVideoPlayer() {
   const videoOverlay = document.getElementById('video-poster-overlay');
   const videoIframe = document.getElementById('youtube-video-frame');
-  const watchHeroBtn = document.getElementById('hero-watch-video-btn');
   const fileProtocolNotice = document.getElementById('file-protocol-notice');
 
   // Detect if running under file:/// scheme
@@ -94,112 +89,90 @@ function initVideoPlayer() {
   if (videoOverlay) {
     videoOverlay.addEventListener('click', playVideo);
   }
-
-  if (watchHeroBtn) {
-    watchHeroBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const videoSection = document.getElementById('video-overview');
-      if (videoSection) {
-        videoSection.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(playVideo, 450);
-      }
-    });
-  }
 }
 
-/* 3. Regional Tabs (USA, UK, Canada, India) */
-function initRegionalTabs() {
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-content-panel');
+/* 3. Interactive Post-Op Product Demo: Patient Check-In ⇄ Surgical Care Team Triage */
+function initPostOpInteractiveDemo() {
+  const pillOnTrack = document.getElementById('pill-on-track');
+  const pillObservation = document.getElementById('pill-observation');
+  const pillReview = document.getElementById('pill-review');
+  const scenarioPills = [pillOnTrack, pillObservation, pillReview].filter(Boolean);
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetRegion = button.getAttribute('data-region');
-
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabPanels.forEach(panel => panel.classList.remove('active'));
-
-      button.classList.add('active');
-      const targetPanel = document.getElementById(`panel-${targetRegion}`);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
-      }
-    });
-  });
-}
-
-/* 4. Interactive ROI & Practice Impact Calculator */
-function initRoiCalculator() {
-  const patientSlider = document.getElementById('patient-slider');
-  const patientCountDisplay = document.getElementById('patient-count-display');
-  const currencySelector = document.getElementById('currency-selector');
-
-  const annualRevenueDisplay = document.getElementById('roi-annual-revenue');
-  const hoursSavedDisplay = document.getElementById('roi-hours-saved');
-  const readmissionPreventedDisplay = document.getElementById('roi-readmissions');
-
-  if (!patientSlider || !annualRevenueDisplay) return;
-
-  const updateCalculations = () => {
-    const patients = parseInt(patientSlider.value, 10);
-    patientCountDisplay.textContent = `${patients.toLocaleString()} Patients`;
-
-    const currency = currencySelector ? currencySelector.value : 'USD';
-    let symbol = '$';
-    let ratePerPatientPerYear = 1440; // avg ~$120/month Medicare RPM/CCM reimbursement
-
-    if (currency === 'GBP') {
-      symbol = '£';
-      ratePerPatientPerYear = 1100;
-    } else if (currency === 'CAD') {
-      symbol = 'CA$';
-      ratePerPatientPerYear = 1500;
-    } else if (currency === 'INR') {
-      symbol = '₹';
-      ratePerPatientPerYear = 18000; // Rs 1500/mo clinic monitoring program
-    }
-
-    const grossAnnual = patients * ratePerPatientPerYear;
-    const hoursSavedMonthly = Math.round(patients * 1.8);
-    const readmissionsAvoided = Math.round(patients * 0.28);
-
-    annualRevenueDisplay.textContent = `${symbol}${grossAnnual.toLocaleString()}`;
-    hoursSavedDisplay.textContent = `${hoursSavedMonthly.toLocaleString()} hrs/mo`;
-    readmissionPreventedDisplay.textContent = `${readmissionsAvoided.toLocaleString()} patients`;
-  };
-
-  patientSlider.addEventListener('input', updateCalculations);
-  if (currencySelector) {
-    currencySelector.addEventListener('change', updateCalculations);
-  }
-
-  updateCalculations();
-}
-
-/* 5. Interactive WhatsApp Live Simulator with Typing Indicators */
-function initWhatsAppSimulator() {
-  const scenarioButtons = document.querySelectorAll('.scenario-btn');
   const chatArea = document.getElementById('live-chat-area');
-  const contactStatus = document.querySelector('.phone-contact-status');
+  const phoneStatus = document.getElementById('phone-status-text');
+
+  // Triage Card Elements
+  const triageBanner = document.getElementById('triage-status-banner');
+  const triageLabel = document.getElementById('triage-status-label');
+  const triageIndicator = document.getElementById('triage-status-indicator');
+  const triagePatient = document.getElementById('triage-patient-name');
+  const triageTimeline = document.getElementById('triage-timeline');
+  const triagePain = document.getElementById('triage-pain-score');
+  const triageMobility = document.getElementById('triage-mobility');
+  const triageVitals = document.getElementById('triage-vitals');
+  const triageActionTitle = document.getElementById('triage-action-title');
+  const triageActionText = document.getElementById('triage-action-text');
 
   if (!chatArea) return;
 
   const scenarios = {
-    normal: [
-      { sender: 'bot', text: 'Good morning, Mr. Sharma! 🌅 Time for your morning Blood Pressure check. Please take a reading using your Patta Care cuff.' },
-      { sender: 'patient', text: 'Done! Reading just took with the cuff.' },
-      { sender: 'bot', text: '✅ Vitals Received automatically via 4G:\n• Blood Pressure: 122/78 mmHg\n• Pulse: 72 bpm\n\nYour numbers look great today! Doctor Anand’s clinic has been updated. Have a wonderful day!', isData: true }
-    ],
-    alert: [
-      { sender: 'bot', text: 'Good afternoon, Sarah. Please check your blood glucose before lunch.' },
-      { sender: 'patient', text: 'Just checked with my cellular meter: 235 mg/dL' },
-      { sender: 'bot', text: '⚠️ Reading Alert: 235 mg/dL is elevated above your 180 mg/dL target.\n\n• Please drink a glass of water.\n• We have dispatched an instant alert to Nurse Jennifer on your care dashboard.\n• You will receive a follow-up call within 15 minutes.', isAlert: true }
-    ],
-    meds: [
-      { sender: 'bot', text: 'Reminder: It is 2:00 PM. Please take your afternoon Metformin (500mg) with a meal.' },
-      { sender: 'patient', text: 'Taken with lunch, thank you!' },
-      { sender: 'bot', text: 'Great job maintaining your streak! 🌟 That is 7 consecutive days of 100% adherence logged.' }
-    ]
+    'on-track': {
+      messages: [
+        { sender: 'bot', text: 'Good morning, Mrs. Vance! 🌅 It is Post-Op Day 3 for your Knee Replacement. How is your surgical incision looking today, and what is your current pain level from 0 to 10?' },
+        { sender: 'patient', text: 'Incision is clean and dry with no redness. Pain is around 2/10 after my morning walk with the walker.' },
+        { sender: 'bot', text: '✅ Great recovery progress! Your pain is well managed and mobility is on track. Dr. Mitchell’s surgical team has been updated. Keep up your gentle exercises!', isData: true }
+      ],
+      triage: {
+        bannerClass: 'on-track',
+        label: 'STATUS: ON TRACK — ROUTINE RECOVERY',
+        indicator: '● Stable',
+        patient: 'Eleanor Vance • Total Knee Arthroplasty (TKA)',
+        timeline: 'Post-Op Day 3 (POD 3)',
+        pain: '2 / 10 (Within expected baseline)',
+        mobility: 'Incision clean & dry • Ambulatory with walker',
+        vitals: 'BP: 124/80 mmHg • Temp: 98.4°F (Afebrile)',
+        actionTitle: 'Recommended Clinical Step:',
+        actionText: 'No intervention required. Patient is meeting all clinical recovery milestones. Next automated check-in scheduled for tomorrow at 09:00 AM.'
+      }
+    },
+    'observation': {
+      messages: [
+        { sender: 'bot', text: 'Good morning, Mr. David Chen. It is Post-Op Day 5 following your laparoscopic hernia repair. Are you experiencing any new swelling, warmth, or change in pain?' },
+        { sender: 'patient', text: 'Notice slight swelling around the lower incision this morning. Pain went up from 2 to 4.' },
+        { sender: 'bot', text: 'Thank you for noting this, Mr. Chen. We have logged the mild swelling and pain shift (4/10). Nurse Sarah has been alerted for observation. Please elevate and ice the area for 20 mins. We will check back this afternoon.', isAlert: true }
+      ],
+      triage: {
+        bannerClass: 'observation',
+        label: 'STATUS: FLAGGED FOR OBSERVATION',
+        indicator: '▲ Observation Queued',
+        patient: 'David Chen • Laparoscopic Inguinal Hernia Repair',
+        timeline: 'Post-Op Day 5 (POD 5)',
+        pain: '4 / 10 (Mild elevation from baseline 2/10)',
+        mobility: 'Mild localized swelling noted • Ambulation intact',
+        vitals: 'BP: 130/84 mmHg • Temp: 98.8°F (Normal)',
+        actionTitle: 'Recommended Clinical Step:',
+        actionText: 'Care coordinator review recommended. Send follow-up wound check prompt via WhatsApp at 14:00. No immediate in-person clinic visit indicated.'
+      }
+    },
+    'review': {
+      messages: [
+        { sender: 'bot', text: 'Hello, Sarah Jenkins. It is Post-Op Day 6 following your spinal decompression. How are your symptoms feeling today?' },
+        { sender: 'patient', text: 'Having sharp pain 7/10 since yesterday evening and feeling slightly feverish. Temperature is 100.8°F.' },
+        { sender: 'bot', text: '⚠️ Priority Clinical Alert: Your temperature (100.8°F) and pain score (7/10) have been escalated directly to Dr. Aris’s surgical triage coordinator. Nurse Mark will call you within 15 minutes to evaluate next steps.', isAlert: true }
+      ],
+      triage: {
+        bannerClass: 'review-needed',
+        label: 'STATUS: CARE-TEAM REVIEW RECOMMENDED',
+        indicator: '● Immediate Review Recommended',
+        patient: 'Sarah Jenkins • Lumbar Microdiscectomy (Spine)',
+        timeline: 'Post-Op Day 6 (POD 6)',
+        pain: '7 / 10 (Abrupt pain escalation)',
+        mobility: 'Localized discomfort • Patient reports chills',
+        vitals: 'BP: 142/90 mmHg • Temp: 100.8°F (Low-grade pyrexia)',
+        actionTitle: 'Recommended Clinical Step:',
+        actionText: 'Prioritized clinical callback recommended. Surgical coordinator triage call queued. Review incision photo or coordinate same-day clinic evaluation.'
+      }
+    }
   };
 
   const getTime = () => {
@@ -214,25 +187,42 @@ function initWhatsAppSimulator() {
     timeoutIds = [];
   };
 
+  const applyTriageState = (triageData) => {
+    if (!triageBanner) return;
+    triageBanner.className = `triage-status-banner ${triageData.bannerClass}`;
+    if (triageLabel) triageLabel.textContent = triageData.label;
+    if (triageIndicator) triageIndicator.textContent = triageData.indicator;
+    if (triagePatient) triagePatient.textContent = triageData.patient;
+    if (triageTimeline) triageTimeline.textContent = triageData.timeline;
+    if (triagePain) triagePain.textContent = triageData.pain;
+    if (triageMobility) triageMobility.textContent = triageData.mobility;
+    if (triageVitals) triageVitals.textContent = triageData.vitals;
+    if (triageActionTitle) triageActionTitle.textContent = triageData.actionTitle;
+    if (triageActionText) triageActionText.textContent = triageData.actionText;
+  };
+
   const renderScenario = (key) => {
     clearPending();
     chatArea.innerHTML = '';
-    const messages = scenarios[key] || scenarios.normal;
+    const scenario = scenarios[key] || scenarios['on-track'];
 
-    messages.forEach((msg, index) => {
-      const delay = index === 0 ? 100 : (index * 900);
+    // Update Right Side (Triage Card) immediately
+    applyTriageState(scenario.triage);
+
+    // Update Left Side (WhatsApp Chat Simulation) with staggered typing
+    scenario.messages.forEach((msg, index) => {
+      const delay = index === 0 ? 100 : (index * 850);
 
       const tid = setTimeout(() => {
-        // Show typing indicator if bot message
-        if (msg.sender === 'bot' && contactStatus) {
-          contactStatus.textContent = 'typing...';
-          contactStatus.style.color = '#14B8A6';
+        if (msg.sender === 'bot' && phoneStatus) {
+          phoneStatus.textContent = 'typing...';
+          phoneStatus.style.color = '#14B8A6';
         }
 
         setTimeout(() => {
-          if (contactStatus) {
-            contactStatus.textContent = 'Official Clinical Health Bot';
-            contactStatus.style.color = '#8696A0';
+          if (phoneStatus) {
+            phoneStatus.textContent = 'Official Clinical Recovery Bot';
+            phoneStatus.style.color = '#8696A0';
           }
 
           const bubble = document.createElement('div');
@@ -246,7 +236,7 @@ function initWhatsAppSimulator() {
           bubble.innerHTML = innerContent;
           chatArea.appendChild(bubble);
           chatArea.scrollTop = chatArea.scrollHeight;
-        }, msg.sender === 'bot' && index > 0 ? 400 : 0);
+        }, msg.sender === 'bot' && index > 0 ? 350 : 0);
 
       }, delay);
 
@@ -254,68 +244,75 @@ function initWhatsAppSimulator() {
     });
   };
 
-  scenarioButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      scenarioButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderScenario(btn.getAttribute('data-scenario'));
+  scenarioPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      scenarioPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const scenarioKey = pill.getAttribute('data-scenario');
+      renderScenario(scenarioKey);
     });
   });
 
-  // initial render
-  renderScenario('normal');
+  // Initial render with 'on-track'
+  renderScenario('on-track');
 }
 
-/* 6. Clinician Dashboard Table Filter */
-function initDashboardFilter() {
-  const filterBtns = document.querySelectorAll('.triage-filter-btn');
-  const tableRows = document.querySelectorAll('.triage-table tbody tr');
+/* 4. Care Team Capacity & Workload Estimator */
+function initCapacityEstimator() {
+  const patientSlider = document.getElementById('capacity-patient-slider');
+  const patientDisplay = document.getElementById('capacity-patient-display');
+  const hoursStreamlinedDisplay = document.getElementById('capacity-hours-streamlined');
+  const completionRateDisplay = document.getElementById('capacity-completion-rate');
+  const complicationsFlaggedDisplay = document.getElementById('capacity-complications-flagged');
 
-  if (!filterBtns.length || !tableRows.length) return;
+  if (!patientSlider || !hoursStreamlinedDisplay) return;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.style.backgroundColor = '#FFFFFF';
-        b.style.color = '#0B1F33';
-        b.style.borderColor = '#E2EAF0';
-      });
+  const updateCapacityMath = () => {
+    const patients = parseInt(patientSlider.value, 10);
+    if (patientDisplay) {
+      patientDisplay.textContent = `${patients.toLocaleString()} Patients`;
+    }
 
-      btn.style.backgroundColor = '#1B4B91';
-      btn.style.color = '#FFFFFF';
-      btn.style.borderColor = '#1B4B91';
+    // Mathematical modeling for post-operative recovery:
+    // ~1.2 hours saved per patient/month in routine phone tag, voicemails, and manual status intake
+    const hoursStreamlined = Math.round(patients * 1.2);
+    // Typical WhatsApp recovery completion rate is ~91%
+    const completionRate = '91% Adherence';
+    // ~12% of surgical cohort has early symptom deviation flagged for observation/review
+    const earlyAlerts = Math.round(patients * 0.12);
 
-      const filter = btn.getAttribute('data-filter');
+    hoursStreamlinedDisplay.textContent = `${hoursStreamlined.toLocaleString()} Hours`;
+    if (completionRateDisplay) {
+      completionRateDisplay.textContent = completionRate;
+    }
+    if (complicationsFlaggedDisplay) {
+      complicationsFlaggedDisplay.textContent = `~${earlyAlerts.toLocaleString()} Patients / mo`;
+    }
+  };
 
-      tableRows.forEach(row => {
-        if (filter === 'all') {
-          row.style.display = '';
-        } else {
-          const rowCategory = row.getAttribute('data-category');
-          row.style.display = (rowCategory === filter) ? '' : 'none';
-        }
-      });
-    });
-  });
+  patientSlider.addEventListener('input', updateCapacityMath);
+  updateCapacityMath();
 }
 
-/* 7. FAQ Accordion */
+/* 5. Frequently Asked Questions (FAQ) Accordion */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
-    questionBtn.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
+    if (questionBtn) {
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
   });
 }
 
-/* 8. Demo Request Form */
+/* 6. B2B Consultation / Demo Booking Form */
 function initDemoForm() {
   const form = document.getElementById('b2b-demo-form');
   const formSuccess = document.getElementById('form-success-message');
@@ -325,16 +322,17 @@ function initDemoForm() {
       e.preventDefault();
       
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Scheduling Demonstration...';
-      submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.innerHTML = '<span>Scheduling Demonstration...</span>';
+        submitBtn.disabled = true;
+      }
 
       setTimeout(() => {
         form.style.display = 'none';
         if (formSuccess) {
           formSuccess.style.display = 'block';
         }
-      }, 750);
+      }, 700);
     });
   }
 }
