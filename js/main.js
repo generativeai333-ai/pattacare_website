@@ -34,31 +34,24 @@ function initNavigation() {
 
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      const isVisible = navMenu.style.display === 'flex';
-      navMenu.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
-        navMenu.style.backdropFilter = 'saturate(180%) blur(20px)';
-        navMenu.style.webkitBackdropFilter = 'saturate(180%) blur(20px)';
-        navMenu.style.padding = '1.25rem 1.5rem';
-        navMenu.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.08)';
-        navMenu.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
-        navMenu.style.borderRadius = '0 0 20px 20px';
-        navMenu.style.zIndex = '999';
-      }
+      const isOpen = navMenu.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 1024) {
-          navMenu.style.display = 'none';
+          navMenu.classList.remove('is-open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
         }
       });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        navMenu.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 }
