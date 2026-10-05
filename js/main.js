@@ -42,10 +42,13 @@ function initNavigation() {
         navMenu.style.top = '100%';
         navMenu.style.left = '0';
         navMenu.style.width = '100%';
-        navMenu.style.backgroundColor = '#FFFFFF';
-        navMenu.style.padding = '1.5rem';
-        navMenu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
-        navMenu.style.borderBottom = '1px solid #E2EAF0';
+        navMenu.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
+        navMenu.style.backdropFilter = 'saturate(180%) blur(20px)';
+        navMenu.style.webkitBackdropFilter = 'saturate(180%) blur(20px)';
+        navMenu.style.padding = '1.25rem 1.5rem';
+        navMenu.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.08)';
+        navMenu.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
+        navMenu.style.borderRadius = '0 0 20px 20px';
         navMenu.style.zIndex = '999';
       }
     });
