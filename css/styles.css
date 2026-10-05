@@ -16,19 +16,23 @@
   --color-primary: #1B4B91;
   --color-primary-dark: #123B73;
   --color-primary-light: #2A63B4;
-  --color-teal: #14B8A6;
-  --color-teal-dark: #0D9488;
-  --color-teal-light: #E6FFFA;
+  --color-teal: #16687A;          /* Aligned with Logo 'P' Slate Teal */
+  --color-teal-dark: #0F4957;     /* Deep Clinical Teal */
+  --color-teal-light: #EBF4F6;    /* Soft Tint of Logo Teal */
+  --color-brand-red: #D3473F;     /* Aligned with Logo Cross & Heart */
+  --color-brand-red-dark: #B9352E;
+  --color-brand-red-light: #FDF2F1;
   --color-navy: #0B1F33;
   --color-navy-soft: #1E293B;
+  --color-slate-logo: #223440;    /* Aligned with Logo Wordmark */
   --color-background: #F6FAFC;
   --color-blue-light: #EAF4FA;
   --color-green: #43B98C;
   --color-green-light: #E8F8F1;
   --color-amber: #D97706;
   --color-amber-light: #FEF3C7;
-  --color-red: #DC2626;
-  --color-red-light: #FEE2E2;
+  --color-red: #D3473F;
+  --color-red-light: #FDF2F1;
   --color-white: #FFFFFF;
   --color-border: #E2EAF0;
   --color-border-hover: #CBD5E1;
@@ -46,7 +50,8 @@
   --shadow-sm: 0 1px 2px 0 rgba(11, 31, 51, 0.05);
   --shadow-md: 0 4px 12px -2px rgba(27, 75, 145, 0.08), 0 2px 6px -1px rgba(11, 31, 51, 0.04);
   --shadow-lg: 0 12px 28px -4px rgba(27, 75, 145, 0.12), 0 4px 12px -2px rgba(11, 31, 51, 0.06);
-  --shadow-glow: 0 0 25px rgba(20, 184, 166, 0.25);
+  --shadow-glow: 0 0 25px rgba(22, 104, 122, 0.25);
+  --shadow-glow-red: 0 0 25px rgba(211, 71, 63, 0.25);
 }
 
 /* Reset & Base */
@@ -139,7 +144,13 @@ img {
 .badge-chip.teal {
   background-color: var(--color-teal-light);
   color: var(--color-teal-dark);
-  border-color: rgba(20, 184, 166, 0.25);
+  border-color: rgba(22, 104, 122, 0.25);
+}
+
+.badge-chip.red {
+  background-color: var(--color-brand-red-light);
+  color: var(--color-brand-red-dark);
+  border-color: rgba(211, 71, 63, 0.25);
 }
 
 .badge-chip.green {
@@ -199,12 +210,24 @@ img {
 .btn-teal {
   background-color: var(--color-teal);
   color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.28);
+  box-shadow: 0 4px 14px rgba(22, 104, 122, 0.28);
 }
 
 .btn-teal:hover {
   background-color: var(--color-teal-dark);
-  box-shadow: 0 6px 20px rgba(20, 184, 166, 0.38);
+  box-shadow: 0 6px 20px rgba(22, 104, 122, 0.38);
+  transform: translateY(-1px);
+}
+
+.btn-red {
+  background-color: var(--color-brand-red);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(211, 71, 63, 0.28);
+}
+
+.btn-red:hover {
+  background-color: var(--color-brand-red-dark);
+  box-shadow: 0 6px 20px rgba(211, 71, 63, 0.38);
   transform: translateY(-1px);
 }
 
@@ -269,12 +292,12 @@ img {
 .brand-name {
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-slate-logo);
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   display: inline-flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0;
   white-space: nowrap;
 }
 
@@ -508,15 +531,15 @@ img {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: var(--color-green);
-  box-shadow: 0 0 0 4px rgba(67, 185, 140, 0.35);
+  background-color: var(--color-brand-red);
+  box-shadow: 0 0 0 4px rgba(211, 71, 63, 0.35);
   animation: pulse-ring 2s infinite ease-in-out;
 }
 
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(67, 185, 140, 0.6); }
-  70% { box-shadow: 0 0 0 8px rgba(67, 185, 140, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(67, 185, 140, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(211, 71, 63, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(211, 71, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(211, 71, 63, 0); }
 }
 
 .ecosystem-media-wrapper {
@@ -1024,7 +1047,7 @@ img {
 }
 
 .chat-bubble.alert-highlight {
-  border-left: 3px solid var(--color-teal);
+  border-left: 3px solid var(--color-brand-red);
 }
 
 .chat-time {
@@ -1807,6 +1830,24 @@ input[type="range"] {
   box-shadow: 0 4px 14px rgba(27, 75, 145, 0.28);
 }
 
+.scenario-pill[data-scenario="on-track"].active {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  box-shadow: 0 4px 14px rgba(22, 104, 122, 0.28);
+}
+
+.scenario-pill[data-scenario="observation"].active {
+  background-color: var(--color-amber);
+  border-color: var(--color-amber);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
+}
+
+.scenario-pill[data-scenario="review"].active {
+  background-color: var(--color-brand-red);
+  border-color: var(--color-brand-red);
+  box-shadow: 0 4px 14px rgba(211, 71, 63, 0.28);
+}
+
 .interactive-demo-grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
@@ -1866,9 +1907,9 @@ input[type="range"] {
 }
 
 .triage-status-banner.review-needed {
-  background-color: var(--color-red-light);
-  color: #991B1B;
-  border: 1px solid rgba(220, 38, 38, 0.35);
+  background-color: var(--color-brand-red-light);
+  color: var(--color-brand-red-dark);
+  border: 1px solid rgba(211, 71, 63, 0.35);
 }
 
 .patient-context-box {

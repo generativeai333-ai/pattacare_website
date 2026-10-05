@@ -216,7 +216,7 @@ function initPostOpInteractiveDemo() {
       const tid = setTimeout(() => {
         if (msg.sender === 'bot' && phoneStatus) {
           phoneStatus.textContent = 'typing...';
-          phoneStatus.style.color = '#14B8A6';
+          phoneStatus.style.color = '#16687A';
         }
 
         setTimeout(() => {
