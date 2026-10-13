@@ -36,12 +36,10 @@
 
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
-        <li><a href="#video-overview" class="nav-link">Overview</a></li>
         <li><a href="#interactive-demo" class="nav-link">Interactive Triage</a></li>
         <li><a href="#dual-value" class="nav-link">Patient & Care Team</a></li>
         <li><a href="#care-loop" class="nav-link">How It Works</a></li>
         <li><a href="#security-architecture" class="nav-link">Platform & Security</a></li>
-        <li><a href="#capacity-estimator" class="nav-link">Capacity Estimator</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
         <!-- Dedicated Mobile Clinician Portal Access -->
         <li class="mobile-nav-login-item">
@@ -205,90 +203,9 @@
     </div>
   </section>
 
-  <!-- 2. Featured Video Showcase Section (NON-NEGOTIABLE PRESERVED EMBED) -->
-  <section class="video-section" id="video-overview">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-chip">Platform Walkthrough</div>
-        <h2 class="section-title">Patta Care — Clinical Workflow Demonstration</h2>
-        <p>Watch how PattaCare automates post-discharge clinical oversight, engages recovering patients through conversational WhatsApp check-ins, and delivers actionable triage visibility to care teams.</p>
-      </div>
 
-      <div class="video-frame-container">
-        <!-- Video Header Bar with Direct YouTube Link -->
-        <div class="video-header-bar">
-          <div style="display: flex; align-items: center; gap: 0.65rem;">
-            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #EF4444; box-shadow: 0 0 8px #EF4444;"></span>
-            <span style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em;">Patta Care - A Remote Patient Tracker (by alphaesAI)</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <a href="https://www.youtube.com/watch?v=Tl5u1xdbeXk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; background: rgba(255,255,255,0.15); color: #FFF; border-color: rgba(255,255,255,0.3);">
-              <span>Open on YouTube ↗</span>
-            </a>
-            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 0.25rem 0.6rem; border-radius: 4px;">HD</span>
-          </div>
-        </div>
 
-        <!-- Video Player Box with Click-to-Play Poster Overlay -->
-        <div class="video-player-box" id="video-wrapper">
-          <!-- Poster Overlay with High-Resolution Thumbnail & Glowing Play Button -->
-          <div class="video-poster-overlay" id="video-poster-overlay" style="background-image: url('assets/images/video-thumbnail.jpg');">
-            <div class="video-play-btn" title="Click to play video">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-              </svg>
-            </div>
-            <div class="video-poster-title-card">
-              <div class="video-poster-title">Patta Care — A Remote Patient Tracker</div>
-              <div class="video-poster-sub">Click to Watch the Clinical Platform Walkthrough</div>
-            </div>
-          </div>
-
-          <!-- YouTube Embed Iframe -->
-          <iframe 
-            id="youtube-video-frame"
-            data-src="https://www.youtube-nocookie.com/embed/Tl5u1xdbeXk?autoplay=1&rel=0&modestbranding=1&enablejsapi=1" 
-            title="Patta Care - A Remote Patient Tracker" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <!-- Local File Notice -->
-        <div id="file-protocol-notice" style="display: none; align-items: center; justify-content: space-between; margin-top: 0.85rem; padding: 0.65rem 1rem; background: rgba(22, 104, 122, 0.15); border: 1px solid rgba(22, 104, 122, 0.3); border-radius: 8px; font-size: 0.82rem; color: #E2EAF0;">
-          <span>💡 <strong>Local Browser Test Mode:</strong> If browser security restricts YouTube iframe playback on <code>file://</code> URLs, click <a href="https://www.youtube.com/watch?v=Tl5u1xdbeXk" target="_blank" style="color: var(--color-teal); font-weight: 700; text-decoration: underline;">Open on YouTube ↗</a> or run <code>python -m http.server</code>.</span>
-        </div>
-
-        <!-- Video Key Points -->
-        <div class="video-highlights-grid">
-          <div class="video-feature-point">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            <div>
-              <strong>Continuous Recovery Visibility</strong>
-              <p>Monitors recovery progress from hospital discharge through the critical 30-day post-operative window.</p>
-            </div>
-          </div>
-          <div class="video-feature-point">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <div>
-              <strong>Frictionless WhatsApp Check-Ins</strong>
-              <p>No portals or forgotten passwords. Patients reply in seconds using the app they use every day.</p>
-            </div>
-          </div>
-          <div class="video-feature-point">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <div>
-              <strong>Actionable Care-Team Triage</strong>
-              <p>Risk-stratified console surfaces anomalies early so surgical teams can intervene before complications escalate.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Interactive Product Demo: Patient Check-in ⇄ Care Team Triage -->
+  <!-- 2. Interactive Product Demo: Patient Check-in ⇄ Care Team Triage -->
   <section class="interactive-demo-section" id="interactive-demo">
     <div class="container">
       <div class="section-header">
@@ -411,7 +328,7 @@
     </div>
   </section>
 
-  <!-- 4. Patient + Care Team Dual-Value Comparison -->
+  <!-- 3. Patient + Care Team Dual-Value Comparison -->
   <section class="dual-value-section" id="dual-value">
     <div class="container">
       <div class="section-header">
@@ -496,7 +413,7 @@
     </div>
   </section>
 
-  <!-- 5. 4-Step Care Loop Stepper -->
+  <!-- 4. 4-Step Care Loop Stepper -->
   <section class="stepper-section" id="care-loop">
     <div class="container">
       <div class="section-header">
@@ -557,7 +474,7 @@
     </div>
   </section>
 
-  <!-- 6. Hospital Platform Architecture & Security -->
+  <!-- 5. Hospital Platform Architecture & Security -->
   <section class="security-architecture-section" id="security-architecture">
     <div class="container">
       <div class="section-header">
@@ -606,51 +523,7 @@
     </div>
   </section>
 
-  <!-- 7. Care Team Capacity & Workload Estimator -->
-  <section class="roi-section" id="capacity-estimator">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-chip teal">Workload & Clinical Efficiency</div>
-        <h2 class="section-title">Care Team Capacity Estimator</h2>
-        <p>Estimate how continuous WhatsApp check-ins and smart triage streamline routine post-discharge follow-up for your surgical department.</p>
-      </div>
 
-      <div class="roi-card">
-        <div class="calculator-controls">
-          <div class="slider-group">
-            <div class="slider-header">
-              <label for="capacity-patient-slider">Monthly Post-Operative Patients:</label>
-              <span class="slider-value" id="capacity-patient-display">150 Patients</span>
-            </div>
-            <input type="range" id="capacity-patient-slider" min="25" max="600" step="25" value="150">
-            <span style="font-size: 0.8rem; color: #94A3B8;">Adjust slider from 25 to 600 monthly surgical discharges.</span>
-          </div>
-
-          <div style="background: rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); margin-top: 1.5rem;">
-            <strong style="display: block; margin-bottom: 0.35rem; color: #FFF;">Clinical Operational Modeling:</strong>
-            <p style="font-size: 0.82rem; margin: 0; color: #CBD5E1;">Based on replacing manual telephone callbacks and voicemail tag with structured 30-second WhatsApp recovery check-ins and prioritized exception dashboards.</p>
-          </div>
-        </div>
-
-        <div class="calculator-results">
-          <div class="result-metric">
-            <span>Follow-Up Hours Streamlined per Month</span>
-            <h3 class="teal-value" id="capacity-hours-streamlined">180 Hours</h3>
-          </div>
-
-          <div class="result-metric">
-            <span>Expected Patient Check-In Completion Rate</span>
-            <h3 id="capacity-completion-rate">91% Adherence</h3>
-          </div>
-
-          <div class="result-metric">
-            <span>Early Deviation Alerts Prioritized</span>
-            <h3 id="capacity-complications-flagged">~18 Patients / mo</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- 8. Frequently Asked Questions (FAQ) Accordion -->
   <section class="faq-section" id="faq">
@@ -921,7 +794,6 @@
             <li><a href="#dual-value">Patient & Care Team Value</a></li>
             <li><a href="#care-loop">4-Step Care Loop</a></li>
             <li><a href="#security-architecture">Enterprise Architecture</a></li>
-            <li><a href="#capacity-estimator">Capacity Estimator</a></li>
           </ul>
         </div>
 

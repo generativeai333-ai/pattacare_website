@@ -11,9 +11,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
-  initVideoPlayer();
   initPostOpInteractiveDemo();
-  initCapacityEstimator();
   initFaqAccordion();
   initDemoForm();
 });
