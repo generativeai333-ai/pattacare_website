@@ -90,6 +90,14 @@
         "@id": "https://pattacare.com/#organization",
         "name": "PattaCare",
         "url": "https://pattacare.com/",
+        "parentOrganization": {
+          "@type": "Organization",
+          "@id": "https://goodhealth247.com/#organization",
+          "name": "Good Health 247 Inc.",
+          "url": "https://www.goodhealth247.com/",
+          "logo": "https://goodhealth247.com/logo-dark.jpg",
+          "sameAs": "https://www.goodhealth247.com/"
+        },
         "logo": {
           "@type": "ImageObject",
           "@id": "https://pattacare.com/#logo",
@@ -197,18 +205,23 @@
 
   <!-- Top Announcement Bar -->
   <div class="top-announcement-bar">
-    <span>🏥 <strong>Clinical-Grade Remote Patient Monitoring:</strong> Continuous post-discharge visibility for surgical departments and hospital care teams via WhatsApp • Built on Secure Enterprise Architecture</span>
+    <span>🏥 <strong>A Good Health 247 Platform:</strong> Clinical-grade remote patient monitoring &amp; post-discharge care for hospital care teams via WhatsApp • <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer">GoodHealth247 ↗</a></span>
   </div>
 
   <!-- Global Sticky Header -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="#" class="brand-logo" aria-label="PattaCare Home">
-        <div class="brand-logo-icon">
-          <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo — Remote Patient Monitoring &amp; Hospital Software" class="brand-logo-img">
-        </div>
-        <span class="brand-name">Patta<span>Care</span></span>
-      </a>
+      <div class="brand-lockup-wrapper">
+        <a href="#" class="brand-logo" aria-label="PattaCare Home">
+          <div class="brand-logo-icon">
+            <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo — Remote Patient Monitoring &amp; Hospital Software" class="brand-logo-img">
+          </div>
+          <span class="brand-name">Patta<span>Care</span></span>
+        </a>
+        <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" class="parent-brand-badge" title="PattaCare is a Good Health 247 Inc. company">
+          <span class="parent-brand-sub">by</span> <strong>GoodHealth247</strong>
+        </a>
+      </div>
 
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
@@ -1023,11 +1036,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
             <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border-radius: 10px; padding: 4px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
               <img src="assets/images/patta-care-logo.png" alt="PattaCare — Remote Patient Monitoring &amp; Hospital Software" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
-            <span style="font-size: 1.45rem; font-weight: 800; color: #FFF;">Patta<span style="color: var(--color-teal);">Care</span></span>
+            <div>
+              <span style="font-size: 1.45rem; font-weight: 800; color: #FFF; line-height: 1.1; display: block;">Patta<span style="color: var(--color-teal);">Care</span></span>
+              <span style="font-size: 0.76rem; color: #94A3B8; font-weight: 600;">A <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" style="color: #5EEAD4; text-decoration: underline; font-weight: 700;">Good Health 247</a> Company</span>
+            </div>
           </div>
           <p>
             Remote patient monitoring and post-operative hospital software connecting surgical care teams with patients through frictionless WhatsApp check-ins and intelligent triage.
@@ -1078,9 +1094,10 @@
 
       <div class="footer-bottom">
         <div>
-          © 2026 PattaCare Inc. All rights reserved. Technology empowers clinical visibility. All medical assessments and treatment decisions remain strictly with the surgical care team.
+          © 2026 PattaCare Inc. • A subsidiary of <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" style="color: #CBD5E1; text-decoration: underline;">Good Health 247 Inc.</a> All rights reserved. Technology empowers clinical visibility. All medical assessments and treatment decisions remain strictly with the surgical care team.
         </div>
-        <div style="display: flex; gap: 1.5rem;">
+        <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+          <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal-light); font-weight: 600; text-decoration: none;">Parent: GoodHealth247 ↗</a>
           <a href="#" style="color: #94A3B8;">Privacy Architecture</a>
           <a href="#" style="color: #94A3B8;">Clinical Governance</a>
           <a href="#" style="color: #94A3B8;">Terms of Service</a>

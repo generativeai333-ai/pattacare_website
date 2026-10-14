@@ -381,6 +381,50 @@ img {
   color: var(--color-teal);
 }
 
+.brand-lockup-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.parent-brand-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1.2;
+  transition: all var(--duration-fast) var(--ease-apple);
+}
+
+.parent-brand-badge .parent-brand-sub {
+  opacity: 0.65;
+  font-weight: 500;
+}
+
+.parent-brand-badge strong {
+  color: var(--color-teal);
+  font-weight: 700;
+}
+
+.parent-brand-badge:hover {
+  background: var(--color-teal-light);
+  border-color: rgba(22, 104, 122, 0.25);
+  color: var(--color-teal-dark);
+}
+
+@media (max-width: 540px) {
+  .parent-brand-badge {
+    display: none;
+  }
+}
+
 /* Apple Pill Navigation Menu */
 .nav-menu {
   display: flex;
