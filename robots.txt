@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://pattacare.com
+
+# Sitemap
+Sitemap: https://pattacare.com/sitemap.xml

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://pattacare.com/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pattacare.com/assets/images/hero-ecosystem.jpg</image:loc>
+      <image:title>PattaCare Remote Patient Monitoring and Hospital Software Platform</image:title>
+      <image:caption>PattaCare connected recovery ecosystem: Hospital software connecting post-discharge patient recovery at home with daily WhatsApp check-ins and surgical care team triage dashboard.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pattacare.com/assets/images/patta-care-logo.png</image:loc>
+      <image:title>PattaCare Logo - Remote Patient Monitoring Platform</image:title>
+      <image:caption>PattaCare Official Brand Logo</image:caption>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://pattacare.com/assets/images/video-thumbnail.jpg</video:thumbnail_loc>
+      <video:title>Patta Care — A Remote Patient Tracker: Clinical Platform Demonstration</video:title>
+      <video:description>Watch how PattaCare hospital software automates post-discharge clinical oversight, engages recovering patients through conversational WhatsApp check-ins, and delivers actionable triage visibility to surgical care teams.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=Tl5u1xdbeXk</video:content_loc>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/Tl5u1xdbeXk</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:publication_date>2026-03-01T08:00:00+00:00</video:publication_date>
+    </video:video>
+  </url>
+</urlset>
