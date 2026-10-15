@@ -531,6 +531,28 @@ img {
   box-shadow: 0 0 0 3px rgba(22, 104, 122, 0.35);
 }
 
+/* Compact Desktop Navigation Scaling (prevents horizontal container overflow) */
+@media (max-width: 1380px) and (min-width: 1141px) {
+  .nav-menu {
+    gap: 0.15rem;
+    padding: 0.25rem 0.35rem;
+  }
+  .nav-link {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.82rem;
+  }
+  .nav-actions {
+    gap: 0.5rem;
+  }
+  .nav-login-btn {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.82rem;
+  }
+  .nav-login-arrow {
+    display: none;
+  }
+}
+
 /* Mobile Nav Drawer Login Link */
 .mobile-nav-login-item {
   display: none !important;
@@ -2407,7 +2429,7 @@ input[type="range"]::-moz-range-thumb {
 /* --------------------------------------------------------------------------
    15. Responsive Adaptations (Apple Breakpoint Hierarchy)
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   .hero-container-grid {
     grid-template-columns: 1fr;
     gap: 2.75rem;
@@ -2443,15 +2465,17 @@ input[type="range"]::-moz-range-thumb {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.96);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: #FFFFFF !important;
     padding: 1.25rem 1.5rem;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 48px -4px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.95);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 0 0 24px 24px;
     z-index: 999;
     gap: 0.5rem;
+  }
+
+  .nav-actions .nav-login-btn {
+    display: none !important;
   }
 
   .nav-menu.is-open {
@@ -2503,6 +2527,22 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 640px) {
+  .ecosystem-frame-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .ecosystem-frame-bar .window-dots {
+    display: none;
+  }
+
+  .ecosystem-tag-label {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
   .cockpit-body-grid {
     grid-template-columns: 1fr;
   }

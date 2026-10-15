@@ -227,10 +227,10 @@
       <ul class="nav-menu">
         <li><a href="#video-overview" class="nav-link">Overview</a></li>
         <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-        <li><a href="#interactive-demo" class="nav-link">Interactive Triage</a></li>
-        <li><a href="#dual-value" class="nav-link">Patient & Care Team</a></li>
-        <li><a href="#care-loop" class="nav-link">Care Continuity Loop</a></li>
-        <li><a href="#security-architecture" class="nav-link">Platform & Security</a></li>
+        <li><a href="#interactive-demo" class="nav-link">Triage Demo</a></li>
+        <li><a href="#dual-value" class="nav-link">Care Teams</a></li>
+        <li><a href="#care-loop" class="nav-link">Care Loop</a></li>
+        <li><a href="#security-architecture" class="nav-link">Security</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
         <!-- Dedicated Mobile Clinician Portal Access -->
         <li class="mobile-nav-login-item">
@@ -520,7 +520,7 @@
         <div class="video-player-box" id="video-wrapper">
           <!-- Poster Overlay with High-Resolution Thumbnail & Glowing Play Button -->
           <div class="video-poster-overlay" id="video-poster-overlay" style="background-image: url('assets/images/video-thumbnail.jpg');">
-            <div class="video-play-btn" title="Click to play video">
+            <div class="video-play-btn" id="video-play-btn" role="button" tabindex="0" aria-label="Play PattaCare Product Demonstration Video" title="Click to play video">
               <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="6 3 20 12 6 21 6 3"></polygon>
               </svg>
@@ -985,7 +985,7 @@
 
       <div class="faq-list">
         <div class="faq-item active">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="true">
             <span>How does PattaCare differ from traditional patient portals?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -995,7 +995,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>Does PattaCare make automated clinical decisions or replace surgeons?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -1005,7 +1005,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>How does PattaCare ensure patient health data security and privacy?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -1015,7 +1015,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>What is required from patients to participate in recovery tracking?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -1025,7 +1025,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>How does PattaCare integrate with our hospital Electronic Health Record (EHR)?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -1035,7 +1035,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>How quickly can a surgical clinic or hospital department be onboarded?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -1279,9 +1279,9 @@
         </div>
         <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
           <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal-light); font-weight: 600; text-decoration: none;">Parent: GoodHealth247 ↗</a>
-          <a href="#" style="color: #94A3B8;">Privacy Architecture</a>
-          <a href="#" style="color: #94A3B8;">Clinical Governance</a>
-          <a href="#" style="color: #94A3B8;">Terms of Service</a>
+          <a href="#security-architecture" style="color: #94A3B8;">Privacy Architecture</a>
+          <a href="#security-architecture" style="color: #94A3B8;">Clinical Governance</a>
+          <a href="#faq" style="color: #94A3B8;">Terms of Service</a>
         </div>
       </div>
     </div>
