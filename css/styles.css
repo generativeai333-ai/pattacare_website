@@ -231,62 +231,62 @@ img {
   border-color: rgba(211, 71, 63, 0.2);
 }
 
-/* Apple Pill Buttons */
+/* Surgical Enterprise Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.82rem 1.85rem;
-  font-size: 0.96rem;
+  padding: 0.8rem 1.65rem;
+  font-size: 0.94rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  border-radius: var(--radius-pill);
+  border-radius: 8px; /* Crisp surgical rounded-lg */
   border: 1px solid transparent;
   cursor: pointer;
   transition: all var(--duration-normal) var(--ease-apple);
   text-align: center;
   white-space: nowrap;
   user-select: none;
-  min-height: 44px; /* Apple Human Interface Target Size */
+  min-height: 44px;
 }
 
 .btn:active {
-  transform: scale(0.975);
+  transform: scale(0.98);
 }
 
 .btn-primary {
-  background-color: var(--color-teal);
+  background-color: #0E7490; /* Surgical Cyan/Teal */
   color: #FFFFFF;
-  box-shadow: 0 4px 14px var(--color-teal-glow);
+  box-shadow: 0 1px 3px rgba(14, 116, 144, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-teal-dark);
+  background-color: #0F4957;
   color: #FFFFFF;
-  box-shadow: 0 6px 22px rgba(22, 104, 122, 0.35);
+  box-shadow: 0 4px 16px rgba(14, 116, 144, 0.35);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: rgba(0, 0, 0, 0.04);
-  color: var(--color-text-primary);
-  border-color: rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #FFFFFF;
+  color: #1E293B;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(0, 0, 0, 0.07);
-  border-color: rgba(0, 0, 0, 0.14);
-  color: var(--color-text-primary);
+  background-color: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0F172A;
   transform: translateY(-1px);
 }
 
 .btn-sm {
-  padding: 0.5rem 1.25rem;
-  font-size: 0.88rem;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.86rem;
   min-height: 38px;
+  border-radius: 7px;
 }
 
 /* --------------------------------------------------------------------------
@@ -548,18 +548,506 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   5. Hero Section: Post-Operative Recovery Showcase
+   5. Hero Section: 2-Column Enterprise Surgical RPM Layout
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  padding: 4.5rem 0 6rem;
-  background: radial-gradient(circle at 80% 10%, rgba(22, 104, 122, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 20% 90%, rgba(211, 71, 63, 0.05) 0%, transparent 45%),
-              var(--color-canvas);
+  padding: 4.5rem 0 5.5rem;
+  background: radial-gradient(circle at 85% 15%, rgba(14, 116, 144, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 10% 85%, rgba(15, 23, 42, 0.04) 0%, transparent 40%),
+              #F8FAFC;
   border-bottom: 1px solid var(--color-border);
   overflow: hidden;
 }
 
+.hero-container-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.25rem;
+}
+
+.hero-title {
+  color: #090D1A;
+  font-size: clamp(2.35rem, 3.8vw, 3.35rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.hero-title-accent {
+  display: block;
+  color: #0E7490;
+  font-size: 0.9em;
+  margin-top: 0.35rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 38rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.hero-trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.hero-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero-trust-dot {
+  color: #94A3B8;
+  font-weight: bold;
+}
+
+/* Right Column: Clinical Cockpit Telemetry Mockup */
+.hero-cockpit-col {
+  width: 100%;
+}
+
+.cockpit-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-apple);
+}
+
+.cockpit-card:hover {
+  box-shadow: 0 26px 55px -12px rgba(14, 116, 144, 0.2);
+  border-color: rgba(14, 116, 144, 0.3);
+}
+
+.cockpit-header-bar {
+  background-color: #0B132B;
+  padding: 0.8rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cockpit-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.cockpit-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.cockpit-dot.red { background-color: #EF4444; }
+.cockpit-dot.yellow { background-color: #F59E0B; }
+.cockpit-dot.green { background-color: #10B981; }
+
+.cockpit-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #F1F5F9;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.cockpit-status-tag {
+  font-size: 0.72rem;
+  background: rgba(14, 116, 144, 0.35);
+  color: #67E8F9;
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.cockpit-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.cockpit-subcard {
+  padding: 1.25rem;
+}
+
+.cockpit-subcard.whatsapp-feed {
+  background: #FFFFFF;
+  border-right: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cockpit-subcard.clinician-feed {
+  background: #F8FAFC;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.subcard-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 0.65rem;
+}
+
+.whatsapp-badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #E8F5E9;
+  color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clinician-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #0E7490;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.subcard-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.subcard-meta {
+  font-size: 0.72rem;
+  color: #64748B;
+}
+
+.patient-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.badge-status-stable {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #065F46;
+  background: #D1FAE5;
+  border: 1px solid #A7F3D0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 980px;
+}
+
+.whatsapp-bubble {
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  position: relative;
+}
+
+.whatsapp-bubble.bot {
+  background: #F1F5F9;
+  color: #1E293B;
+  border: 1px solid #E2E8F0;
+  border-top-left-radius: 2px;
+}
+
+.whatsapp-bubble.patient {
+  background: #DCF8C6;
+  color: #0F172A;
+  border: 1px solid #C8E6C9;
+  border-top-right-radius: 2px;
+}
+
+.bubble-sender {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748B;
+  margin-bottom: 0.2rem;
+}
+
+.bubble-check {
+  font-size: 0.7rem;
+  color: #0284C7;
+  font-weight: bold;
+  float: right;
+  margin-top: 0.1rem;
+}
+
+.vitals-chip-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.vitals-chip {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+}
+
+.vitals-chip.status-ok {
+  color: #059669;
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+}
+
+.sbar-summary-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sbar-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.sbar-tag {
+  background: #0E7490;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.sbar-text {
+  font-size: 0.75rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.sbar-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 0.5rem;
+}
+
+.metric-mini {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-mini-label {
+  font-size: 0.65rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.metric-mini-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.metric-mini-val.text-emerald {
+  color: #059669;
+}
+
+.cockpit-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signoff-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  color: #065F46;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.cockpit-footer-bar {
+  background: #0F172A;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: #94A3B8;
+}
+
+.cockpit-demo-link {
+  color: #38BDF8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.cockpit-demo-link:hover {
+  color: #7DD3FC;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   6. 4 Core Platform Pillars (Product Capabilities)
+   -------------------------------------------------------------------------- */
+.capabilities-section {
+  padding: 5.5rem 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.capability-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-apple);
+  position: relative;
+}
+
+.capability-card:hover {
+  background: #FFFFFF;
+  border-color: #0E7490;
+  box-shadow: 0 16px 36px -6px rgba(14, 116, 144, 0.12);
+  transform: translateY(-2px);
+}
+
+.capability-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.capability-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #F0FDFA;
+  color: #0E7490;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #CCFBF1;
+}
+
+.capability-icon-box.whatsapp-tint {
+  background: #E8F5E9;
+  color: #25D366;
+  border-color: #C8E6C9;
+}
+
+.capability-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 980px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+}
+
+.capability-title {
+  font-size: 1.3rem;
+  font-weight: 750;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.capability-desc {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.capability-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.capability-points li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Legacy Stacked Support */
 .hero-container-stacked {
   display: flex;
   flex-direction: column;
@@ -574,27 +1062,6 @@ img {
   text-align: center;
   max-width: 900px;
   gap: 1.4rem;
-}
-
-.hero-title {
-  color: var(--color-text-primary);
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  color: var(--color-text-secondary);
-  max-width: 46rem;
-  line-height: 1.65;
-  margin: 0 auto;
-}
-
-.hero-cta-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
 }
 
 /* Trust Pill Strip */
@@ -1941,6 +2408,16 @@ input[type="range"]::-moz-range-thumb {
    15. Responsive Adaptations (Apple Breakpoint Hierarchy)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
+  .hero-container-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .hero-container-stacked {
     gap: 2.75rem;
   }
@@ -2026,6 +2503,25 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 640px) {
+  .cockpit-body-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cockpit-subcard.whatsapp-feed {
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .hero-trust-badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .hero-trust-dot {
+    display: none;
+  }
+
   .stepper-grid {
     grid-template-columns: 1fr;
   }

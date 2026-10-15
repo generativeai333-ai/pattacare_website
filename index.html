@@ -226,9 +226,10 @@
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
         <li><a href="#video-overview" class="nav-link">Overview</a></li>
+        <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
         <li><a href="#interactive-demo" class="nav-link">Interactive Triage</a></li>
         <li><a href="#dual-value" class="nav-link">Patient & Care Team</a></li>
-        <li><a href="#care-loop" class="nav-link">How It Works</a></li>
+        <li><a href="#care-loop" class="nav-link">Care Continuity Loop</a></li>
         <li><a href="#security-architecture" class="nav-link">Platform & Security</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
         <!-- Dedicated Mobile Clinician Portal Access -->
@@ -269,60 +270,157 @@
 
   <!-- 1. Hero Section: Post-Operative Recovery -->
   <section class="hero-section" id="hero">
-    <div class="container hero-container-stacked">
-      <!-- Top Centered Value Proposition -->
-      <div class="hero-header-box">
+    <!-- 2-Column Clinical Enterprise Cockpit Hero -->
+    <div class="container hero-container-grid">
+      <!-- Left Column: Value Proposition & CTAs -->
+      <div class="hero-content-col">
         <div class="badge-chip teal">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
           </svg>
-          REMOTE PATIENT MONITORING &amp; SURGICAL RECOVERY
+          POST-OPERATIVE RECOVERY INTELLIGENCE &amp; RPM
         </div>
         <h1 class="hero-title">
           Recovery doesn't stop at discharge.
+          <span class="hero-title-accent">Neither does clinical visibility.</span>
         </h1>
         <p class="hero-description">
-          PattaCare is clinical hospital software for post-discharge remote patient monitoring. Connect surgical care teams with recovering patients through frictionless daily WhatsApp check-ins and intelligent triage to prevent hospital readmissions without adding coordinator burden.
+          PattaCare bridges hospital surgical teams and post-discharge patients through zero-friction WhatsApp check-ins, longitudinal recovery trends, and deterministic closed-loop triage to prevent hospital readmissions without adding coordinator burden.
         </p>
 
         <div class="hero-cta-group">
-          <a href="#care-loop" class="btn btn-primary">
-            <span>See How PattaCare Works</span>
+          <a href="#demo-form" class="btn btn-primary">
+            <span>Book a Surgical Demo</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
-          <a href="#demo-form" class="btn btn-secondary">
-            <span>Book a Demo</span>
+          <a href="#capabilities" class="btn btn-secondary">
+            <span>Explore Clinical Architecture</span>
           </a>
         </div>
 
-        <!-- Trust Tagline & Institutional Indicators -->
-        <div class="hero-metrics-pill-bar">
-          <div class="metric-pill-item">
-            <strong>Clinician-Led</strong>
-            <span>Decision Support & Oversight</span>
+        <div class="hero-trust-badges">
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>HL7 / FHIR Ready</span>
           </div>
-          <div class="metric-pill-divider"></div>
-          <div class="metric-pill-item">
-            <strong>Secure Architecture</strong>
-            <span>TLS 1.3 & AES-256 Encryption</span>
+          <span class="hero-trust-dot">•</span>
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Deterministic Rule Engine</span>
           </div>
-          <div class="metric-pill-divider"></div>
-          <div class="metric-pill-item">
-            <strong>Hospital-Ready</strong>
-            <span>FHIR & HL7 Interoperability</span>
-          </div>
-          <div class="metric-pill-divider"></div>
-          <div class="metric-pill-item">
-            <strong>Zero App Burden</strong>
-            <span>Direct WhatsApp Engagement</span>
+          <span class="hero-trust-dot">•</span>
+          <div class="hero-trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Zero App Downloads</span>
           </div>
         </div>
       </div>
 
-      <!-- Panoramic Visual Showcase of the PattaCare Ecosystem (PRESERVED FIRST IMAGE) -->
+      <!-- Right Column: Interactive Clinical Cockpit Telemetry Mockup -->
+      <div class="hero-cockpit-col">
+        <div class="cockpit-card">
+          <div class="cockpit-header-bar">
+            <div class="cockpit-dots">
+              <span class="cockpit-dot red"></span>
+              <span class="cockpit-dot yellow"></span>
+              <span class="cockpit-dot green"></span>
+            </div>
+            <div class="cockpit-tag">
+              <span class="pulse-dot-live"></span>
+              <span>CLINICAL COCKPIT • POD 4 COHORT</span>
+            </div>
+            <div class="cockpit-status-tag">FHIR R4 LIVE</div>
+          </div>
+
+          <div class="cockpit-body-grid">
+            <!-- Subcard Left: Patient WhatsApp Stream -->
+            <div class="cockpit-subcard whatsapp-feed">
+              <div class="subcard-header">
+                <div class="whatsapp-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="subcard-title">Patient Check-In (Home)</div>
+                  <div class="subcard-meta">WhatsApp Verified • 09:14 AM</div>
+                </div>
+              </div>
+
+              <div class="whatsapp-bubble bot">
+                <span class="bubble-sender">PattaCare Clinical Bot</span>
+                Good morning Eleanor! How is your right knee incision and pain level today?
+              </div>
+
+              <div class="whatsapp-bubble patient">
+                <span class="bubble-sender">Eleanor Vance (Day 4 Post-TKA)</span>
+                Incision is dry and clean. Pain is 3/10 with prescribed medication. Walked 200m this morning.
+                <span class="bubble-check">✓✓</span>
+              </div>
+
+              <div class="vitals-chip-row">
+                <span class="vitals-chip status-ok">SpO2: 98%</span>
+                <span class="vitals-chip status-ok">Temp: 98.4°F</span>
+                <span class="vitals-chip status-ok">Amb: 200m</span>
+              </div>
+            </div>
+
+            <!-- Subcard Right: Clinician SBAR Card -->
+            <div class="cockpit-subcard clinician-feed">
+              <div class="subcard-header" style="justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 0.65rem;">
+                  <div class="clinician-avatar">EV</div>
+                  <div>
+                    <div class="patient-name">Eleanor Vance, 68F</div>
+                    <div class="subcard-meta">MRN #94821 • Total Knee Arthroplasty</div>
+                  </div>
+                </div>
+                <span class="badge-status-stable">STABLE</span>
+              </div>
+
+              <div class="sbar-summary-box">
+                <div class="sbar-row">
+                  <span class="sbar-tag">SBAR</span>
+                  <span class="sbar-text"><strong>Assessment:</strong> Normal post-operative inflammatory trajectory. Pain trending down (5→3/10). Mobility target achieved.</span>
+                </div>
+                <div class="sbar-metrics">
+                  <div class="metric-mini">
+                    <span class="metric-mini-label">Pain Trend</span>
+                    <span class="metric-mini-val text-emerald">3/10 (↓ -2)</span>
+                  </div>
+                  <div class="metric-mini">
+                    <span class="metric-mini-label">Incision Status</span>
+                    <span class="metric-mini-val text-emerald">Dry / Intact</span>
+                  </div>
+                  <div class="metric-mini">
+                    <span class="metric-mini-label">Adherence</span>
+                    <span class="metric-mini-val text-emerald">100% (4/4)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cockpit-footer-action">
+                <span class="signoff-tag">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Automated Audit Trail: Logged to EHR chart
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cockpit-footer-bar">
+            <span>⚡ Deterministic Risk Protocol: 0 Clinician Action Required Today</span>
+            <a href="#interactive-demo" class="cockpit-demo-link">Simulate Escalation Scenario ➔</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panoramic Visual Showcase of the PattaCare Ecosystem (PRESERVED FIRST IMAGE) -->
+    <div class="container" style="margin-top: 3.5rem;">
       <div class="hero-ecosystem-showcase">
         <div class="ecosystem-frame-bar">
           <div class="window-dots">
@@ -384,10 +482,11 @@
         <!-- Quick Exploration Pills Below Visual -->
         <div class="ecosystem-footer-nav">
           <span>Explore platform workflow:</span>
-          <a href="#interactive-demo" class="eco-nav-chip">1. Interactive Triage Demo ➔</a>
-          <a href="#dual-value" class="eco-nav-chip">2. Patient & Care Team Value ➔</a>
-          <a href="#care-loop" class="eco-nav-chip">3. 4-Step Care Loop ➔</a>
-          <a href="#security-architecture" class="eco-nav-chip">4. Hospital Security Architecture ➔</a>
+          <a href="#capabilities" class="eco-nav-chip">1. Platform Capabilities ➔</a>
+          <a href="#interactive-demo" class="eco-nav-chip">2. Interactive Triage Demo ➔</a>
+          <a href="#dual-value" class="eco-nav-chip">3. Patient & Care Team ➔</a>
+          <a href="#care-loop" class="eco-nav-chip">4. Care Continuity Loop ➔</a>
+          <a href="#security-architecture" class="eco-nav-chip">5. Security Architecture ➔</a>
         </div>
       </div>
     </div>
@@ -476,7 +575,88 @@
     </div>
   </section>
 
-  <!-- 3. Interactive Product Demo: Patient Check-in ⇄ Care Team Triage -->
+  <!-- 3. Core Platform Pillars (4 Enterprise RPM Capabilities) -->
+  <section class="capabilities-section" id="capabilities">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-chip teal">PLATFORM CAPABILITIES</div>
+        <h2 class="section-title">Built for High-Stakes Post-Operative Oversight</h2>
+        <p>PattaCare delivers four interconnected clinical capabilities that turn asynchronous home recovery into structured, deterministic hospital intelligence.</p>
+      </div>
+
+      <div class="capabilities-grid">
+        <!-- Card 1: Alert & Escalation Engine -->
+        <div class="capability-card">
+          <div class="capability-top">
+            <div class="capability-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="capability-badge">Deterministic • Audit-Logged</span>
+          </div>
+          <h3 class="capability-title">Closed-Loop Alert &amp; Escalation Engine</h3>
+          <p class="capability-desc">Configurable, surgical-grade rule triggers based on procedural recovery protocols across orthopedic, cardiovascular, bariatric, and general surgeries.</p>
+          <ul class="capability-points">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Zero hallucination risk — strict algorithmic triage thresholds</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Tiered escalation matrix: Nurse Coordinator → On-call Resident → Attending Surgeon</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full audit trail with time-stamped clinical sign-offs</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Longitudinal Surveillance -->
+        <div class="capability-card">
+          <div class="capability-top">
+            <div class="capability-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <span class="capability-badge">Multi-Parameter Trends</span>
+          </div>
+          <h3 class="capability-title">Longitudinal Recovery &amp; Deterioration Surveillance</h3>
+          <p class="capability-desc">Detect subtle regressions in healing trajectory days before acute surgical site complications trigger emergency department readmissions.</p>
+          <ul class="capability-points">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Longitudinal tracking of pain, wound exudate, localized temperature &amp; ambulation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Early surgical site infection (SSI) warning indicators</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Population-level recovery benchmark analytics across surgical cohorts</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: WhatsApp Engagement -->
+        <div class="capability-card">
+          <div class="capability-top">
+            <div class="capability-icon-box whatsapp-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </div>
+            <span class="capability-badge">90%+ Patient Compliance</span>
+          </div>
+          <h3 class="capability-title">Adaptive Patient Engagement via WhatsApp</h3>
+          <p class="capability-desc">Zero app downloads, zero forgotten login passwords. Delivers clinically structured daily recovery dialogues natively through WhatsApp.</p>
+          <ul class="capability-points">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automated, procedure-day-specific conversational check-ins (POD 1–30)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multi-language support with intuitive structured buttons and photo submission</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automated escalation to live surgical coordinator when thresholds deviate</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: EHR Integration & Vitals -->
+        <div class="capability-card">
+          <div class="capability-top">
+            <div class="capability-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <span class="capability-badge">FHIR R4 / HL7 Compatible</span>
+          </div>
+          <h3 class="capability-title">Hospital &amp; Connected Vitals Integration</h3>
+          <p class="capability-desc">Ingests connected device telemetry (cellular BP cuffs, pulse oximeters, smart scales) and synchronizes directly with enterprise EHR charts.</p>
+          <ul class="capability-points">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bi-directional HL7 and FHIR API connectors (Epic, Cerner, MEDITECH)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automatic ingestion of surgical discharge rosters and dates</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Push structured SBAR recovery summaries directly into hospital clinical documentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Product Demo: Patient Check-in ⇄ Care Team Triage -->
   <section class="interactive-demo-section" id="interactive-demo">
     <div class="container">
       <div class="section-header">
@@ -755,40 +935,40 @@
       </div>
 
       <div class="security-grid">
-        <!-- Card 1 -->
-        <div class="security-card">
-          <div class="security-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h4>Interoperability & Data Standards</h4>
-          <p>Built with HL7 and FHIR API connectors to support bi-directional data exchange with hospital Electronic Health Records (EHR/EMR) including Epic, Cerner, MEDITECH, and AthenaHealth.</p>
-        </div>
-
-        <!-- Card 2 -->
+        <!-- Card 1: Clinical Governance -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h4>In-Transit & At-Rest Encryption</h4>
-          <p>All clinical data and patient communications are protected with TLS 1.3 protocol encryption in transit and AES-256 encryption at rest across dedicated hospital-isolated storage volumes.</p>
+          <h4>Clinical Governance &amp; Decision Support</h4>
+          <p>Configurable, deterministic procedural protocols. Zero generative hallucination in risk detection — all clinical assessments and treatment decisions remain strictly under licensed surgical care team authority.</p>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 2: Interoperability -->
+        <div class="security-card">
+          <div class="security-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4>Interoperability &amp; FHIR R4 Standards</h4>
+          <p>Built with bi-directional HL7 and FHIR API connectors to ingest surgical discharge rosters and synchronize structured SBAR summaries directly into hospital Electronic Health Records (Epic, Cerner, MEDITECH).</p>
+        </div>
+
+        <!-- Card 3: Data Protection & Encryption -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <h4>Access Governance & Audit Trails</h4>
-          <p>Strict Role-Based Access Control (RBAC) ensures clinicians only view assigned surgical cohorts. Immutable, auditable access logs record every patient record interaction.</p>
+          <h4>In-Transit &amp; At-Rest Encryption</h4>
+          <p>All clinical data and telemetry streams are protected with TLS 1.3 encryption in transit and AES-256 encryption at rest across dedicated hospital-isolated storage volumes.</p>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 4: Access Governance & Sovereignty -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
           </div>
-          <h4>Dedicated Multi-Market Tenancy</h4>
-          <p>Architected for regulatory data residency requirements across USA, UK, Canada, and India with regional cloud zones guaranteeing data sovereignty and privacy compliance.</p>
+          <h4>Access Governance &amp; Multi-Market Sovereignty</h4>
+          <p>Strict Role-Based Access Control (RBAC) and immutable, auditable access logs. Regional cloud tenancy guarantees data sovereignty across USA, UK, Canada, and India.</p>
         </div>
       </div>
     </div>
@@ -1062,6 +1242,7 @@
           <h5>Platform & Workflow</h5>
           <ul class="footer-links">
             <li><a href="https://app.pattacare.com/login" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal); font-weight: 600;">Clinician Portal Login ↗</a></li>
+            <li><a href="#capabilities">Platform Capabilities</a></li>
             <li><a href="#interactive-demo">Interactive Triage Demo</a></li>
             <li><a href="#dual-value">Patient & Care Team Value</a></li>
             <li><a href="#care-loop">4-Step Care Loop</a></li>
