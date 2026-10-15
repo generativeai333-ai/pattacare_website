@@ -4,9 +4,8 @@
  * 1. Mobile Menu & Sticky Navigation
  * 2. YouTube Video Embed, Click-to-Play & Protocol Fallbacks
  * 3. Interactive Post-Operative Recovery Demo (Synchronized WhatsApp Simulation ⇄ Care Team Triage)
- * 4. Care Team Capacity & Workload Estimator
- * 5. FAQ Accordion
- * 6. Surgical Consultation / Demo Booking Form Handling
+ * 4. FAQ Accordion
+ * 5. Surgical Consultation / Demo Booking Form Handling
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,9 +36,9 @@ function initNavigation() {
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .mobile-login-link, .mobile-pilot-link').forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 1140) {
+        if (window.innerWidth <= 1023) {
           navMenu.classList.remove('is-open');
           mobileToggle.setAttribute('aria-expanded', 'false');
         }
@@ -47,7 +46,7 @@ function initNavigation() {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1140) {
+      if (window.innerWidth > 1023) {
         navMenu.classList.remove('is-open');
         mobileToggle.setAttribute('aria-expanded', 'false');
       }
@@ -221,7 +220,7 @@ function initPostOpInteractiveDemo() {
       const tid = setTimeout(() => {
         if (msg.sender === 'bot' && phoneStatus) {
           phoneStatus.textContent = 'typing...';
-          phoneStatus.style.color = '#16687A';
+          phoneStatus.style.color = '#1B6A7D';
         }
 
         setTimeout(() => {
@@ -262,44 +261,7 @@ function initPostOpInteractiveDemo() {
   renderScenario('on-track');
 }
 
-/* 4. Care Team Capacity & Workload Estimator */
-function initCapacityEstimator() {
-  const patientSlider = document.getElementById('capacity-patient-slider');
-  const patientDisplay = document.getElementById('capacity-patient-display');
-  const hoursStreamlinedDisplay = document.getElementById('capacity-hours-streamlined');
-  const completionRateDisplay = document.getElementById('capacity-completion-rate');
-  const complicationsFlaggedDisplay = document.getElementById('capacity-complications-flagged');
-
-  if (!patientSlider || !hoursStreamlinedDisplay) return;
-
-  const updateCapacityMath = () => {
-    const patients = parseInt(patientSlider.value, 10);
-    if (patientDisplay) {
-      patientDisplay.textContent = `${patients.toLocaleString()} Patients`;
-    }
-
-    // Mathematical modeling for post-operative recovery:
-    // ~1.2 hours saved per patient/month in routine phone tag, voicemails, and manual status intake
-    const hoursStreamlined = Math.round(patients * 1.2);
-    // Typical WhatsApp recovery completion rate is ~91%
-    const completionRate = '91% Adherence';
-    // ~12% of surgical cohort has early symptom deviation flagged for observation/review
-    const earlyAlerts = Math.round(patients * 0.12);
-
-    hoursStreamlinedDisplay.textContent = `${hoursStreamlined.toLocaleString()} Hours`;
-    if (completionRateDisplay) {
-      completionRateDisplay.textContent = completionRate;
-    }
-    if (complicationsFlaggedDisplay) {
-      complicationsFlaggedDisplay.textContent = `~${earlyAlerts.toLocaleString()} Patients / mo`;
-    }
-  };
-
-  patientSlider.addEventListener('input', updateCapacityMath);
-  updateCapacityMath();
-}
-
-/* 5. Frequently Asked Questions (FAQ) Accordion */
+/* 4. Frequently Asked Questions (FAQ) Accordion */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
 
@@ -322,7 +284,7 @@ function initFaqAccordion() {
   });
 }
 
-/* 6. B2B Consultation / Demo Booking Form */
+/* 5. B2B Consultation / Demo Booking Form */
 function initDemoForm() {
   const form = document.getElementById('b2b-demo-form');
   const formSuccess = document.getElementById('form-success-message');
