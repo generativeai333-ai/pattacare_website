@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PattaCare | Remote Patient Monitoring &amp; Hospital Software via WhatsApp</title>
-  <meta name="description" content="PattaCare is clinical hospital software for post-discharge remote patient monitoring. Connect surgical care teams with patients via automated WhatsApp check-ins and triage.">
-  <meta name="keywords" content="remote patient monitoring, WhatsApp hospital integration, surgical recovery software, post-discharge care continuity, clinical triage dashboard, RPM healthcare, patient recovery tracking, EHR integration HL7 FHIR">
+  <title>PattaCare | Post-Discharge Monitoring via WhatsApp for Hospitals</title>
+  <meta name="description" content="PattaCare is clinical hospital software for post-discharge remote patient monitoring via automated WhatsApp check-ins and triage for surgical care teams.">
   <meta name="author" content="PattaCare Inc.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://pattacare.com/">
@@ -13,8 +12,8 @@
 
   <!-- OpenGraph Metadata -->
   <meta property="og:site_name" content="PattaCare">
-  <meta property="og:title" content="PattaCare | Remote Patient Monitoring &amp; Hospital Software via WhatsApp">
-  <meta property="og:description" content="Hospital software for post-discharge remote patient monitoring. Connect surgical care teams with patients via automated WhatsApp check-ins and AI clinical triage.">
+  <meta property="og:title" content="PattaCare | Post-Discharge Monitoring via WhatsApp for Hospitals">
+  <meta property="og:description" content="PattaCare is clinical hospital software for post-discharge remote patient monitoring via automated WhatsApp check-ins and triage for surgical care teams.">
   <meta property="og:url" content="https://pattacare.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pattacare.com/assets/images/hero-ecosystem.jpg">
@@ -25,10 +24,13 @@
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PattaCare | Remote Patient Monitoring &amp; Hospital Software via WhatsApp">
-  <meta name="twitter:description" content="Hospital software for post-discharge remote patient monitoring. Connect surgical care teams with patients via automated WhatsApp check-ins and AI clinical triage.">
+  <meta name="twitter:title" content="PattaCare | Post-Discharge Monitoring via WhatsApp for Hospitals">
+  <meta name="twitter:description" content="PattaCare is clinical hospital software for post-discharge remote patient monitoring via automated WhatsApp check-ins and triage for surgical care teams.">
   <meta name="twitter:image" content="https://pattacare.com/assets/images/hero-ecosystem.jpg">
   <meta name="twitter:image:alt" content="PattaCare Remote Patient Monitoring Platform">
+
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" href="assets/images/hero-ecosystem.avif" type="image/avif">
 
   <!-- Google Fonts: Inter & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,12 +69,6 @@
         "url": "https://pattacare.com/",
         "description": "Hospital software for post-discharge remote patient monitoring and surgical recovery continuity via automated WhatsApp check-ins and clinician triage.",
         "softwareVersion": "2.0",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "name": "Hospital Clinical Demonstration"
-        },
         "featureList": [
           "Remote patient monitoring (RPM) for surgical recovery",
           "Automated WhatsApp post-discharge patient check-ins",
@@ -86,25 +82,17 @@
         }
       },
       {
-        "@type": "MedicalOrganization",
+        "@type": "Organization",
         "@id": "https://pattacare.com/#organization",
         "name": "PattaCare",
         "url": "https://pattacare.com/",
+        "logo": "https://pattacare.com/assets/images/patta-care-logo.png",
+        "image": "https://pattacare.com/assets/images/hero-ecosystem.jpg",
         "parentOrganization": {
           "@type": "Organization",
-          "@id": "https://goodhealth247.com/#organization",
-          "name": "Good Health 247 Inc.",
-          "url": "https://www.goodhealth247.com/",
-          "logo": "https://goodhealth247.com/logo-dark.jpg",
-          "sameAs": "https://www.goodhealth247.com/"
+          "name": "Good Health 247",
+          "url": "https://www.goodhealth247.com/"
         },
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "https://pattacare.com/#logo",
-          "url": "https://pattacare.com/assets/images/patta-care-logo.png",
-          "caption": "PattaCare Logo"
-        },
-        "image": "https://pattacare.com/assets/images/hero-ecosystem.jpg",
         "email": "hi@pattacare.com",
         "contactPoint": [
           {
@@ -133,7 +121,7 @@
       {
         "@type": "VideoObject",
         "@id": "https://pattacare.com/#video",
-        "name": "Patta Care — A Remote Patient Tracker: Clinical Platform Demonstration",
+        "name": "PattaCare — A Remote Patient Tracker: Clinical Platform Demonstration",
         "description": "Watch how PattaCare automates post-discharge clinical oversight, engages recovering patients through conversational WhatsApp check-ins, and delivers actionable triage visibility to care teams.",
         "thumbnailUrl": "https://pattacare.com/assets/images/video-thumbnail.jpg",
         "uploadDate": "2026-03-01T08:00:00+00:00",
@@ -214,7 +202,11 @@
       <div class="brand-lockup-wrapper">
         <a href="#" class="brand-logo" aria-label="PattaCare Home">
           <div class="brand-logo-icon">
-            <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo — Remote Patient Monitoring &amp; Hospital Software" class="brand-logo-img">
+            <picture>
+              <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
+              <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
+              <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo — Remote Patient Monitoring &amp; Hospital Software" class="brand-logo-img" width="40" height="40">
+            </picture>
           </div>
           <span class="brand-name">Patta<span>Care</span></span>
         </a>
@@ -440,7 +432,11 @@
 
         <div class="ecosystem-media-wrapper">
           <!-- NON-NEGOTIABLE PRESERVED PRIMARY IMAGE -->
-          <img src="assets/images/hero-ecosystem.jpg" alt="PattaCare Remote Patient Monitoring Ecosystem: Hospital software connecting post-discharge patient recovery at home with daily WhatsApp check-ins and surgical care team triage dashboard" class="ecosystem-img">
+          <picture>
+            <source srcset="assets/images/hero-ecosystem.avif" type="image/avif">
+            <source srcset="assets/images/hero-ecosystem.webp" type="image/webp">
+            <img src="assets/images/hero-ecosystem.jpg" width="1376" height="768" fetchpriority="high" alt="PattaCare Remote Patient Monitoring Ecosystem: Hospital software connecting post-discharge patient recovery at home with daily WhatsApp check-ins and surgical care team triage dashboard" class="ecosystem-img">
+          </picture>
 
           <!-- Hotspot 1: Left (Patient Recovery at Home) -->
           <a href="#dual-value" class="ecosystem-hotspot-card hotspot-patient" title="Explore post-op patient recovery at home">
@@ -509,7 +505,7 @@
         <div class="video-header-bar">
           <div style="display: flex; align-items: center; gap: 0.65rem;">
             <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #EF4444; box-shadow: 0 0 8px #EF4444;"></span>
-            <span style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em;">Patta Care - A Remote Patient Tracker (by alphaesAI)</span>
+            <span style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em;">PattaCare - A Remote Patient Tracker (by alphaesAI)</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <a href="https://www.youtube.com/watch?v=Tl5u1xdbeXk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; background: rgba(255,255,255,0.15); color: #FFF; border-color: rgba(255,255,255,0.3);">
@@ -522,14 +518,14 @@
         <!-- Video Player Box with Click-to-Play Poster Overlay -->
         <div class="video-player-box" id="video-wrapper">
           <!-- Poster Overlay with High-Resolution Thumbnail & Glowing Play Button -->
-          <div class="video-poster-overlay" id="video-poster-overlay" style="background-image: url('assets/images/video-thumbnail.jpg');">
+          <div class="video-poster-overlay" id="video-poster-overlay" style="background-image: url('assets/images/video-thumbnail.webp');">
             <div class="video-play-btn" id="video-play-btn" role="button" tabindex="0" aria-label="Play PattaCare Product Demonstration Video" title="Click to play video">
               <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="6 3 20 12 6 21 6 3"></polygon>
               </svg>
             </div>
             <div class="video-poster-title-card">
-              <div class="video-poster-title">Patta Care — A Remote Patient Tracker</div>
+              <div class="video-poster-title">PattaCare — A Remote Patient Tracker</div>
               <div class="video-poster-sub">Click to Watch the Clinical Platform Walkthrough</div>
             </div>
           </div>
@@ -538,16 +534,11 @@
           <iframe 
             id="youtube-video-frame"
             data-src="https://www.youtube-nocookie.com/embed/Tl5u1xdbeXk?autoplay=1&rel=0&modestbranding=1&enablejsapi=1" 
-            title="Patta Care - A Remote Patient Tracker" 
+            title="PattaCare - A Remote Patient Tracker" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
-        </div>
-
-        <!-- Local File Notice -->
-        <div id="file-protocol-notice" style="display: none; align-items: center; justify-content: space-between; margin-top: 0.85rem; padding: 0.65rem 1rem; background: rgba(22, 104, 122, 0.15); border: 1px solid rgba(22, 104, 122, 0.3); border-radius: 8px; font-size: 0.82rem; color: #E2EAF0;">
-          <span>💡 <strong>Local Browser Test Mode:</strong> If browser security restricts YouTube iframe playback on <code>file://</code> URLs, click <a href="https://www.youtube.com/watch?v=Tl5u1xdbeXk" target="_blank" style="color: var(--color-teal); font-weight: 700; text-decoration: underline;">Open on YouTube ↗</a> or run <code>python -m http.server</code>.</span>
         </div>
 
         <!-- Video Key Points -->
@@ -698,7 +689,11 @@
             <div class="phone-screen">
               <div class="phone-header">
                 <div class="phone-avatar">
-                  <img src="assets/images/patta-care-logo.png" alt="PattaCare WhatsApp Remote Patient Monitoring Bot" style="width: 100%; height: 100%; object-fit: contain;">
+                  <picture>
+                    <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
+                    <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
+                    <img src="assets/images/patta-care-logo.png" alt="PattaCare WhatsApp Remote Patient Monitoring Bot" loading="lazy" width="40" height="40" style="width: 100%; height: 100%; object-fit: contain;">
+                  </picture>
                 </div>
                 <div class="phone-contact-info">
                   <div class="phone-contact-name">
@@ -1222,7 +1217,11 @@
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
             <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border-radius: 10px; padding: 4px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
-              <img src="assets/images/patta-care-logo.png" alt="PattaCare — Remote Patient Monitoring &amp; Hospital Software" style="width: 100%; height: 100%; object-fit: contain;">
+              <picture>
+                <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
+                <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
+                <img src="assets/images/patta-care-logo.png" alt="PattaCare — Remote Patient Monitoring &amp; Hospital Software" loading="lazy" width="44" height="44" style="width: 100%; height: 100%; object-fit: contain;">
+              </picture>
             </div>
             <div>
               <span style="font-size: 1.45rem; font-weight: 800; color: #FFF; line-height: 1.1; display: block;">Patta<span style="color: var(--color-teal);">Care</span></span>
@@ -1284,15 +1283,15 @@
         </div>
         <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
           <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal-light); font-weight: 600; text-decoration: none;">Parent: GoodHealth247 ↗</a>
-          <a href="#security-architecture" style="color: #94A3B8;">Privacy Architecture</a>
+          <a href="/privacy/" style="color: #94A3B8;">Privacy Architecture</a>
           <a href="#security-architecture" style="color: #94A3B8;">Clinical Governance</a>
-          <a href="#faq" style="color: #94A3B8;">Terms of Service</a>
+          <a href="/terms/" style="color: #94A3B8;">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

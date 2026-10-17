@@ -58,14 +58,7 @@ function initNavigation() {
 function initVideoPlayer() {
   const videoOverlay = document.getElementById('video-poster-overlay');
   const videoIframe = document.getElementById('youtube-video-frame');
-  const fileProtocolNotice = document.getElementById('file-protocol-notice');
   const playBtn = document.getElementById('video-play-btn');
-
-  // Detect if running under file:/// scheme
-  const isFileProtocol = window.location.protocol === 'file:';
-  if (isFileProtocol && fileProtocolNotice) {
-    fileProtocolNotice.style.display = 'flex';
-  }
 
   const playVideo = () => {
     if (!videoIframe) return;

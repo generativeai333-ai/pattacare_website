@@ -3,9 +3,10 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <!-- Homepage -->
   <url>
     <loc>https://pattacare.com/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -20,12 +21,28 @@
     </image:image>
     <video:video>
       <video:thumbnail_loc>https://pattacare.com/assets/images/video-thumbnail.jpg</video:thumbnail_loc>
-      <video:title>Patta Care — A Remote Patient Tracker: Clinical Platform Demonstration</video:title>
+      <video:title>PattaCare — A Remote Patient Tracker: Clinical Platform Demonstration</video:title>
       <video:description>Watch how PattaCare hospital software automates post-discharge clinical oversight, engages recovering patients through conversational WhatsApp check-ins, and delivers actionable triage visibility to surgical care teams.</video:description>
       <video:content_loc>https://www.youtube.com/watch?v=Tl5u1xdbeXk</video:content_loc>
       <video:player_loc>https://www.youtube-nocookie.com/embed/Tl5u1xdbeXk</video:player_loc>
       <video:family_friendly>yes</video:family_friendly>
       <video:publication_date>2026-03-01T08:00:00+00:00</video:publication_date>
     </video:video>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://pattacare.com/privacy/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://pattacare.com/terms/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
