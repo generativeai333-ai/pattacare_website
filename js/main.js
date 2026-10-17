@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoPlayer();
   initHeroInteractive();
   initWhitepaperModal();
+  initDeviceDrawer();
   initRpmTabs();
   initDeviceFilters();
   initPostOpInteractiveDemo();
@@ -492,4 +493,276 @@ function initWhitepaperModal() {
     });
   }
 }
+
+/* 8. Connected Medical Devices — Side-Drawer Specs Handler */
+function initDeviceDrawer() {
+  const overlay = document.getElementById('device-drawer-overlay');
+  const backdrop = document.getElementById('device-drawer-backdrop');
+  const closeBtn = document.getElementById('drawer-close-btn');
+  const drawerIcon = document.getElementById('drawer-device-icon');
+  const drawerTag = document.getElementById('drawer-category-tag');
+  const drawerTitle = document.getElementById('drawer-device-title');
+  const drawerContent = document.getElementById('drawer-device-content');
+  const requestSampleBtn = document.getElementById('drawer-request-sample');
+  const triggers = document.querySelectorAll('.device-drawer-trigger');
+
+  if (!overlay || !drawerContent) return;
+
+  const deviceSpecsData = {
+    mat: {
+      name: 'Contactless Bed Mat',
+      icon: '🛏️',
+      category: 'Contactless Radar / BCG',
+      summary: 'Passive ballistocardiography (BCG) sensor placed under standard hospital or home mattresses. Continuously streams micro-vibrations to derive continuous heart rate, respiratory rate, and bed occupancy with zero patient compliance burden.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Continuous Telemetry', val: 'Heart Rate (35–180 bpm) & Respiration (6–40 rpm)' },
+            { label: 'Clinical Accuracy', val: 'Dozee BCG clinical standard (±2 bpm)' },
+            { label: 'Target Cohorts', val: 'Inpatient Step-Down, Post-Op Surgical, Early Deterioration' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Transmission Mode', val: 'Cellular IoT Gateway (4G / LTE-M) + Wi-Fi fallback' },
+            { label: 'HL7 FHIR R4', val: 'Observation (LOINC 8867-4 Heart Rate, 9279-1 Resp Rate)' },
+            { label: 'Ingestion Latency', val: 'Sub-minute continuous sync to Epic / Cerner' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Power Supply', val: 'AC power adapter + 4-hour internal battery backup' },
+            { label: 'Mattress Tolerance', val: 'Compatible with spring, foam, & latex up to 14" thickness' },
+            { label: 'Patient Effort', val: 'Zero: completely passive, wire-free, wear-free' },
+            { label: 'Certifications', val: 'CDSCO Class B, CE Mark, ISO 13485' }
+          ]
+        }
+      ]
+    },
+    bp: {
+      name: 'Cellular 4G BP Cuff',
+      icon: '🩺',
+      category: 'Cellular (4G / LTE-M)',
+      summary: 'Hospital-grade automated digital blood pressure monitor with integrated multi-IMSI cellular modem. Transmits systolic, diastolic, and pulse rate readings instantly upon cuff deflation with zero patient configuration.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Measurement Range', val: 'Sys: 60–260 mmHg, Dia: 40–199 mmHg, Pulse: 40–180 bpm' },
+            { label: 'Clinical Accuracy', val: 'Pressure: ±3 mmHg, Pulse: ±5% of reading (AAMI/ESH)' },
+            { label: 'Clinical Algorithms', val: 'Irregular Heartbeat Detection (IHB) & MAP calculation' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Transmission Mode', val: 'Direct cellular Cat-M1/NB-IoT (No Bluetooth / Wi-Fi needed)' },
+            { label: 'HL7 FHIR R4', val: 'Observation (LOINC 85354-9 Blood pressure panel with MAP)' },
+            { label: 'Offline Buffer', val: 'Stores up to 120 readings if network is temporarily unreachable' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Power Supply', val: '4x AA Alkaline batteries (~12 months at 2 checks/day)' },
+            { label: 'Cuff Sizes', val: 'Standard (22–42 cm) and Extra-Large (32–52 cm) bariatric' },
+            { label: 'Carrier Redundancy', val: 'Pre-activated eSIM with global roaming failover' },
+            { label: 'Certifications', val: 'FDA 510(k) Cleared, CE Class IIa, CDSCO Registered' }
+          ]
+        }
+      ]
+    },
+    glucose: {
+      name: 'Continuous CGM & Glucometer',
+      icon: '🩸',
+      category: 'Cloud API & BLE',
+      summary: 'Bi-directional ingestion gateway supporting leading Continuous Glucose Monitors (Dexcom G7, Abbott FreeStyle Libre) alongside direct cellular strip-based glucometers for comprehensive glycemic surveillance.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Continuous Metrics', val: 'Time-in-Range (70–180 mg/dL), GMI, Glycemic Variability' },
+            { label: 'Sensor Precision', val: 'MARD: 8.2% across hypoglycemia and hyperglycemia tiers' },
+            { label: 'Clinical Triggers', val: 'Automated urgent low (<54 mg/dL) & acute surge (>250 mg/dL)' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Ingestion Architecture', val: 'Dexcom & Abbott Official Cloud APIs + Cellular Strip SDK' },
+            { label: 'HL7 FHIR R4', val: 'Observation (LOINC 15074-8 Glucose in blood)' },
+            { label: 'Update Cadence', val: 'Every 5 minutes for CGM; instant on cellular strip test' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Sensor Wear Duration', val: '10 to 14 days per water-resistant CGM sensor' },
+            { label: 'Strip Auto-Resupply', val: 'Automated fulfillment webhook triggered when strips <15' },
+            { label: 'Certifications', val: 'FDA 510(k), CE Class IIb, CDSCO Class C' }
+          ]
+        }
+      ]
+    },
+    pulse: {
+      name: 'Connected Pulse Oximeter',
+      icon: '🫁',
+      category: 'Bluetooth Low Energy',
+      summary: 'Clinical fingertip pulse oximeter and peak flow sensor designed for rapid spot checks in post-surgical recovery, COPD, and respiratory failure cohorts.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Parameters', val: 'Oxygen Saturation (SpO2 %), Pulse Rate (bpm), Perfusion Index (PI)' },
+            { label: 'Accuracy Range', val: 'SpO2: 70%–100% (±2%), Pulse: 30–250 bpm (±2 bpm)' },
+            { label: 'Motion Tolerance', val: 'Low-perfusion & motion artifact suppression algorithms' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Transmission Mode', val: 'Bluetooth 5.2 Low Energy / Instant companion bridge' },
+            { label: 'HL7 FHIR R4', val: 'Observation (LOINC 2708-6 Oxygen Saturation, 8867-4 Heart Rate)' },
+            { label: 'Transmission Time', val: 'Under 8 seconds from probe insertion to EHR chart' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Battery Life', val: '2x AAA batteries (over 1,200 spot-check sessions)' },
+            { label: 'Display & Ergonomics', val: 'Dual-color OLED with plethysmograph waveform' },
+            { label: 'Certifications', val: 'FDA 510(k), CE Class IIa, ISO 80601-2-61' }
+          ]
+        }
+      ]
+    },
+    scale: {
+      name: 'Cellular Telehealth Scale',
+      icon: '⚖️',
+      category: 'Cellular (4G / LTE-M)',
+      summary: 'Precision direct-to-cloud body scale built specifically for congestive heart failure and bariatric post-op surveillance. Automatically flags 48-hour fluid weight surges to prevent avoidable readmissions.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Sensory Precision', val: '100g (0.2 lb) resolution with 4 strain-gauge load cells' },
+            { label: 'Capacity', val: 'Up to 250 kg (550 lbs) tempered safety glass platform' },
+            { label: 'Decompensation Rule', val: 'Auto-alerts care team if weight increases >2 kg in 48 hours' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Transmission Mode', val: 'Cellular Cat-M1 / LTE-M direct transmission' },
+            { label: 'HL7 FHIR R4', val: 'Observation (LOINC 29463-7 Body weight, 39156-5 BMI)' },
+            { label: 'Zero Setup', val: 'Pre-activated SIM, zero Wi-Fi pairing required' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Battery Life', val: '4x AA Alkaline batteries (14+ months at daily weighing)' },
+            { label: 'Memory Buffer', val: 'Offline buffer for up to 60 weigh-ins' },
+            { label: 'Certifications', val: 'FDA 510(k) Class II, CE Class IIa, CDSCO Class B' }
+          ]
+        }
+      ]
+    },
+    dispenser: {
+      name: 'Connected Smart Pill Box',
+      icon: '💊',
+      category: 'IoT Smart Dispenser',
+      summary: 'Cellular smart medication dispenser with guided LED compartment illumination and magnetic opening detection. Bridges the medication adherence gap for complex geriatric and polypharmacy cohorts.',
+      groups: [
+        {
+          title: 'Clinical Parameters & Precision',
+          rows: [
+            { label: 'Dose Tracking', val: 'Automated compartment opening timestamp logging' },
+            { label: 'Nudge Hierarchy', val: '1. Chime & LED ➔ 2. WhatsApp prompt ➔ 3. Nurse outreach' },
+            { label: 'Adherence Scoring', val: 'PDC (Proportion of Days Covered) calculated daily' }
+          ]
+        },
+        {
+          title: 'Ingestion & EHR Interoperability',
+          rows: [
+            { label: 'Transmission Mode', val: 'Cellular IoT module with real-time event webhooks' },
+            { label: 'HL7 FHIR R4', val: 'MedicationAdministration & MedicationStatement' },
+            { label: 'Tamper Alerts', val: 'Detects unexpected off-schedule opening and tilt events' }
+          ]
+        },
+        {
+          title: 'Hardware & Certifications',
+          rows: [
+            { label: 'Compartments', val: '7 or 28 customizable dosage pods with moisture sealing' },
+            { label: 'Battery Life', val: 'Rechargeable Li-Ion (30 days per USB-C charge)' },
+            { label: 'Refill Automation', val: 'Pharmacy auto-resupply trigger on low pill count' },
+            { label: 'Certifications', val: 'FCC, CE, HIPAA/GDPR encrypted transmission' }
+          ]
+        }
+      ]
+    }
+  };
+
+  const openDrawer = (deviceId) => {
+    const data = deviceSpecsData[deviceId] || deviceSpecsData.bp;
+    drawerIcon.textContent = data.icon;
+    drawerTag.textContent = data.category;
+    drawerTitle.textContent = data.name;
+
+    let html = `<div class="drawer-summary-box">${data.summary}</div>`;
+
+    data.groups.forEach(group => {
+      html += `
+        <div class="drawer-spec-group">
+          <div class="drawer-group-title">${group.title}</div>
+          <div class="drawer-spec-table">
+            ${group.rows.map(r => `
+              <div class="drawer-spec-row">
+                <span class="drawer-spec-label">${r.label}</span>
+                <span class="drawer-spec-val">${r.val}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    });
+
+    drawerContent.innerHTML = html;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeDrawer = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-device-id');
+      openDrawer(id);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
+
+  if (requestSampleBtn) {
+    requestSampleBtn.addEventListener('click', () => {
+      closeDrawer();
+    });
+  }
+}
+
 

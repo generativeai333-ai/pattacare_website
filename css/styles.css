@@ -3234,12 +3234,83 @@ input[type="range"]::-moz-range-thumb {
   color: var(--brand-coral-500);
 }
 
-/* Device Ecosystem Grid - 3-Column Balanced Layout */
+/* --------------------------------------------------------------------------
+   Prominent Reassurance Banner across Top
+   -------------------------------------------------------------------------- */
+.device-reassurance-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: #F0FDF4;
+  border: 1px solid #A7F3D0;
+  border-radius: 14px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.reassurance-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #DCFCE7;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reassurance-text-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.reassurance-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #047857;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.reassurance-banner-text {
+  font-size: 0.95rem;
+  color: #1E293B;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.reassurance-banner-text strong {
+  color: #065F46;
+}
+
+.reassurance-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #FFFFFF;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+  flex-shrink: 0;
+}
+
+/* Device Ecosystem Grid - Compact 3x2 Layout */
 .device-ecosystem-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 @media (max-width: 1024px) {
@@ -3252,44 +3323,73 @@ input[type="range"]::-moz-range-thumb {
   .device-ecosystem-grid {
     grid-template-columns: 1fr;
   }
+  .device-reassurance-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.15rem;
+    gap: 0.85rem;
+  }
+  .reassurance-stat-pill {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .device-card {
   background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  transition: all 0.3s var(--ease-apple);
-  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.25s var(--ease-apple);
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
   position: relative;
 }
 
 .device-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--color-teal);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12);
+  border-color: rgba(27, 106, 125, 0.4);
 }
 
 .device-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
 }
 
 .device-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background: var(--brand-teal-50);
-  color: var(--color-teal);
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.device-card:hover .device-icon-box {
+  background: #F0FDFA;
+  border-color: #99F6E4;
+}
+
+.device-large-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.device-category-hint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
 }
 
 .device-tag {
@@ -3297,7 +3397,7 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 0.25rem 0.6rem;
+  padding: 0.22rem 0.6rem;
   border-radius: var(--radius-pill);
   background: #F1F5F9;
   color: #475569;
@@ -3314,28 +3414,269 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .device-name {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: 0.4rem;
+  color: #0F172A;
+  margin: 0 0 0.85rem;
+  line-height: 1.25;
 }
 
-.device-desc {
-  font-size: 0.85rem;
-  color: var(--color-text-tertiary);
-  line-height: 1.5;
-  margin-bottom: 1rem;
+/* 3 Clean Visual Chips Stack */
+.device-chips-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
 }
 
-.device-protocols {
+.device-spec-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
   font-size: 0.76rem;
-  color: var(--color-teal-dark);
   font-weight: 600;
-  border-top: 1px solid #F1F5F9;
-  padding-top: 0.75rem;
+  line-height: 1.35;
+  width: fit-content;
+}
+
+.device-spec-chip.chip-conn {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #166534;
+}
+
+.device-spec-chip.chip-fhir {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1E40AF;
+}
+
+.device-spec-chip.chip-target {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+}
+
+/* Expandable Link to Open Specs Side-Drawer */
+.device-drawer-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  padding: 0.65rem 0.95rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  color: #0F766E;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-apple);
+}
+
+.device-drawer-trigger:hover {
+  background: #F0FDFA;
+  border-color: #99F6E4;
+  color: #0D9488;
+  transform: translateY(-1px);
+}
+
+.device-drawer-trigger .arrow-sym {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.device-drawer-trigger:hover .arrow-sym {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Clinical & Hardware Specs Side-Drawer Styles
+   -------------------------------------------------------------------------- */
+.device-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+}
+
+.device-drawer-overlay.active {
+  display: block;
+}
+
+.device-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.device-drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  box-shadow: -12px 0 40px rgba(15, 23, 42, 0.22);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s var(--ease-apple);
+  z-index: 10001;
+}
+
+.device-drawer-overlay.active .device-drawer-panel {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: space-between;
+  background: #F8FAFC;
+}
+
+.drawer-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.drawer-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.drawer-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0F766E;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.drawer-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.drawer-close-btn {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+.drawer-body {
+  padding: 1.75rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.drawer-summary-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.drawer-spec-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.drawer-group-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748B;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 0.4rem;
+}
+
+.drawer-spec-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drawer-spec-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  gap: 1rem;
+}
+
+.drawer-spec-label {
+  color: #64748B;
+  font-weight: 600;
+  flex: 1;
+}
+
+.drawer-spec-val {
+  color: #0F172A;
+  font-weight: 600;
+  text-align: right;
+  flex: 1.3;
+}
+
+.drawer-spec-val.text-emerald {
+  color: #059669;
+}
+
+.drawer-footer {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid #E2E8F0;
+  background: #FFFFFF;
+}
+
+.drawer-demo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* Caregiver & Clinician Persona Comparison */

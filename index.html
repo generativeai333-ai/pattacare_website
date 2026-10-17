@@ -902,6 +902,26 @@
         <p>PattaCare ingests telemetry from leading medical hardware manufacturers via Cellular (4G/LTE), Bluetooth Low Energy (BLE), Wi-Fi, and contactless radar. Universal normalization ensures every vital sign maps to HL7 FHIR Observation standards.</p>
       </div>
 
+      <!-- Prominent Reassurance Banner across the top -->
+      <div class="device-reassurance-banner">
+        <div class="reassurance-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div class="reassurance-text-col">
+          <span class="reassurance-badge">ZERO PATIENT IT SETUP</span>
+          <p class="reassurance-banner-text">
+            <strong>All cellular devices transmit out-of-the-box with pre-configured SIMs.</strong> No Wi-Fi passwords, Bluetooth pairing, or smartphone apps required.
+          </p>
+        </div>
+        <div class="reassurance-stat-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>100% Pre-Provisioned</span>
+        </div>
+      </div>
+
       <!-- Interactive Device Category Filter Bar -->
       <div class="device-filter-bar" role="toolbar" aria-label="Device Ecosystem Filters">
         <button class="device-filter-btn active" data-filter="all">All Devices (6)</button>
@@ -911,102 +931,132 @@
         <button class="device-filter-btn" data-filter="dispenser">💊 Smart Dispensers</button>
       </div>
 
+      <!-- Compact Visual 3x2 Grid of Hardware Spec Cards -->
       <div class="device-ecosystem-grid">
-        <!-- Device 1: Under-Mattress Contactless Mat -->
+        <!-- Device 1: Contactless Bed Mat -->
         <div class="device-card featured-device" data-device-type="contactless">
-          <span class="device-featured-ribbon">★ Flagship Passive Telemetry</span>
-          <div class="device-card-top">
+          <div class="device-card-header">
+            <span class="device-featured-ribbon">★ Flagship Passive Telemetry</span>
             <span class="device-tag contactless">Contactless Radar / BCG</span>
-            <span class="device-category">Inpatient &amp; Home Ward</span>
           </div>
-          <div class="device-icon">🛏️</div>
-          <h3 class="device-name">Under-Mattress Contactless Mat</h3>
-          <p class="device-desc">Passive ballistocardiography mat placed under standard bed mattresses. Continuously monitors heart rate, respiration rate, sleep architecture, and bed occupancy without wires, adhesives, or wearables.</p>
-          <div class="device-specs">
-            <span>Continuous Night Monitoring</span>
-            <span>Zero Patient Effort</span>
-            <span>Dozee / BCG Standard</span>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">🛏️</span>
           </div>
+          <h3 class="device-name">Contactless Bed Mat</h3>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">No Patient Effort</span>
+            <span class="device-spec-chip chip-fhir">FHIR: Continuous HR &amp; RR</span>
+            <span class="device-spec-chip chip-target">Target: Inpatient &amp; Post-Op</span>
+          </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="mat" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
 
-        <!-- Device 2: Cellular Blood Pressure Cuff -->
+        <!-- Device 2: Cellular 4G BP Cuff -->
         <div class="device-card" data-device-type="cellular">
-          <div class="device-card-top">
+          <div class="device-card-header">
             <span class="device-tag cellular">Cellular (4G / LTE-M)</span>
-            <span class="device-category">Hypertension &amp; Post-Op</span>
+            <span class="device-category-hint">Direct SIM</span>
           </div>
-          <div class="device-icon">🩺</div>
-          <h3 class="device-name">Connected Blood Pressure Monitor</h3>
-          <p class="device-desc">Direct-to-cloud cellular blood pressure monitor. Works straight out of the box with zero smartphone pairing, Wi-Fi configuration, or Bluetooth synchronization steps.</p>
-          <div class="device-specs">
-            <span>Systolic / Diastolic / MAP</span>
-            <span>Irregular Heartbeat Detection</span>
-            <span>Tenovi / Omron Compatible</span>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">🩺</span>
           </div>
+          <h3 class="device-name">Cellular 4G BP Cuff</h3>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">No Pairing Required</span>
+            <span class="device-spec-chip chip-fhir">FHIR: BloodPressure / MAP</span>
+            <span class="device-spec-chip chip-target">Target: HTN / Post-Op</span>
+          </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="bp" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
 
-        <!-- Device 3: Connected Glucometer & CGM -->
+        <!-- Device 3: Continuous CGM & Glucometer -->
         <div class="device-card" data-device-type="ble-cloud">
-          <div class="device-card-top">
+          <div class="device-card-header">
             <span class="device-tag cloud">Cloud API &amp; BLE</span>
-            <span class="device-category">Diabetes Care</span>
+            <span class="device-category-hint">Dexcom &amp; Abbott</span>
           </div>
-          <div class="device-icon">🩸</div>
-          <h3 class="device-name">Glucometer &amp; Continuous CGM</h3>
-          <p class="device-desc">Bi-directional ingestion from Dexcom G7, Abbott FreeStyle Libre, and cellular glucometers. Normalizes BG values and calculates continuous Time-in-Range.</p>
-          <div class="device-specs">
-            <span>Dexcom &amp; Abbott Cloud API</span>
-            <span>Cellular Strip Sync</span>
-            <span>Hypoglycemia Triggers</span>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">🩸</span>
           </div>
+          <h3 class="device-name">Continuous CGM &amp; Glucometer</h3>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">Direct Cloud &amp; SIM Sync</span>
+            <span class="device-spec-chip chip-fhir">FHIR: BloodGlucose / TIR</span>
+            <span class="device-spec-chip chip-target">Target: Diabetes Care</span>
+          </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="glucose" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
 
         <!-- Device 4: Connected Pulse Oximeter -->
         <div class="device-card" data-device-type="ble-cloud">
-          <div class="device-card-top">
+          <div class="device-card-header">
             <span class="device-tag ble">Bluetooth Low Energy</span>
-            <span class="device-category">COPD, HF &amp; Surgery</span>
+            <span class="device-category-hint">Spot-Check Sync</span>
           </div>
-          <div class="device-icon">🫁</div>
-          <h3 class="device-name">Pulse Oximeter &amp; Peak Flow</h3>
-          <p class="device-desc">Clinical-accuracy SpO2, pulse rate, and respiratory peak flow monitoring. Ideal for post-discharge surgical patients, COPD, and pediatric asthma cohorts.</p>
-          <div class="device-specs">
-            <span>SpO2 % &amp; Perfusion Index</span>
-            <span>Instant Spot-Check Sync</span>
-            <span>Offline Reading Buffer</span>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">🫁</span>
           </div>
+          <h3 class="device-name">Connected Pulse Oximeter</h3>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">Instant Spot-Check Sync</span>
+            <span class="device-spec-chip chip-fhir">FHIR: SpO2 &amp; Pulse Rate</span>
+            <span class="device-spec-chip chip-target">Target: COPD &amp; Surgical Recovery</span>
+          </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="pulse" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
 
-        <!-- Device 5: Smart Cellular Scale -->
+        <!-- Device 5: Cellular Telehealth Scale -->
         <div class="device-card" data-device-type="cellular">
-          <div class="device-card-top">
+          <div class="device-card-header">
             <span class="device-tag cellular">Cellular (4G / LTE-M)</span>
-            <span class="device-category">Heart Failure &amp; Bariatric</span>
+            <span class="device-category-hint">100g Precision</span>
           </div>
-          <div class="device-icon">⚖️</div>
-          <h3 class="device-name">Smart Telehealth Scale</h3>
-          <p class="device-desc">High-precision smart scale transmitting body weight, BMI, and fluid retention markers directly to care teams for early cardiac decompensation alerts.</p>
-          <div class="device-specs">
-            <span>100g Precision Sensors</span>
-            <span>Automated 48h Surge Rule</span>
-            <span>Cellular Instant Upload</span>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">⚖️</span>
           </div>
+          <h3 class="device-name">Cellular Telehealth Scale</h3>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">Zero Wi-Fi Config</span>
+            <span class="device-spec-chip chip-fhir">FHIR: BodyWeight &amp; BMI</span>
+            <span class="device-spec-chip chip-target">Target: Heart Failure &amp; Bariatric</span>
+          </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="scale" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
 
-        <!-- Device 6: Smart Pill Organizer -->
+        <!-- Device 6: Connected Smart Pill Box -->
         <div class="device-card" data-device-type="dispenser">
-          <div class="device-card-top">
+          <div class="device-card-header">
             <span class="device-tag iot">IoT Smart Dispenser</span>
-            <span class="device-category">Adherence &amp; Geriatrics</span>
+            <span class="device-category-hint">LED Guidance</span>
           </div>
-          <div class="device-icon">💊</div>
+          <div class="device-icon-box">
+            <span class="device-large-icon" aria-hidden="true">💊</span>
+          </div>
           <h3 class="device-name">Connected Smart Pill Box</h3>
-          <p class="device-desc">Multi-compartment dispenser with LED guidance and cellular opening sensors. Logs precise dose times and prompts conversational root-cause triage when missed.</p>
-          <div class="device-specs">
-            <span>Compartment Sensors</span>
-            <span>Audible &amp; LED Reminders</span>
-            <span>Auto-Resupply Trigger</span>
+          <div class="device-chips-stack" aria-label="Key Specifications">
+            <span class="device-spec-chip chip-conn">Automated Dose Logging</span>
+            <span class="device-spec-chip chip-fhir">FHIR: MedicationStatement</span>
+            <span class="device-spec-chip chip-target">Target: Complex Polypharmacy</span>
           </div>
+          <button type="button" class="device-drawer-trigger" data-device-id="dispenser" aria-haspopup="dialog">
+            <span>Clinical &amp; Hardware Specs</span>
+            <span class="arrow-sym">➔</span>
+          </button>
         </div>
       </div>
 
@@ -1635,6 +1685,34 @@
         <a href="#demo-form" class="btn btn-secondary btn-sm" id="wp-proceed-demo">Schedule Platform Demo ➔</a>
       </div>
     </div>
+  </div>
+
+  <!-- Clinical & Hardware Specs Side-Drawer -->
+  <div class="device-drawer-overlay" id="device-drawer-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="drawer-device-title">
+    <div class="device-drawer-backdrop" id="device-drawer-backdrop"></div>
+    <aside class="device-drawer-panel" id="device-drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-header-left">
+          <div class="drawer-icon-box" id="drawer-device-icon">🩺</div>
+          <div>
+            <span class="drawer-category-tag" id="drawer-category-tag">Cellular 4G / LTE-M</span>
+            <h3 class="drawer-title" id="drawer-device-title">Cellular 4G BP Cuff</h3>
+          </div>
+        </div>
+        <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close specifications drawer">&times;</button>
+      </div>
+
+      <div class="drawer-body" id="drawer-device-content">
+        <!-- Injected via JavaScript based on device data -->
+      </div>
+
+      <div class="drawer-footer">
+        <a href="#demo-form" class="btn btn-primary btn-block drawer-demo-btn" id="drawer-request-sample">
+          <span>Request Hardware Evaluation Kit</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </aside>
   </div>
 
   <!-- Scripts -->
