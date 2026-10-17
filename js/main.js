@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initVideoPlayer();
   initRpmTabs();
+  initDeviceFilters();
   initPostOpInteractiveDemo();
   initFaqAccordion();
   initDemoForm();
 });
 
-/* RPM 5-Vertical Tab Switcher */
+/* RPM 4-Vertical Tab Switcher */
 function initRpmTabs() {
   const tabBtns = document.querySelectorAll('.rpm-tab-btn');
   const tabPanes = document.querySelectorAll('.rpm-tab-pane');
@@ -50,18 +51,81 @@ function initRpmTabs() {
   });
 }
 
-/* 1. Sticky Navigation & Mobile Menu */
+/* Device Category Filter Handler */
+function initDeviceFilters() {
+  const filterBtns = document.querySelectorAll('.device-filter-btn');
+  const deviceCards = document.querySelectorAll('.device-ecosystem-grid .device-card');
+
+  if (!filterBtns.length || !deviceCards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      deviceCards.forEach(card => {
+        const type = card.getAttribute('data-device-type');
+        if (filter === 'all' || type === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeIn 0.25s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* 1. Sticky Navigation, Dynamic Active ScrollSpy & Mobile Menu */
 function initNavigation() {
   const header = document.querySelector('.site-header');
   const mobileToggle = document.querySelector('.mobile-nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
+  // Sticky header background transition
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
+  });
+
+  // Dynamic ScrollSpy: highlight whichever section is currently in view
+  const sections = document.querySelectorAll('section[id]');
+  if ('IntersectionObserver' in window && sections.length) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+
+  // Click handler for instant active state update
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
   });
 
   if (mobileToggle && navMenu) {

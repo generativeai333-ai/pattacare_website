@@ -209,7 +209,7 @@
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu gap-2 lg:gap-3 xl:gap-4">
         <li><a href="#video-overview" class="nav-link">Overview</a></li>
-        <li><a href="#rpm-showcase" class="nav-link font-semibold text-teal-800">RPM Platform</a></li>
+        <li><a href="#rpm-showcase" class="nav-link">RPM Platform</a></li>
         <li><a href="#device-ecosystem" class="nav-link">Devices</a></li>
         <li><a href="#interactive-demo" class="nav-link">Live Triage</a></li>
         <li><a href="#care-personas" class="nav-link">Personas</a></li>
@@ -683,10 +683,29 @@
                 </div>
               </div>
             </div>
+            <!-- Tab 1 KPI Metrics Strip -->
+            <div class="vertical-metrics-strip">
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">−38%</span>
+                <span class="vertical-metric-txt">Preventable ER Readmissions</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">82%</span>
+                <span class="vertical-metric-txt">Continuous Time-in-Range (TIR)</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">14 Days</span>
+                <span class="vertical-metric-txt">Avg BP Titration to Target</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">94%</span>
+                <span class="vertical-metric-txt">Patient Telemetry Compliance</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- TAB 3: Post-Operative Recovery -->
+        <!-- TAB 2: Post-Operative Recovery -->
         <div class="rpm-tab-pane" id="pane-postop" role="tabpanel" aria-labelledby="tab-btn-postop">
           <div class="vertical-content-card">
             <div class="vertical-header-row">
@@ -724,10 +743,30 @@
               </div>
               <span class="postop-ehr-badge">EHR SBAR Auto-Export Ready</span>
             </div>
+
+            <!-- Tab 2 KPI Metrics Strip -->
+            <div class="vertical-metrics-strip">
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">−42%</span>
+                <span class="vertical-metric-txt">30-Day Surgical Readmissions</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">3.4 Days</span>
+                <span class="vertical-metric-txt">Earlier SSI Detection</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">96%</span>
+                <span class="vertical-metric-txt">WhatsApp Daily Check-In Rate</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">&lt; 15 Min</span>
+                <span class="vertical-metric-txt">Surgical Team Escalation Triage</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- TAB 4: Medication Adherence -->
+        <!-- TAB 3: Medication Adherence -->
         <div class="rpm-tab-pane" id="pane-adherence" role="tabpanel" aria-labelledby="tab-btn-adherence">
           <div class="vertical-content-card">
             <div class="vertical-header-row">
@@ -765,10 +804,30 @@
                 <p>Calculates remaining pill inventory based on confirmed doses. Prompts the patient 7 days before depletion and syncs with hospital outpatient pharmacies or delivery partners.</p>
               </div>
             </div>
+
+            <!-- Tab 3 KPI Metrics Strip -->
+            <div class="vertical-metrics-strip">
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">95%</span>
+                <span class="vertical-metric-txt">Pillbox Dose Adherence Rate</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">7 Days</span>
+                <span class="vertical-metric-txt">Predictive Depletion Warning</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">0</span>
+                <span class="vertical-metric-txt">Silent Gaps in Critical Meds</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">89%</span>
+                <span class="vertical-metric-txt">Automated Pharmacy Refill Sync</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- TAB 5: Deterioration & NEWS2 Alerts -->
+        <!-- TAB 4: Deterioration & NEWS2 Alerts -->
         <div class="rpm-tab-pane" id="pane-alerts" role="tabpanel" aria-labelledby="tab-btn-alerts">
           <div class="vertical-content-card">
             <div class="vertical-header-row">
@@ -827,6 +886,26 @@
                 </ul>
               </div>
             </div>
+
+            <!-- Tab 4 KPI Metrics Strip -->
+            <div class="vertical-metrics-strip">
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">6–8 Hrs</span>
+                <span class="vertical-metric-txt">Earlier Deterioration Lead Time</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">&lt; 5 Min</span>
+                <span class="vertical-metric-txt">NEWS2 &ge; 7 Escalation Timers</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">−65%</span>
+                <span class="vertical-metric-txt">Alarm Fatigue Bundle Reduction</span>
+              </div>
+              <div class="vertical-metric-box">
+                <span class="vertical-metric-num">100%</span>
+                <span class="vertical-metric-txt">Audit Trail &amp; Escalation Logging</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -842,32 +921,42 @@
         <p>PattaCare ingests telemetry from leading medical hardware manufacturers via Cellular (4G/LTE), Bluetooth Low Energy (BLE), Wi-Fi, and contactless radar. Universal normalization ensures every vital sign maps to HL7 FHIR Observation standards.</p>
       </div>
 
+      <!-- Interactive Device Category Filter Bar -->
+      <div class="device-filter-bar" role="toolbar" aria-label="Device Ecosystem Filters">
+        <button class="device-filter-btn active" data-filter="all">All Devices (6)</button>
+        <button class="device-filter-btn" data-filter="cellular">📡 Cellular (4G/LTE)</button>
+        <button class="device-filter-btn" data-filter="contactless">🛏️ Contactless BCG</button>
+        <button class="device-filter-btn" data-filter="ble-cloud">☁️ BLE &amp; Cloud API</button>
+        <button class="device-filter-btn" data-filter="dispenser">💊 Smart Dispensers</button>
+      </div>
+
       <div class="device-ecosystem-grid">
         <!-- Device 1: Under-Mattress Contactless Mat -->
-        <div class="device-card featured-device">
+        <div class="device-card featured-device" data-device-type="contactless">
+          <span class="device-featured-ribbon">★ Flagship Passive Telemetry</span>
           <div class="device-card-top">
             <span class="device-tag contactless">Contactless Radar / BCG</span>
             <span class="device-category">Inpatient &amp; Home Ward</span>
           </div>
           <div class="device-icon">🛏️</div>
           <h3 class="device-name">Under-Mattress Contactless Mat</h3>
-          <p class="device-desc">Passive ballistocardiography mat under standard bed mattresses. Tracks heart rate, respiratory rate, HRV, and bed exit without wires or wearables.</p>
+          <p class="device-desc">Passive ballistocardiography mat placed under standard bed mattresses. Continuously monitors heart rate, respiration rate, sleep architecture, and bed occupancy without wires, adhesives, or wearables.</p>
           <div class="device-specs">
             <span>Continuous Night Monitoring</span>
-            <span>Zero Senior Compliance Effort</span>
+            <span>Zero Patient Effort</span>
             <span>Dozee / BCG Standard</span>
           </div>
         </div>
 
         <!-- Device 2: Cellular Blood Pressure Cuff -->
-        <div class="device-card">
+        <div class="device-card" data-device-type="cellular">
           <div class="device-card-top">
             <span class="device-tag cellular">Cellular (4G / LTE-M)</span>
             <span class="device-category">Hypertension &amp; Post-Op</span>
           </div>
           <div class="device-icon">🩺</div>
           <h3 class="device-name">Connected Blood Pressure Monitor</h3>
-          <p class="device-desc">Direct-to-cloud cellular blood pressure monitor. Works out of the box with zero smartphone pairing, Wi-Fi configuration, or Bluetooth steps.</p>
+          <p class="device-desc">Direct-to-cloud cellular blood pressure monitor. Works straight out of the box with zero smartphone pairing, Wi-Fi configuration, or Bluetooth synchronization steps.</p>
           <div class="device-specs">
             <span>Systolic / Diastolic / MAP</span>
             <span>Irregular Heartbeat Detection</span>
@@ -876,7 +965,7 @@
         </div>
 
         <!-- Device 3: Connected Glucometer & CGM -->
-        <div class="device-card">
+        <div class="device-card" data-device-type="ble-cloud">
           <div class="device-card-top">
             <span class="device-tag cloud">Cloud API &amp; BLE</span>
             <span class="device-category">Diabetes Care</span>
@@ -892,7 +981,7 @@
         </div>
 
         <!-- Device 4: Connected Pulse Oximeter -->
-        <div class="device-card">
+        <div class="device-card" data-device-type="ble-cloud">
           <div class="device-card-top">
             <span class="device-tag ble">Bluetooth Low Energy</span>
             <span class="device-category">COPD, HF &amp; Surgery</span>
@@ -908,7 +997,7 @@
         </div>
 
         <!-- Device 5: Smart Cellular Scale -->
-        <div class="device-card">
+        <div class="device-card" data-device-type="cellular">
           <div class="device-card-top">
             <span class="device-tag cellular">Cellular (4G / LTE-M)</span>
             <span class="device-category">Heart Failure &amp; Bariatric</span>
@@ -924,7 +1013,7 @@
         </div>
 
         <!-- Device 6: Smart Pill Organizer -->
-        <div class="device-card">
+        <div class="device-card" data-device-type="dispenser">
           <div class="device-card-top">
             <span class="device-tag iot">IoT Smart Dispenser</span>
             <span class="device-category">Adherence &amp; Geriatrics</span>
