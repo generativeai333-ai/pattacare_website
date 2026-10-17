@@ -11,10 +11,44 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initVideoPlayer();
+  initRpmTabs();
   initPostOpInteractiveDemo();
   initFaqAccordion();
   initDemoForm();
 });
+
+/* RPM 5-Vertical Tab Switcher */
+function initRpmTabs() {
+  const tabBtns = document.querySelectorAll('.rpm-tab-btn');
+  const tabPanes = document.querySelectorAll('.rpm-tab-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabKey = btn.getAttribute('data-tab') || btn.getAttribute('data-target');
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      tabPanes.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const targetPane = document.getElementById(`pane-${tabKey}`) || document.getElementById(tabKey);
+      if (targetPane) targetPane.classList.add('active');
+    });
+  });
+
+  // Hero Quick-Jump Pills
+  document.querySelectorAll('.hero-vpill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const tabTarget = pill.getAttribute('data-target-tab') || pill.getAttribute('data-tab');
+      const matchingBtn = document.querySelector(`.rpm-tab-btn[data-tab="${tabTarget}"]`) ||
+                          document.querySelector(`.rpm-tab-btn[data-target="${tabTarget}"]`);
+      if (matchingBtn) {
+        matchingBtn.click();
+      }
+    });
+  });
+}
 
 /* 1. Sticky Navigation & Mobile Menu */
 function initNavigation() {
@@ -54,7 +88,7 @@ function initNavigation() {
   }
 }
 
-/* 2. YouTube Video Embed, Click-to-Play & File:// Fallback Handler */
+/* 2. YouTube Video Embed & Click-to-Play */
 function initVideoPlayer() {
   const videoOverlay = document.getElementById('video-poster-overlay');
   const videoIframe = document.getElementById('youtube-video-frame');
@@ -88,12 +122,13 @@ function initVideoPlayer() {
   }
 }
 
-/* 3. Interactive Post-Op Product Demo: Patient Check-In ⇄ Surgical Care Team Triage */
+/* 3. Interactive RPM Product Demo: Multichannel Patient/Senior Experience ⇄ Clinician Triage */
 function initPostOpInteractiveDemo() {
-  const pillOnTrack = document.getElementById('pill-on-track');
-  const pillObservation = document.getElementById('pill-observation');
-  const pillReview = document.getElementById('pill-review');
-  const scenarioPills = [pillOnTrack, pillObservation, pillReview].filter(Boolean);
+  const pillElderly = document.getElementById('pill-elderly');
+  const pillChronic = document.getElementById('pill-chronic');
+  const pillPostop = document.getElementById('pill-postop');
+  const pillAdherence = document.getElementById('pill-adherence');
+  const scenarioPills = [pillElderly, pillChronic, pillPostop, pillAdherence].filter(Boolean);
 
   const chatArea = document.getElementById('live-chat-area');
   const phoneStatus = document.getElementById('phone-status-text');
@@ -113,61 +148,80 @@ function initPostOpInteractiveDemo() {
   if (!chatArea) return;
 
   const scenarios = {
-    'on-track': {
+    'elderly': {
       messages: [
-        { sender: 'bot', text: 'Good morning, Mrs. Vance! 🌅 It is Post-Op Day 3 for your Knee Replacement. How is your surgical incision looking today, and what is your current pain level from 0 to 10?' },
-        { sender: 'patient', text: 'Incision is clean and dry with no redness. Pain is around 2/10 after my morning walk with the walker.' },
-        { sender: 'bot', text: '✅ Great recovery progress! Your pain is well managed and mobility is on track. Dr. Mitchell’s surgical team has been updated. Keep up your gentle exercises!', isData: true }
+        { sender: 'bot', text: 'Namaste, Mr. Ramanathan! 🌅 Under-mattress sensor confirms restful sleep (7.5 hrs, normal respiration). Morning blood pressure check scheduled. Have you taken your warm water and morning walks?' },
+        { sender: 'patient', text: 'Yes, feeling good today. Did my morning veranda walk. Granddaughter helped check BP with the cellular cuff.' },
+        { sender: 'bot', text: '✅ BP automatically received: 126/82 mmHg. Vitals and mobility confirmed normal. Daughter Ananya has received the daily wellness summary on her Caregiver App.', isData: true }
       ],
       triage: {
         bannerClass: 'on-track',
-        label: 'STATUS: ON TRACK — ROUTINE RECOVERY',
-        indicator: '● Stable',
-        patient: 'Eleanor Vance • Total Knee Arthroplasty (TKA)',
-        timeline: 'Post-Op Day 3 (POD 3)',
-        pain: '2 / 10 (Within expected baseline)',
-        mobility: 'Incision clean & dry • Ambulatory with walker',
-        vitals: 'BP: 124/80 mmHg • Temp: 98.4°F (Afebrile)',
-        actionTitle: 'Recommended Clinical Step:',
-        actionText: 'No intervention required. Patient is meeting all clinical recovery milestones. Next automated check-in scheduled for tomorrow at 09:00 AM.'
+        label: 'STATUS: ELDERLY CARE — INDEPENDENT & STABLE',
+        indicator: '● Senior Safe & Active',
+        patient: 'Ramanathan Swaminathan • Age 78 • Independent Living',
+        timeline: 'Day 142 of Remote Eldercare Cohort',
+        pain: 'Zero Discomfort • No Fall/Inactivity Alert',
+        mobility: 'Contactless Mat: 7.5h sleep • Veranda Walk Logged',
+        vitals: 'Cellular BP: 126/82 mmHg • HR: 71 bpm • SpO2: 98%',
+        actionTitle: 'Eldercare Coordinator Status:',
+        actionText: 'Routine normal. Caregiver app synchronized. Next passive vitals sync scheduled via under-mattress sensor tonight.'
       }
     },
-    'observation': {
+    'chronic': {
       messages: [
-        { sender: 'bot', text: 'Good morning, Mr. David Chen. It is Post-Op Day 5 following your laparoscopic hernia repair. Are you experiencing any new swelling, warmth, or change in pain?' },
-        { sender: 'patient', text: 'Notice slight swelling around the lower incision this morning. Pain went up from 2 to 4.' },
-        { sender: 'bot', text: 'Thank you for noting this, Mr. Chen. We have logged the mild swelling and pain shift (4/10). Nurse Sarah has been alerted for observation. Please elevate and ice the area for 20 mins. We will check back this afternoon.', isAlert: true }
+        { sender: 'bot', text: 'Good morning, Mr. David Chen. Morning cellular BP reading recorded: 158/98 mmHg. This is elevated above your 135/85 target. Are you experiencing any headaches or blurred vision?' },
+        { sender: 'patient', text: 'Mild headache since waking up. Forgot to take my Amlodipine dose yesterday evening.' },
+        { sender: 'bot', text: '⚠️ Alert logged. Please take your prescribed morning dose now and rest quietly. Dr. Rao’s cardiology nurse coordinator has been alerted for medication titration review.', isAlert: true }
       ],
       triage: {
         bannerClass: 'observation',
-        label: 'STATUS: FLAGGED FOR OBSERVATION',
-        indicator: '▲ Observation Queued',
-        patient: 'David Chen • Laparoscopic Inguinal Hernia Repair',
-        timeline: 'Post-Op Day 5 (POD 5)',
-        pain: '4 / 10 (Mild elevation from baseline 2/10)',
-        mobility: 'Mild localized swelling noted • Ambulation intact',
-        vitals: 'BP: 130/84 mmHg • Temp: 98.8°F (Normal)',
-        actionTitle: 'Recommended Clinical Step:',
-        actionText: 'Care coordinator review recommended. Send follow-up wound check prompt via WhatsApp at 14:00. No immediate in-person clinic visit indicated.'
+        label: 'STATUS: CHRONIC HYPERTENSION — MEDICATION TITRATION',
+        indicator: '▲ Titration Review Queued',
+        patient: 'David Chen • Age 62 • Essential Hypertension & Dyslipidemia',
+        timeline: 'Week 8 Chronic Care Cohort',
+        pain: 'Mild cephalalgia (Headache) noted',
+        mobility: 'Ambulatory • No chest discomfort or shortness of breath',
+        vitals: 'BP: 158/98 mmHg (3-day rolling avg: 148/94) • HR: 82 bpm',
+        actionTitle: 'Cardiology Coordinator Action:',
+        actionText: 'Outreach queued. Review adherence log and confirm morning dose. Schedule virtual titration review if evening BP remains >140/90.'
       }
     },
-    'review': {
+    'postop': {
       messages: [
-        { sender: 'bot', text: 'Hello, Sarah Jenkins. It is Post-Op Day 6 following your spinal decompression. How are your symptoms feeling today?' },
-        { sender: 'patient', text: 'Having sharp pain 7/10 since yesterday evening and feeling slightly feverish. Temperature is 100.8°F.' },
-        { sender: 'bot', text: '⚠️ Priority Clinical Alert: Your temperature (100.8°F) and pain score (7/10) have been escalated directly to Dr. Aris’s surgical triage coordinator. Nurse Mark will call you within 15 minutes to evaluate next steps.', isAlert: true }
+        { sender: 'bot', text: 'Good morning, Mrs. Vance! 🌅 It is Post-Op Day 4 for your Total Knee Replacement. How is your surgical incision looking today, and what is your current pain level from 0 to 10?' },
+        { sender: 'patient', text: 'Incision is clean and dry with no redness. Pain is around 2/10 after gentle physiotherapy.' },
+        { sender: 'bot', text: '✅ Excellent recovery milestone! Pain score 2/10 and mobility are on track. Dr. Mitchell’s surgical team has been updated. Structured SBAR summary synced to hospital EHR.', isData: true }
       ],
       triage: {
-        bannerClass: 'review-needed',
-        label: 'STATUS: CARE-TEAM REVIEW RECOMMENDED',
-        indicator: '● Immediate Review Recommended',
-        patient: 'Sarah Jenkins • Lumbar Microdiscectomy (Spine)',
-        timeline: 'Post-Op Day 6 (POD 6)',
-        pain: '7 / 10 (Abrupt pain escalation)',
-        mobility: 'Localized discomfort • Patient reports chills',
-        vitals: 'BP: 142/90 mmHg • Temp: 100.8°F (Low-grade pyrexia)',
-        actionTitle: 'Recommended Clinical Step:',
-        actionText: 'Prioritized clinical callback recommended. Surgical coordinator triage call queued. Review incision photo or coordinate same-day clinic evaluation.'
+        bannerClass: 'on-track',
+        label: 'STATUS: SURGICAL RECOVERY — ON TRACK',
+        indicator: '● Milestone Met',
+        patient: 'Eleanor Vance • Total Knee Arthroplasty (TKA)',
+        timeline: 'Post-Op Day 4 (POD 4)',
+        pain: '2 / 10 (Controlled with oral analgesia)',
+        mobility: 'Incision clean & dry • Physiotherapy exercises completed',
+        vitals: 'Temp: 98.4°F (Afebrile) • HR: 74 bpm • SpO2: 99%',
+        actionTitle: 'Surgical Team Protocol:',
+        actionText: 'No intervention required. 30-day readmission risk: LOW. Next automated recovery check-in scheduled for tomorrow at 09:00 AM.'
+      }
+    },
+    'adherence': {
+      messages: [
+        { sender: 'bot', text: 'Hello, Mrs. Sarah Jenkins. 💊 Reminder: Evening Metformin (500mg) & Atorvastatin (20mg). Smart pill box has not registered an opening. Have you taken your medication?' },
+        { sender: 'patient', text: 'Just took it right now! Also noticed I only have 3 days of Metformin strips left.' },
+        { sender: 'bot', text: '✅ Dose confirmed and logged! We have initiated your 30-day Metformin auto-refill request with Apollo Pharmacy. Delivery estimated by tomorrow afternoon.', isData: true }
+      ],
+      triage: {
+        bannerClass: 'on-track',
+        label: 'STATUS: MEDICATION ADHERENCE — DOSE CONFIRMED & REFILL QUEUED',
+        indicator: '● Refill Automated',
+        patient: 'Sarah Jenkins • Type 2 Diabetes & Cardiovascular Risk',
+        timeline: 'Month 4 Adherence Program',
+        pain: 'Nil • Patient feeling energetic',
+        mobility: 'Normal active routine',
+        vitals: 'CGM Time-In-Range: 86% • Fasting Glucose: 112 mg/dL',
+        actionTitle: 'Care Coordinator Summary:',
+        actionText: '96% monthly adherence compliance. Auto-refill order #PC-9842 transmitted to pharmacy partner. No nurse callback needed.'
       }
     }
   };
@@ -201,7 +255,7 @@ function initPostOpInteractiveDemo() {
   const renderScenario = (key) => {
     clearPending();
     chatArea.innerHTML = '';
-    const scenario = scenarios[key] || scenarios['on-track'];
+    const scenario = scenarios[key] || scenarios['elderly'];
 
     // Update Right Side (Triage Card) immediately
     applyTriageState(scenario.triage);
@@ -218,7 +272,7 @@ function initPostOpInteractiveDemo() {
 
         setTimeout(() => {
           if (phoneStatus) {
-            phoneStatus.textContent = 'Official Clinical Recovery Bot';
+            phoneStatus.textContent = 'Official Clinical Bot';
             phoneStatus.style.color = '#8696A0';
           }
 
@@ -250,8 +304,8 @@ function initPostOpInteractiveDemo() {
     });
   });
 
-  // Initial render with 'on-track'
-  renderScenario('on-track');
+  // Initial render with 'elderly'
+  renderScenario('elderly');
 }
 
 /* 4. Frequently Asked Questions (FAQ) Accordion */

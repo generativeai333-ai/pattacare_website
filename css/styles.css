@@ -2739,3 +2739,993 @@ input[type="range"]::-moz-range-thumb {
     display: none;
   }
 }
+
+/* ==========================================================================
+   RPM Multi-Vertical Enterprise Showcase Styles
+   ========================================================================== */
+
+/* Quick Jumps in Hero */
+.hero-vertical-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.hero-vpill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  color: #E2EAF0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-apple);
+}
+
+.hero-vpill:hover {
+  background: rgba(27, 106, 125, 0.35);
+  border-color: var(--color-teal);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(27, 106, 125, 0.3);
+}
+
+.hero-vpill.active-elder {
+  background: rgba(222, 75, 63, 0.2);
+  border-color: rgba(222, 75, 63, 0.5);
+  color: #FED7D7;
+}
+
+.hero-vpill.active-elder:hover {
+  background: rgba(222, 75, 63, 0.35);
+  border-color: var(--brand-coral-500);
+}
+
+/* 5-Vertical Tabs Navigation */
+.rpm-tabs-wrapper {
+  margin-top: 2.5rem;
+}
+
+.rpm-tabs-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-teal) transparent;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  margin-bottom: 2rem;
+}
+
+.rpm-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.35rem;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.rpm-tab-btn:hover {
+  color: var(--color-teal);
+  background: var(--brand-teal-50);
+}
+
+.rpm-tab-btn.active {
+  color: var(--color-teal-dark);
+  background: #FFFFFF;
+  border-color: var(--color-teal);
+  border-bottom-color: #FFFFFF;
+  box-shadow: 0 -4px 12px rgba(27, 106, 125, 0.08);
+}
+
+.rpm-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-teal);
+  border-radius: 3px 3px 0 0;
+}
+
+.rpm-tab-btn.elder-tab.active::after {
+  background: var(--brand-coral-500);
+}
+
+.rpm-tab-pane {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.rpm-tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Vertical Showcase Content Grid */
+.vertical-content-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.vertical-content-card.elderly-featured {
+  border: 2px solid rgba(222, 75, 63, 0.25);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFD 100%);
+  position: relative;
+}
+
+.elder-spotlight-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #B91C1C;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.25rem;
+}
+
+.vertical-grid-2col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .vertical-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.feature-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.feature-bullet-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--brand-teal-50);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.feature-bullet-icon.coral {
+  background: #FEF2F2;
+  color: var(--brand-coral-500);
+}
+
+/* Device Ecosystem Grid */
+.device-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .device-ecosystem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .device-ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.device-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all 0.3s var(--ease-apple);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.device-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-teal);
+}
+
+.device-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.device-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-teal-50);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: #F1F5F9;
+  color: #475569;
+}
+
+.device-tag.cellular {
+  background: #ECFDF5;
+  color: #065F46;
+}
+
+.device-tag.contactless {
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+.device-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.device-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.device-protocols {
+  font-size: 0.76rem;
+  color: var(--color-teal-dark);
+  font-weight: 600;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Caregiver & Clinician Persona Comparison */
+.persona-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .persona-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.persona-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.persona-card.caregiver {
+  border-top: 4px solid var(--brand-coral-500);
+}
+
+.persona-card.clinician {
+  border-top: 4px solid var(--color-teal);
+}
+
+.persona-header-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.persona-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.persona-icon.caregiver-bg {
+  background: linear-gradient(135deg, var(--brand-coral-500) 0%, #B91C1C 100%);
+}
+
+.persona-icon.clinician-bg {
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-surface-dark) 100%);
+}
+
+.persona-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.persona-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+}
+
+/* ==========================================================================
+   RPM Redesign: Complete Vertical Showcase, Devices & Persona Styling
+   ========================================================================== */
+
+/* 1. Elderly Care Flagship Spotlight */
+.vertical-content-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.vertical-content-card.elderly-featured {
+  border: 2px solid var(--brand-coral-500);
+  background: linear-gradient(180deg, #FFFDFD 0%, #FFFFFF 100%);
+}
+
+.elder-spotlight-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--brand-coral-500) 0%, #C2410C 100%);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 12px rgba(211, 71, 63, 0.25);
+}
+
+.vertical-header-row {
+  margin-bottom: 1.75rem;
+}
+
+.vertical-badge-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-teal);
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+
+.vertical-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+
+.vertical-lead {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 900px;
+}
+
+.elder-feature-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .elder-feature-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.elder-feature-col {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.elder-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.elder-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.elder-feature-header h4 {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.elder-feature-col p {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.elder-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.elder-check-list li {
+  font-size: 0.84rem;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+  padding-left: 1.35rem;
+  position: relative;
+}
+
+.elder-check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-teal);
+  font-weight: 800;
+}
+
+.elder-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (max-width: 800px) {
+  .elder-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.elder-metric-box {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+}
+
+.elder-metric-num {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--brand-coral-500);
+  line-height: 1.2;
+}
+
+.elder-metric-txt {
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* 2. Chronic Disease Grid */
+.chronic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .chronic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chronic-card {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chronic-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.chronic-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-light);
+  color: var(--color-teal-dark);
+}
+
+.chronic-icon {
+  font-size: 1.5rem;
+}
+
+.chronic-card h4 {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.chronic-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.15rem;
+  flex-grow: 1;
+}
+
+.chronic-pill-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chronic-pill-box span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+/* 3. Post-Op Recovery Flow */
+.postop-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .postop-flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.postop-step-box {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.postop-step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #E0F2FE;
+  color: #0369A1;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+}
+
+.postop-step-box h4 {
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.postop-step-box p {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.postop-footer-banner {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.postop-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #16A34A;
+  flex-shrink: 0;
+}
+
+.postop-ehr-badge {
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  background: #16A34A;
+  color: #FFFFFF;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+/* 4. Medication Adherence Grid */
+.adherence-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .adherence-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.adherence-card {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.adherence-card-num {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--color-teal);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.adherence-card h4 {
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.adherence-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* 5. NEWS2 Deterioration Layout */
+.news2-cockpit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .news2-cockpit-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news2-explanation-card,
+.news2-features-card {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+}
+
+.news2-explanation-card h4,
+.news2-features-card h4 {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.news2-table-preview {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.news2-param-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.news2-val {
+  font-size: 0.8rem;
+  color: #16A34A;
+  background: #DCFCE7;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.news2-feature-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.news2-feature-points li {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.news2-feature-points li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.85rem;
+}
+
+.news2-feature-points li strong {
+  color: var(--color-text-primary);
+}
+
+/* 6. Device Ecosystem Specifications & Ingestion Banner */
+.device-card.featured-device {
+  border: 2px solid var(--brand-coral-500);
+  background: linear-gradient(180deg, #FFFDFD 0%, #FFFFFF 100%);
+}
+
+.device-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.device-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+}
+
+.device-tag.cloud {
+  background: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.device-tag.ble {
+  background: #F3E8FF;
+  color: #7E22CE;
+}
+
+.device-tag.iot {
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.device-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.device-specs span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #F1F5F9;
+  color: #475569;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.device-ingestion-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 800px) {
+  .device-ingestion-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ingestion-banner-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.ingestion-banner-item svg {
+  color: var(--color-teal);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.ingestion-banner-item strong {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ingestion-banner-item p {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* 7. Persona Cards Grid */
+.persona-card.patient-side {
+  border-top: 4px solid var(--brand-coral-500);
+}
+
+.persona-card.clinical-side {
+  border-top: 4px solid var(--color-teal);
+}
+
+.persona-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.persona-icon-badge {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.persona-lead {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.persona-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.persona-features-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.persona-features-list li svg {
+  color: var(--color-teal);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.persona-features-list li strong {
+  color: var(--color-text-primary);
+}
+
