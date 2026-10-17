@@ -698,12 +698,86 @@ section[id] {
   max-width: 38rem;
 }
 
+/* 3-Metric Executive KPI Strip */
+.hero-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.hero-kpi-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all var(--duration-fast) var(--ease-apple);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(27, 106, 125, 0.4);
+  box-shadow: 0 8px 18px -4px rgba(27, 106, 125, 0.12);
+}
+
+.hero-kpi-metric {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0C3B47;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 0.35rem;
+}
+
+.hero-kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.35;
+}
+
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
   align-items: center;
   margin-top: 0.5rem;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-whitepaper-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.45rem;
+  border-radius: 10px;
+  border: 1px solid #CBD5E1;
+  background-color: #FFFFFF;
+  color: #1E293B;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-apple);
+  cursor: pointer;
+}
+
+.hero-whitepaper-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 .hero-trust-badges {
@@ -728,7 +802,7 @@ section[id] {
   font-weight: bold;
 }
 
-/* Right Column: Clinical Cockpit Telemetry Mockup */
+/* Right Column: Minimalist Clinical Cockpit Card */
 .hero-cockpit-col {
   width: 100%;
 }
@@ -745,6 +819,15 @@ section[id] {
 .cockpit-card:hover {
   box-shadow: 0 26px 55px -12px var(--brand-teal-glow);
   border-color: rgba(27, 106, 125, 0.35);
+}
+
+.hero-minimalist-cockpit {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-apple);
 }
 
 .cockpit-header-bar {
@@ -790,37 +873,22 @@ section[id] {
   font-weight: 600;
 }
 
-.cockpit-body-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.08fr;
-  background: #F8FAFC;
-  border-bottom: 1px solid #E2E8F0;
-}
-
-.cockpit-subcard {
-  padding: 1.25rem;
-}
-
-.cockpit-subcard.whatsapp-feed {
+/* Minimalist Cockpit Top: Simulated WhatsApp prompt */
+.cockpit-top-whatsapp {
+  padding: 1.25rem 1.4rem;
   background: #FFFFFF;
-  border-right: 1px solid #E2E8F0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.cockpit-subcard.clinician-feed {
-  background: #F8FAFC;
+  border-bottom: 1px solid #F1F5F9;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
-.subcard-header {
+.wa-feed-header {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  border-bottom: 1px solid #F1F5F9;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid #F8FAFC;
   padding-bottom: 0.65rem;
 }
 
@@ -836,45 +904,47 @@ section[id] {
   flex-shrink: 0;
 }
 
-.clinician-avatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--brand-teal-600);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.wa-feed-title-wrap {
+  flex: 1;
+  min-width: 0;
 }
 
-.subcard-title {
-  font-size: 0.82rem;
+.wa-feed-title {
+  font-size: 0.84rem;
   font-weight: 700;
   color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-.subcard-meta {
+.wa-check-verified {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 0.6rem;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.wa-feed-sub {
   font-size: 0.72rem;
   color: #64748B;
 }
 
-.patient-name {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #0F172A;
-}
-
-.badge-status-stable {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #065F46;
-  background: #D1FAE5;
-  border: 1px solid #A7F3D0;
-  padding: 0.15rem 0.5rem;
-  border-radius: 980px;
+.wa-recipient-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #F1F5F9;
+  color: #334155;
+  padding: 0.22rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  white-space: nowrap;
 }
 
 .whatsapp-bubble {
@@ -892,11 +962,11 @@ section[id] {
   border-top-left-radius: 2px;
 }
 
-.whatsapp-bubble.patient {
-  background: #DCF8C6;
-  color: #0F172A;
-  border: 1px solid #C8E6C9;
-  border-top-right-radius: 2px;
+.hero-wa-bubble {
+  max-width: 96%;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .bubble-sender {
@@ -907,71 +977,134 @@ section[id] {
   margin-bottom: 0.2rem;
 }
 
-.bubble-check {
-  font-size: 0.7rem;
-  color: #0284C7;
-  font-weight: bold;
-  float: right;
-  margin-top: 0.1rem;
-}
-
-.vitals-chip-row {
+/* WhatsApp Tap Buttons */
+.wa-tap-buttons {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.65rem;
   flex-wrap: wrap;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
-.vitals-chip {
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 0.22rem 0.55rem;
-  border-radius: 6px;
-  background-color: #F0FDFA; /* bg-teal-50 */
-  border: 1px solid #99F6E4; /* border-teal-200 */
-  color: #115E59; /* text-teal-800 */
+.wa-tap-btn {
   display: inline-flex;
   align-items: center;
-  line-height: 1.35;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-apple);
+  user-select: none;
 }
 
-.vitals-chip.status-ok {
-  background-color: #F0FDFA; /* bg-teal-50 */
-  border-color: #99F6E4; /* border-teal-200 */
-  color: #115E59; /* text-teal-800 (high contrast) */
-  font-weight: 500;
+.wa-tap-btn.wa-tap-ok {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  color: #166534;
 }
 
-.bg-teal-50 {
-  background-color: #F0FDFA !important;
+.wa-tap-btn.wa-tap-ok:hover,
+.wa-tap-btn.wa-tap-ok.active {
+  background: #DCFCE7;
+  border-color: #22C55E;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
 }
 
-.border-teal-200 {
-  border-color: #99F6E4 !important;
+.wa-tap-btn.wa-tap-alert {
+  background: #FFFBEB;
+  border-color: #FDE68A;
+  color: #92400E;
 }
 
-.text-teal-800 {
-  color: #115E59 !important;
+.wa-tap-btn.wa-tap-alert:hover,
+.wa-tap-btn.wa-tap-alert.active {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
 }
 
-.font-medium {
-  font-weight: 500 !important;
+.wa-tap-btn .tap-icon {
+  font-size: 0.85rem;
 }
 
-.sbar-summary-box {
+/* Minimalist Cockpit Bottom: Single-Line Hospital Triage Alert */
+.cockpit-bottom-triage {
+  padding: 1.15rem 1.4rem;
+  background: #F8FAFC;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.triage-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.triage-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.badge-status-news2 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #065F46;
+  background: #D1FAE5;
+  border: 1px solid #A7F3D0;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.triage-patient-info {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.triage-ehr-sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0284C7;
+}
+
+.pulse-dot-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulse-ring-green 2s infinite ease-in-out;
+}
+
+@keyframes pulse-ring-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.sbar-single-line-container {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 8px;
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.sbar-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
+  padding: 0.65rem 0.85rem;
 }
 
 .sbar-tag {
@@ -979,65 +1112,17 @@ section[id] {
   color: #FFFFFF;
   font-size: 0.65rem;
   font-weight: 800;
-  padding: 0.1rem 0.35rem;
+  padding: 0.15rem 0.4rem;
   border-radius: 4px;
   flex-shrink: 0;
   letter-spacing: 0.04em;
 }
 
-.sbar-text {
-  font-size: 0.75rem;
-  color: #334155;
-  line-height: 1.4;
-}
-
-.sbar-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.45rem;
-  border-top: 1px solid #F1F5F9;
-  padding-top: 0.5rem;
-}
-
-.metric-mini {
-  display: flex;
-  flex-direction: column;
-}
-
-.metric-mini-label {
-  font-size: 0.65rem;
-  color: #64748B;
-  font-weight: 600;
-}
-
-.metric-mini-val {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #0F172A;
-}
-
-.metric-mini-val.text-emerald {
-  color: #059669;
-}
-
-.cockpit-footer-action {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.signoff-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
-  color: #065F46;
-  background: #ECFDF5;
-  border: 1px solid #A7F3D0;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  font-weight: 600;
-  width: 100%;
+.sbar-single-text {
+  font-size: 0.78rem;
+  color: #1E293B;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .cockpit-footer-bar {
@@ -1060,6 +1145,180 @@ section[id] {
 .cockpit-demo-link:hover {
   color: #7DD3FC;
   text-decoration: underline;
+}
+
+/* Clinical Whitepaper Modal */
+.whitepaper-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.whitepaper-modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.whitepaper-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.whitepaper-modal-card {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  max-width: 540px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: modalSlideUp 0.25s var(--ease-apple) forwards;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.whitepaper-modal-close {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  background: #F1F5F9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.whitepaper-modal-close:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+.whitepaper-modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.whitepaper-modal-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.whitepaper-modal-sub {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.whitepaper-highlights {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.w-highlight-item {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.35;
+}
+
+.whitepaper-download-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.form-row-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-group-sm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-group-sm label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-input-sm {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #0F172A;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input-sm:focus {
+  border-color: var(--brand-teal-600);
+  box-shadow: 0 0 0 3px rgba(27, 106, 125, 0.15);
+}
+
+.whitepaper-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.whitepaper-success-msg {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wp-success-icon {
+  width: 48px;
+  height: 48px;
+  background: #DCFCE7;
+  color: #166534;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 /* --------------------------------------------------------------------------
@@ -2670,13 +2929,32 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.35;
   }
 
-  .cockpit-body-grid {
+  .hero-kpi-strip {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .cockpit-top-whatsapp,
+  .cockpit-bottom-triage {
+    padding: 1rem;
+  }
+
+  .wa-tap-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wa-tap-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-row-dual {
     grid-template-columns: 1fr;
   }
 
-  .cockpit-subcard.whatsapp-feed {
-    border-right: none;
-    border-bottom: 1px solid #E2E8F0;
+  .whitepaper-modal-card {
+    padding: 1.5rem 1.25rem;
   }
 
   .hero-trust-badges {

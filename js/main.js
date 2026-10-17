@@ -11,6 +11,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initVideoPlayer();
+  initHeroInteractive();
+  initWhitepaperModal();
   initRpmTabs();
   initDeviceFilters();
   initPostOpInteractiveDemo();
@@ -399,3 +401,95 @@ function initDemoForm() {
     });
   }
 }
+
+/* 6. Hero Interactive WhatsApp Buttons & Single-Line SBAR Triage Simulation */
+function initHeroInteractive() {
+  const btnOk = document.getElementById('hero-wa-tap-ok');
+  const btnSymptom = document.getElementById('hero-wa-tap-symptom');
+  const sbarText = document.getElementById('hero-sbar-text');
+  const news2Badge = document.querySelector('.cockpit-bottom-triage .badge-status-news2');
+
+  if (!btnOk || !btnSymptom || !sbarText) return;
+
+  btnOk.addEventListener('click', () => {
+    btnOk.classList.add('active');
+    btnSymptom.classList.remove('active');
+    sbarText.innerHTML = '<strong>Auto-Drafted SBAR:</strong> BP 128/82 mmHg within JNC-8 target. Adherence 100% (7/7). Zero red-flags. Synced to EHR.';
+    if (news2Badge) {
+      news2Badge.textContent = 'NEWS2 Score: 0 (Normal)';
+      news2Badge.style.color = '#065F46';
+      news2Badge.style.backgroundColor = '#D1FAE5';
+      news2Badge.style.borderColor = '#A7F3D0';
+    }
+  });
+
+  btnSymptom.addEventListener('click', () => {
+    btnSymptom.classList.add('active');
+    btnOk.classList.remove('active');
+    sbarText.innerHTML = '<strong>Auto-Drafted SBAR:</strong> SBP surge >160 mmHg reported with mild cephalalgia. Escalation timer: 15m. Outreach call queued.';
+    if (news2Badge) {
+      news2Badge.textContent = 'NEWS2 Score: 3 (Watch Alert)';
+      news2Badge.style.color = '#92400E';
+      news2Badge.style.backgroundColor = '#FEF3C7';
+      news2Badge.style.borderColor = '#FDE68A';
+    }
+  });
+}
+
+/* 7. Clinical Whitepaper Modal Handler */
+function initWhitepaperModal() {
+  const openBtn = document.getElementById('open-whitepaper-btn');
+  const modal = document.getElementById('whitepaper-modal');
+  const closeBtn = document.getElementById('close-whitepaper-btn');
+  const backdrop = document.getElementById('whitepaper-modal-backdrop');
+  const form = document.getElementById('whitepaper-form');
+  const successMsg = document.getElementById('whitepaper-success');
+  const proceedBtn = document.getElementById('wp-proceed-demo');
+
+  if (!modal) return;
+
+  const openModal = (e) => {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.innerHTML = '<span>Authorizing Download...</span>';
+        submitBtn.disabled = true;
+      }
+      setTimeout(() => {
+        form.style.display = 'none';
+        if (successMsg) successMsg.style.display = 'flex';
+      }, 600);
+    });
+  }
+
+  if (proceedBtn) {
+    proceedBtn.addEventListener('click', () => {
+      closeModal();
+    });
+  }
+}
+

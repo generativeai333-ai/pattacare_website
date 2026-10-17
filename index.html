@@ -260,7 +260,7 @@
   <!-- 1. Hero Section: Enterprise RPM Platform -->
   <section class="hero-section" id="hero">
     <div class="container hero-container-grid">
-      <!-- Left Column: Value Proposition & Interactive Quick-Jumps -->
+      <!-- Left Column: Value Proposition & 3-Metric Executive KPI Strip -->
       <div class="hero-content-col">
         <div class="badge-chip teal">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -269,43 +269,46 @@
           ENTERPRISE REMOTE PATIENT MONITORING (RPM) PLATFORM
         </div>
         <h1 class="hero-title">
-          Care doesn't stop at the clinic door.
-          <span class="hero-title-accent">Neither does clinical visibility.</span>
+          Enterprise RPM That Closes the Gap
+          <span class="hero-title-accent">Between Hospital and Home.</span>
         </h1>
         <p class="hero-description">
-          PattaCare empowers hospitals and health systems with an enterprise RPM platform spanning <strong>Chronic Disease Management</strong>, <strong>Post-Operative Recovery</strong>, <strong>Medication Adherence</strong>, and <strong>Early Deterioration Alerts</strong>. Combining connected device telemetry with zero-friction WhatsApp check-ins, we connect hospital care teams and recovering patients seamlessly.
+          Cut 30-day readmissions and eliminate alarm fatigue with automated WhatsApp check-ins and device-agnostic telemetry.
         </p>
 
-        <!-- Vertical Quick-Jump Pills -->
-        <div class="hero-vertical-pills" aria-label="Select Clinical Vertical">
-          <a href="#rpm-showcase" class="hero-vpill active" data-target-tab="chronic">
-            <span class="vpill-dot"></span>
-            <span>🩺 Chronic Care</span>
-          </a>
-          <a href="#rpm-showcase" class="hero-vpill" data-target-tab="postop">
-            <span class="vpill-dot"></span>
-            <span>🩹 Post-Op Recovery</span>
-          </a>
-          <a href="#rpm-showcase" class="hero-vpill" data-target-tab="adherence">
-            <span class="vpill-dot"></span>
-            <span>💊 Medication Adherence</span>
-          </a>
-          <a href="#rpm-showcase" class="hero-vpill" data-target-tab="alerts">
-            <span class="vpill-dot"></span>
-            <span>⚡ NEWS2 Deterioration</span>
-          </a>
+        <!-- 3-Metric KPI Strip (Executive scannability in under 10 seconds) -->
+        <div class="hero-kpi-strip" aria-label="Key Clinical &amp; Operational Metrics">
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-metric">92%</div>
+            <div class="hero-kpi-label">Patient Adherence via WhatsApp</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-metric">4x</div>
+            <div class="hero-kpi-label">Nurse Monitoring Capacity via NEWS2 Prioritization</div>
+          </div>
+          <div class="hero-kpi-card">
+            <div class="hero-kpi-metric">100%</div>
+            <div class="hero-kpi-label">EHR-Ready via HL7 FHIR R4 &amp; ABDM</div>
+          </div>
         </div>
 
         <div class="hero-cta-group">
-          <a href="#demo-form" class="btn btn-primary">
-            <span>Schedule Platform Demo</span>
+          <a href="#demo-form" class="btn btn-primary hero-cta-btn">
+            <span>Schedule Clinical Demo</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
-          <a href="https://app.pattacare.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-secondary hero-pilot-btn inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-slate-300 bg-white text-slate-800 font-medium text-base shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all">
-            <span>Start Free Pilot &rarr;</span>
+          <a href="#whitepaper-modal" class="btn btn-secondary hero-whitepaper-btn" id="open-whitepaper-btn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Download Clinical Whitepaper</span>
           </a>
         </div>
 
@@ -327,9 +330,9 @@
         </div>
       </div>
 
-      <!-- Right Column: Interactive Multi-Vertical Clinical Cockpit Telemetry Mockup -->
+      <!-- Right Column: Minimalist Clinical Cockpit Card -->
       <div class="hero-cockpit-col">
-        <div class="cockpit-card">
+        <div class="cockpit-card hero-minimalist-cockpit">
           <div class="cockpit-header-bar">
             <div class="cockpit-dots">
               <span class="cockpit-dot red"></span>
@@ -338,90 +341,68 @@
             </div>
             <div class="cockpit-tag">
               <span class="pulse-dot-live"></span>
-              <span>CLINICAL COCKPIT • MULTI-VERTICAL RPM</span>
+              <span>CLINICAL TRIAGE COCKPIT • AUTOMATED SBAR</span>
             </div>
             <div class="cockpit-status-tag">FHIR R4 LIVE</div>
           </div>
 
-          <div class="cockpit-body-grid">
-            <!-- Subcard Left: Patient WhatsApp Stream & Connected Telemetry Feed -->
-            <div class="cockpit-subcard whatsapp-feed">
-              <div class="subcard-header">
-                <div class="whatsapp-badge-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="subcard-title">Patient Stream (Home)</div>
-                  <div class="subcard-meta">Cellular BP Sync • 08:30 AM</div>
-                </div>
+          <!-- Top: Simulated WhatsApp prompt with 2 simple tap-buttons -->
+          <div class="cockpit-top-whatsapp">
+            <div class="wa-feed-header">
+              <div class="whatsapp-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
               </div>
-
-              <div class="whatsapp-bubble bot">
-                <span class="bubble-sender">PattaCare Clinical Bot</span>
-                Good morning, Mr. David Chen! Please record your morning blood pressure reading with your cellular cuff.
+              <div class="wa-feed-title-wrap">
+                <div class="wa-feed-title">PattaCare Health Assistant <span class="wa-check-verified" title="Verified Medical Account">✓</span></div>
+                <div class="wa-feed-sub">Cellular BP Sync • Today 08:30 AM</div>
               </div>
+              <div class="wa-recipient-pill">David Chen (62M)</div>
+            </div>
 
-              <div class="whatsapp-bubble patient">
-                <span class="bubble-sender">David Chen (62M, Chronic Cohort)</span>
-                Good morning. Just took BP with the cellular cuff. Feeling energetic today with no headache.
-                <span class="bubble-check">✓✓</span>
+            <div class="whatsapp-bubble bot hero-wa-bubble">
+              <span class="bubble-sender">PattaCare Protocol Bot</span>
+              Good morning David. Please confirm your morning BP &amp; vitals check:
+            </div>
+
+            <!-- 2 simple tap-buttons -->
+            <div class="wa-tap-buttons" role="group" aria-label="Interactive WhatsApp Response">
+              <button type="button" class="wa-tap-btn wa-tap-ok active" id="hero-wa-tap-ok">
+                <span class="tap-icon">✓</span>
+                <span>128/82 mmHg — Feeling Good</span>
+              </button>
+              <button type="button" class="wa-tap-btn wa-tap-alert" id="hero-wa-tap-symptom">
+                <span class="tap-icon">⚠️</span>
+                <span>Report Symptoms / Surges</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom: Single-line hospital triage alert showing NEWS2 score and an auto-drafted SBAR note -->
+          <div class="cockpit-bottom-triage">
+            <div class="triage-top-row">
+              <div class="triage-pill-group">
+                <span class="badge-status-news2">NEWS2 Score: 0 (Normal)</span>
+                <span class="triage-patient-info">MRN #91-4821 • Essential HTN</span>
               </div>
-
-              <div class="vitals-chip-row">
-                <span class="vitals-chip status-ok bg-teal-50 border border-teal-200 text-teal-800 font-medium">BP: 128/82</span>
-                <span class="vitals-chip status-ok bg-teal-50 border border-teal-200 text-teal-800 font-medium">Pulse: 72 bpm</span>
-                <span class="vitals-chip status-ok bg-teal-50 border border-teal-200 text-teal-800 font-medium">SpO2: 98%</span>
+              <div class="triage-ehr-sync">
+                <span class="pulse-dot-green"></span>
+                <span>Epic EHR Synced</span>
               </div>
             </div>
 
-            <!-- Subcard Right: Clinician SBAR Card -->
-            <div class="cockpit-subcard clinician-feed">
-              <div class="subcard-header" style="justify-content: space-between;">
-                <div style="display: flex; align-items: center; gap: 0.65rem;">
-                  <div class="clinician-avatar">DC</div>
-                  <div>
-                    <div class="patient-name">David Chen, 62M</div>
-                    <div class="subcard-meta">MRN #91-4821 • Essential HTN</div>
-                  </div>
-                </div>
-                <span class="badge-status-stable">STABLE</span>
-              </div>
-
-              <div class="sbar-summary-box">
-                <div class="sbar-row">
-                  <span class="sbar-tag">SBAR</span>
-                  <span class="sbar-text"><strong>Assessment:</strong> Stable baseline. Blood pressure trending within target (128/82 mmHg). Rolling 7-day average: 126/80. Zero cephalalgia or dizziness reported.</span>
-                </div>
-                <div class="sbar-metrics">
-                  <div class="metric-mini">
-                    <span class="metric-mini-label">BP Target</span>
-                    <span class="metric-mini-val text-emerald">Controlled</span>
-                  </div>
-                  <div class="metric-mini">
-                    <span class="metric-mini-label">Adherence</span>
-                    <span class="metric-mini-val text-emerald">100% (7/7)</span>
-                  </div>
-                  <div class="metric-mini">
-                    <span class="metric-mini-label">EHR Sync</span>
-                    <span class="metric-mini-val text-emerald">Logged</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cockpit-footer-action">
-                <span class="signoff-tag">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  Care Plan: Routine daily surveillance active
-                </span>
-              </div>
+            <div class="sbar-single-line-container">
+              <span class="sbar-tag">SBAR</span>
+              <p class="sbar-single-text" id="hero-sbar-text">
+                <strong>Auto-Drafted SBAR:</strong> BP 128/82 mmHg within JNC-8 target. Adherence 100% (7/7). Zero red-flags. Synced to EHR.
+              </p>
             </div>
           </div>
 
           <div class="cockpit-footer-bar">
-            <span>⚡ Automated Telemetry Routing: All vitals normal • Logged to EHR chart</span>
-            <a href="#interactive-demo" class="cockpit-demo-link">Simulate Clinical Scenarios ➔</a>
+            <span>⚡ Automated Telemetry Routing: All vitals normal • Auto-Exported via HL7 FHIR R4</span>
+            <a href="#interactive-demo" class="cockpit-demo-link">Simulate Scenarios ➔</a>
           </div>
         </div>
       </div>
@@ -1609,6 +1590,52 @@
       </div>
     </div>
   </footer>
+
+  <!-- Clinical Whitepaper Modal -->
+  <div class="whitepaper-modal-overlay" id="whitepaper-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="whitepaper-modal-title">
+    <div class="whitepaper-modal-backdrop" id="whitepaper-modal-backdrop"></div>
+    <div class="whitepaper-modal-card">
+      <button type="button" class="whitepaper-modal-close" id="close-whitepaper-btn" aria-label="Close modal">&times;</button>
+      <div class="whitepaper-modal-header">
+        <div class="badge-chip teal">CLINICAL WHITEPAPER • 2026 EDITION</div>
+        <h3 id="whitepaper-modal-title" class="whitepaper-modal-heading">Enterprise RPM: Closing the Gap Between Hospital and Home</h3>
+        <p class="whitepaper-modal-sub">
+          A comparative analysis of continuous telemetry, conversational WhatsApp engagement, and NEWS2-driven clinical triage in tertiary health systems.
+        </p>
+      </div>
+      <div class="whitepaper-highlights">
+        <div class="w-highlight-item">✓ 38% Reduction in 30-day post-op readmissions across 14,000 patient cohort</div>
+        <div class="w-highlight-item">✓ Zero-friction WhatsApp UX achieving 92% sustained adherence at 90 days</div>
+        <div class="w-highlight-item">✓ Complete HL7 FHIR R4 &amp; ABDM architecture reference implementation</div>
+      </div>
+      <form class="whitepaper-download-form" id="whitepaper-form">
+        <div class="form-row-dual">
+          <div class="form-group-sm">
+            <label for="wp-name">Full Name *</label>
+            <input type="text" id="wp-name" required placeholder="Dr. Sarah Jenkins" class="form-input-sm">
+          </div>
+          <div class="form-group-sm">
+            <label for="wp-role">Hospital Role *</label>
+            <input type="text" id="wp-role" required placeholder="Chief Medical Officer / VP Nursing" class="form-input-sm">
+          </div>
+        </div>
+        <div class="form-group-sm">
+          <label for="wp-email">Work Email *</label>
+          <input type="email" id="wp-email" required placeholder="s.jenkins@hospitalhealth.org" class="form-input-sm">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block whitepaper-submit-btn">
+          <span>Download PDF Instant Access (8.4 MB)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </button>
+      </form>
+      <div class="whitepaper-success-msg" id="whitepaper-success" style="display: none;">
+        <div class="wp-success-icon">✓</div>
+        <h4>Clinical Whitepaper Download Ready</h4>
+        <p>Your download has been authorized. A copy has also been sent to your email.</p>
+        <a href="#demo-form" class="btn btn-secondary btn-sm" id="wp-proceed-demo">Schedule Platform Demo ➔</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
