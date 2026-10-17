@@ -211,7 +211,7 @@
         <li><a href="#video-overview" class="nav-link">Overview</a></li>
         <li><a href="#rpm-showcase" class="nav-link">RPM Platform</a></li>
         <li><a href="#device-ecosystem" class="nav-link">Devices</a></li>
-        <li><a href="#interactive-demo" class="nav-link">Live Triage</a></li>
+        <li><a href="#clinical-visibility" class="nav-link">Clinical Workflow</a></li>
         <li><a href="#care-personas" class="nav-link">Personas</a></li>
         <li><a href="#security-architecture" class="nav-link">Security</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -1080,128 +1080,137 @@
     </div>
   </section>
 
-  <!-- 5. Interactive Product Demo: WhatsApp Check-in ⇄ Multi-Vertical Care Triage -->
-  <section class="interactive-demo-section" id="interactive-demo">
+  <!-- 5. Clinical Visibility: 3-Step Sequence Comparing Traditional Care vs. PattaCare -->
+  <section class="clinical-visibility-section" id="clinical-visibility" style="position: relative;">
+    <div id="interactive-demo" style="position: absolute; top: -85px;"></div>
     <div class="container">
       <div class="section-header">
-        <div class="badge-chip teal">CLINICAL VISIBILITY IN ACTION</div>
-        <h2 class="section-title">From Patient Check-In to Care Team Triage in Seconds</h2>
-        <p>Select any of the clinical scenarios below to test how structured WhatsApp check-ins and device telemetry instantly populate the care coordinator cockpit.</p>
+        <div class="badge-chip teal">CLINICAL VISIBILITY WORKFLOW</div>
+        <h2 class="section-title">Traditional Care vs. PattaCare: The Clinical Visibility Difference</h2>
+        <p>How PattaCare eliminates alert fatigue and patient app dropouts with automated WhatsApp engagement and exception-based triage.</p>
       </div>
 
-      <!-- Segmented Control for 3 Scenarios -->
-      <div style="display: flex; justify-content: center;">
-        <div class="scenario-toggle-bar" role="tablist" aria-label="Clinical Scenarios">
-          <button class="scenario-pill active" data-scenario="chronic" id="pill-chronic" role="tab" aria-selected="true">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            🩺 1. Chronic HTN (BP Surge)
-          </button>
-          <button class="scenario-pill" data-scenario="postop" id="pill-postop" role="tab" aria-selected="false">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            🩹 2. Post-Op Knee (Recovery)
-          </button>
-          <button class="scenario-pill" data-scenario="adherence" id="pill-adherence" role="tab" aria-selected="false">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            💊 3. Adherence &amp; Auto-Refill
-          </button>
-        </div>
-      </div>
-
-      <!-- Split Interactive Grid: Left (WhatsApp Simulation) | Right (Care Team Triage) -->
-      <div class="interactive-demo-grid">
-        <!-- Left: WhatsApp Simulation Phone -->
-        <div>
-          <div style="text-align: center; margin-bottom: 1rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal); text-transform: uppercase; letter-spacing: 0.06em;">Patient Recovery Interface (WhatsApp)</span>
+      <div class="comparison-workflow-grid">
+        <!-- Column 1: Traditional RPM -->
+        <div class="comparison-column traditional-column">
+          <div class="column-header-card traditional">
+            <div class="column-title-wrap">
+              <span class="column-badge badge-traditional">Alarm Fatigue &amp; Clunky Apps</span>
+              <h3 class="column-title">Traditional RPM</h3>
+            </div>
+            <div class="column-icon-wrap" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
           </div>
 
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <div class="phone-header">
-                <div class="phone-avatar">
-                  <picture>
-                    <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
-                    <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
-                    <img src="assets/images/patta-care-logo.png" alt="PattaCare WhatsApp Remote Patient Monitoring Bot" loading="lazy" width="40" height="40" style="width: 100%; height: 100%; object-fit: contain;">
-                  </picture>
-                </div>
-                <div class="phone-contact-info">
-                  <div class="phone-contact-name">
-                    <span>PattaCare Clinical Bot</span>
-                    <span class="verified-badge" title="Official WhatsApp Verified Health Channel">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </span>
-                  </div>
-                  <span class="phone-contact-status" id="phone-status-text">Official Clinical RPM Service</span>
-                </div>
+          <div class="sequence-steps-container">
+            <!-- Step 1 -->
+            <div class="sequence-step-card traditional-step">
+              <div class="step-marker traditional">
+                <span class="step-num">1</span>
               </div>
+              <div class="step-content">
+                <h4 class="step-heading">Alert Overload</h4>
+                <p class="step-point">50+ unstratified raw alerts daily</p>
+                <span class="step-detail-tag">High Alarm Fatigue</span>
+              </div>
+            </div>
 
-              <!-- Chat Area dynamically populated by JS -->
-              <div class="phone-chat-area" id="live-chat-area">
-                <!-- Injected via JavaScript -->
+            <!-- Step 2 -->
+            <div class="sequence-step-card traditional-step">
+              <div class="step-marker traditional">
+                <span class="step-num">2</span>
+              </div>
+              <div class="step-content">
+                <h4 class="step-heading">Friction &amp; Abandonment</h4>
+                <p class="step-point">40% patient app dropout rate</p>
+                <span class="step-detail-tag">Complex Portals &amp; Passwords</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="sequence-step-card traditional-step">
+              <div class="step-marker traditional">
+                <span class="step-num">3</span>
+              </div>
+              <div class="step-content">
+                <h4 class="step-heading">Operational Burden</h4>
+                <p class="step-point">Manual chart notes and constant phone tag</p>
+                <span class="step-detail-tag">Unproductive Nurse Hours</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Care Team Triage Card -->
-        <div>
-          <div style="text-align: center; margin-bottom: 1rem;">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal); text-transform: uppercase; letter-spacing: 0.06em;">Hospital Care Coordinator Cockpit (Live Triage)</span>
+        <!-- Column 2: PattaCare Workflow -->
+        <div class="comparison-column pattacare-column">
+          <div class="column-header-card pattacare">
+            <div class="column-title-wrap">
+              <span class="column-badge badge-pattacare">Exception-Based Triage</span>
+              <h3 class="column-title">PattaCare Workflow</h3>
+            </div>
+            <div class="column-icon-wrap" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
           </div>
 
-          <div class="live-triage-panel">
-            <div class="triage-panel-header">
-              <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <span class="pulse-dot-live"></span>
-                <span style="font-size: 0.88rem; font-weight: 700;">Clinical RPM Worklist Feed</span>
+          <div class="sequence-steps-container">
+            <!-- Step 1 -->
+            <div class="sequence-step-card pattacare-step">
+              <div class="step-marker pattacare">
+                <span class="step-num">1</span>
               </div>
-              <span style="font-size: 0.78rem; opacity: 0.85;">Hospital Tenant #HOSP-9421</span>
+              <div class="step-content">
+                <h4 class="step-heading">Structured Automated Capture</h4>
+                <p class="step-point">Automated WhatsApp checks &amp; deterministic NEWS2 scoring</p>
+                <span class="step-detail-tag success">Zero App Install Required</span>
+              </div>
             </div>
 
-            <div class="triage-panel-body">
-              <!-- Live Status Banner -->
-              <div class="triage-status-banner observation" id="triage-status-banner">
-                <span id="triage-status-label">STATUS: CHRONIC HYPERTENSION — MEDICATION TITRATION</span>
-                <span id="triage-status-indicator">▲ Titration Review Queued</span>
+            <!-- Step 2 -->
+            <div class="sequence-step-card pattacare-step">
+              <div class="step-marker pattacare">
+                <span class="step-num">2</span>
               </div>
-
-              <!-- Patient Context Box -->
-              <div class="patient-context-box">
-                <div class="context-row">
-                  <span class="context-label">Patient &amp; Program:</span>
-                  <span class="context-value" id="triage-patient-name">David Chen, 62M • Essential Hypertension &amp; Dyslipidemia</span>
-                </div>
-                <div class="context-row">
-                  <span class="context-label">Enrolled Timeline / Day:</span>
-                  <span class="context-value" id="triage-timeline">Week 8 Chronic Care Cohort</span>
-                </div>
-                <div class="context-row">
-                  <span class="context-label">Current Parameters:</span>
-                  <span class="context-value" id="triage-pain-score">Mild cephalalgia (Headache) noted</span>
-                </div>
-                <div class="context-row">
-                  <span class="context-label">Mobility &amp; Symptoms:</span>
-                  <span class="context-value" id="triage-mobility">Ambulatory • No chest discomfort or dyspnea</span>
-                </div>
-                <div class="context-row">
-                  <span class="context-label">Connected Vitals:</span>
-                  <span class="context-value" id="triage-vitals">BP: 158/98 mmHg (3-day avg: 148/94) • HR: 82 bpm</span>
-                </div>
+              <div class="step-content">
+                <h4 class="step-heading">Noise-Free Nurse Prioritization</h4>
+                <p class="step-point">Only clinical deviations surface to the nurse dashboard</p>
+                <span class="step-detail-tag success">4x Nurse Capacity</span>
               </div>
+            </div>
 
-              <!-- Recommended Coordinator Action Box -->
-              <div class="triage-action-box" id="triage-action-box">
-                <h5 id="triage-action-title">Cardiology Coordinator Action:</h5>
-                <p id="triage-action-text">Outreach queued. Review adherence log and confirm morning dose. Schedule virtual titration review if evening BP remains &gt;140/90.</p>
+            <!-- Step 3 -->
+            <div class="sequence-step-card pattacare-step">
+              <div class="step-marker pattacare">
+                <span class="step-num">3</span>
               </div>
-
-              <!-- Explicit Clinical Guardrail Footnote -->
-              <div style="font-size: 0.78rem; color: #64748B; background: #F1F5F9; padding: 0.75rem 1rem; border-radius: 6px; border-left: 3px solid var(--color-teal); line-height: 1.45;">
-                <strong>Clinical Guardrail Principle:</strong> PattaCare provides diagnostic routing, risk prioritization, and trajectory tracking. All medical assessments, titrations, and care decisions remain strictly under licensed clinician authority.
+              <div class="step-content">
+                <h4 class="step-heading">Instant EHR Integration</h4>
+                <p class="step-point">Pre-formatted SBAR notes ready for EHR sync</p>
+                <span class="step-detail-tag success">HL7 FHIR R4 Standard</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Bottom Callout: Guardrail Guarantee -->
+      <div class="guardrail-guarantee-banner">
+        <div class="guardrail-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="guardrail-content">
+          <strong class="guardrail-title">Guardrail Guarantee:</strong>
+          <p class="guardrail-text">
+            100% deterministic rule engine. No AI hallucination. Full clinical decisions remain with your licensed staff.
+          </p>
+        </div>
+        <div class="guardrail-shield-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Clinician Authority Preserved</span>
         </div>
       </div>
     </div>
