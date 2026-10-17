@@ -122,13 +122,12 @@ function initVideoPlayer() {
   }
 }
 
-/* 3. Interactive RPM Product Demo: Multichannel Patient/Senior Experience ⇄ Clinician Triage */
+/* 3. Interactive RPM Product Demo: Multichannel Patient Experience ⇄ Clinician Triage */
 function initPostOpInteractiveDemo() {
-  const pillElderly = document.getElementById('pill-elderly');
   const pillChronic = document.getElementById('pill-chronic');
   const pillPostop = document.getElementById('pill-postop');
   const pillAdherence = document.getElementById('pill-adherence');
-  const scenarioPills = [pillElderly, pillChronic, pillPostop, pillAdherence].filter(Boolean);
+  const scenarioPills = [pillChronic, pillPostop, pillAdherence].filter(Boolean);
 
   const chatArea = document.getElementById('live-chat-area');
   const phoneStatus = document.getElementById('phone-status-text');
@@ -148,25 +147,6 @@ function initPostOpInteractiveDemo() {
   if (!chatArea) return;
 
   const scenarios = {
-    'elderly': {
-      messages: [
-        { sender: 'bot', text: 'Namaste, Mr. Ramanathan! 🌅 Under-mattress sensor confirms restful sleep (7.5 hrs, normal respiration). Morning blood pressure check scheduled. Have you taken your warm water and morning walks?' },
-        { sender: 'patient', text: 'Yes, feeling good today. Did my morning veranda walk. Granddaughter helped check BP with the cellular cuff.' },
-        { sender: 'bot', text: '✅ BP automatically received: 126/82 mmHg. Vitals and mobility confirmed normal. Daughter Ananya has received the daily wellness summary on her Caregiver App.', isData: true }
-      ],
-      triage: {
-        bannerClass: 'on-track',
-        label: 'STATUS: ELDERLY CARE — INDEPENDENT & STABLE',
-        indicator: '● Senior Safe & Active',
-        patient: 'Ramanathan Swaminathan • Age 78 • Independent Living',
-        timeline: 'Day 142 of Remote Eldercare Cohort',
-        pain: 'Zero Discomfort • No Fall/Inactivity Alert',
-        mobility: 'Contactless Mat: 7.5h sleep • Veranda Walk Logged',
-        vitals: 'Cellular BP: 126/82 mmHg • HR: 71 bpm • SpO2: 98%',
-        actionTitle: 'Eldercare Coordinator Status:',
-        actionText: 'Routine normal. Caregiver app synchronized. Next passive vitals sync scheduled via under-mattress sensor tonight.'
-      }
-    },
     'chronic': {
       messages: [
         { sender: 'bot', text: 'Good morning, Mr. David Chen. Morning cellular BP reading recorded: 158/98 mmHg. This is elevated above your 135/85 target. Are you experiencing any headaches or blurred vision?' },
@@ -255,7 +235,7 @@ function initPostOpInteractiveDemo() {
   const renderScenario = (key) => {
     clearPending();
     chatArea.innerHTML = '';
-    const scenario = scenarios[key] || scenarios['elderly'];
+    const scenario = scenarios[key] || scenarios['chronic'];
 
     // Update Right Side (Triage Card) immediately
     applyTriageState(scenario.triage);
@@ -304,8 +284,8 @@ function initPostOpInteractiveDemo() {
     });
   });
 
-  // Initial render with 'elderly'
-  renderScenario('elderly');
+  // Initial render with 'chronic'
+  renderScenario('chronic');
 }
 
 /* 4. Frequently Asked Questions (FAQ) Accordion */
