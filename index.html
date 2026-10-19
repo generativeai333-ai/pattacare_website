@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PattaCare | Remote Patient Monitoring (RPM) Platform</title>
-  <meta name="description" content="Enterprise Remote Patient Monitoring (RPM) platform for chronic care, surgical recovery, medication adherence &amp; deterioration alerts via WhatsApp &amp; devices.">
-  <meta name="author" content="PattaCare Inc.">
+  <title>PattaCare | Post-Op Recovery Monitoring on WhatsApp for Indian Hospitals</title>
+  <meta name="description" content="Rule-based post-operative recovery triage on WhatsApp, with surgeon-reviewed SBAR summaries. Built for surgical departments in India.">
+  <meta name="author" content="PattaCare">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://pattacare.com/">
   <meta name="theme-color" content="#0C3B47">
 
   <!-- OpenGraph Metadata -->
   <meta property="og:site_name" content="PattaCare">
-  <meta property="og:title" content="PattaCare | Remote Patient Monitoring (RPM) Platform">
-  <meta property="og:description" content="Enterprise Remote Patient Monitoring (RPM) platform for chronic care, surgical recovery, medication adherence &amp; deterioration alerts via WhatsApp &amp; devices.">
+  <meta property="og:title" content="PattaCare | Post-Op Recovery Monitoring on WhatsApp for Indian Hospitals">
+  <meta property="og:description" content="Rule-based post-operative recovery triage on WhatsApp, with surgeon-reviewed SBAR summaries. Built for surgical departments in India.">
   <meta property="og:url" content="https://pattacare.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pattacare.com/assets/images/hero-ecosystem.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PattaCare Remote Patient Monitoring (RPM) Platform">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:image:alt" content="PattaCare Post-Op Recovery Platform for Indian Hospitals">
+  <meta property="og:locale" content="en_IN">
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PattaCare | Remote Patient Monitoring (RPM) Platform">
-  <meta name="twitter:description" content="Enterprise Remote Patient Monitoring (RPM) platform for chronic care, surgical recovery, medication adherence &amp; deterioration alerts via WhatsApp &amp; devices.">
+  <meta name="twitter:title" content="PattaCare | Post-Op Recovery Monitoring on WhatsApp for Indian Hospitals">
+  <meta name="twitter:description" content="Rule-based post-operative recovery triage on WhatsApp, with surgeon-reviewed SBAR summaries. Built for surgical departments in India.">
   <meta name="twitter:image" content="https://pattacare.com/assets/images/hero-ecosystem.jpg">
-  <meta name="twitter:image:alt" content="PattaCare Remote Patient Monitoring Platform">
+  <meta name="twitter:image:alt" content="PattaCare Post-Op Recovery Monitoring Platform">
 
   <!-- Preload Hero Image -->
   <link rel="preload" as="image" href="assets/images/hero-ecosystem.avif" type="image/avif">
@@ -118,20 +118,6 @@
             "contactType": "sales",
             "areaServed": "IN",
             "availableLanguage": ["English", "Hindi", "Tamil", "Kannada"]
-          },
-          {
-            "@type": "ContactPoint",
-            "telephone": "+1-6179539305",
-            "contactType": "sales",
-            "areaServed": "US",
-            "availableLanguage": ["English"]
-          },
-          {
-            "@type": "ContactPoint",
-            "telephone": "+1-5198590693",
-            "contactType": "sales",
-            "areaServed": "CA",
-            "availableLanguage": ["English"]
           }
         ]
       },
@@ -189,7 +175,7 @@
             "name": "How does PattaCare integrate with hospital Electronic Health Records (EHR) and ABDM?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "PattaCare provides standard HL7 FHIR R4 API connectors to synchronize patient rosters and post structured SBAR summaries into Epic, Cerner, MEDITECH, and regional hospital systems. In India, it natively integrates with the Ayushman Bharat Digital Mission (ABDM) and ABHA IDs."
+              "text": "PattaCare is built on the HL7 FHIR R4 standard data architecture, enabling structured clinical SBAR exports and standardized data exchange. Connectors for major Indian hospital information systems (HIS) and Ayushman Bharat Digital Mission (ABDM / ABHA ID) are currently under development in our engineering roadmap."
             }
           }
         ]
@@ -200,68 +186,73 @@
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-announcement-bar">
-    <span>🏥 <strong>A Good Health 247 Platform:</strong> Enterprise Remote Patient Monitoring (RPM) for Hospital Care Teams • <a href="https://www.goodhealth247.com/" target="_blank" rel="noopener noreferrer">GoodHealth247 ↗</a></span>
-  </div>
+  <!-- Skip to Main Content Link for WCAG 2.1 AA Compliance -->
+  <a href="#hero" class="skip-to-content" style="position: absolute; left: -9999px; z-index: 9999; padding: 0.5rem 1rem; background: var(--color-teal); color: #fff;">Skip to main content</a>
+
+  <!-- Top Announcement Strip (Dismissible, Session-Saved) -->
+  <aside class="announcement-strip" id="top-announcement-strip" aria-label="Announcement" style="background: #E8F8F1; border-bottom: 1px solid #A7F3D0; padding: 0.5rem 0; font-size: 0.84rem; color: #065F46;">
+    <div class="container strip-container" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+      <div class="strip-content" style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+        <span class="strip-badge" style="background: #25D366; color: #FFF; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.72rem; text-transform: uppercase;">Indian Hospitals</span>
+        <span class="strip-text"><strong>Purpose-Built for Indian Surgical Departments</strong> • Built on HL7 FHIR R4 Standard</span>
+        <a href="#pilot" class="strip-link" id="strip-pilot-link" style="color: #047857; font-weight: 700; text-decoration: underline; margin-left: 0.35rem;">Explore 30-Day Hospital Pilot &rarr;</a>
+      </div>
+      <button type="button" class="strip-dismiss-btn" id="dismiss-strip-btn" aria-label="Dismiss announcement" style="background: none; border: none; cursor: pointer; color: #065F46; padding: 4px; display: flex; align-items: center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </aside>
 
   <!-- Global Sticky Header -->
-  <header class="site-header">
+  <header class="site-header" id="site-header" role="banner">
     <div class="container nav-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <!-- Brand Wordmark (Not a Heading) -->
       <div class="brand-lockup-wrapper">
-        <a href="#" class="brand-logo" aria-label="PattaCare Home">
+        <a href="/" class="brand-logo" aria-label="PattaCare Home" style="text-decoration: none; display: flex; align-items: center; gap: 0.65rem;">
           <div class="brand-logo-icon">
             <picture>
               <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
               <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
-              <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo — Remote Patient Monitoring &amp; Hospital Software" class="brand-logo-img" width="40" height="40">
+              <img src="assets/images/patta-care-logo.png" alt="PattaCare Logo" class="brand-logo-img" width="38" height="38" style="border-radius: 8px;">
             </picture>
           </div>
-          <span class="brand-name">Patta<span>Care</span></span>
+          <div style="display: flex; flex-direction: column;">
+            <span class="brand-name" style="font-size: 1.35rem; font-weight: 800; color: #FFF; line-height: 1.1;">Patta<span style="color: var(--color-teal);">Care</span></span>
+            <span class="brand-subline header-tagline-text" style="font-size: 0.72rem; color: #94A3B8; font-weight: 600;">Care that continues after discharge.</span>
+          </div>
         </a>
       </div>
 
       <!-- Desktop Navigation Menu -->
-      <ul class="nav-menu gap-2 lg:gap-3 xl:gap-4">
-        <li><a href="#video-overview" class="nav-link">Overview</a></li>
-        <li><a href="#rpm-showcase" class="nav-link">RPM Platform</a></li>
-        <li><a href="#device-ecosystem" class="nav-link">Devices</a></li>
-        <li><a href="#clinical-visibility" class="nav-link">Clinical Workflow</a></li>
-        <li><a href="#care-personas" class="nav-link">Personas</a></li>
-        <li><a href="#security-architecture" class="nav-link">Security</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <!-- Dedicated Mobile Clinician Portal Access -->
-        <li class="mobile-nav-login-item">
-          <a href="https://app.pattacare.com/login" target="_blank" rel="noopener noreferrer" class="mobile-login-link">
-            <span>🔒 Login</span>
-            <span>↗</span>
-          </a>
-        </li>
-        <!-- Dedicated Mobile Start Pilot Access -->
-        <li class="mobile-nav-pilot-item">
-          <a href="https://app.pattacare.com/signup" target="_blank" rel="noopener noreferrer" class="mobile-pilot-link">
-            <span>🚀 Sign Up</span>
-            <span>↗</span>
-          </a>
-        </li>
-      </ul>
+      <nav class="desktop-nav-wrap" aria-label="Primary">
+        <ul class="nav-menu gap-2 lg:gap-3 xl:gap-4">
+          <li><a href="#capabilities" class="nav-link">Platform</a></li>
+          <li><a href="#care-loop" class="nav-link">How It Works</a></li>
+          <li><a href="#security-architecture" class="nav-link">Safety &amp; Governance</a></li>
+          <li><a href="#pilot" class="nav-link">30-Day Pilot</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <!-- Dedicated Mobile Clinician Portal Access -->
+          <li class="mobile-nav-login-item">
+            <a href="https://app.pattacare.com/login" class="mobile-login-link">
+              <span>🔒 Clinician Portal</span>
+              <span>↗</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <!-- Action Buttons Cluster -->
-      <div class="nav-actions flex items-center gap-2.5 sm:gap-3 flex-shrink-0 mr-4">
-        <a href="https://app.pattacare.com/login" target="_blank" rel="noopener noreferrer" class="nav-ghost-login text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-1.5 px-2 py-2" title="Portal Login">
-          <svg class="w-3.5 h-3.5 text-slate-500 nav-lock-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg>
-          <span>Login</span>
+      <!-- Action Buttons Cluster (Clinician Portal & Book Hospital Demo) -->
+      <div class="nav-actions flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+        <a href="https://app.pattacare.com/login" class="nav-ghost-login text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 px-2 py-2" title="Clinician Portal Login">
+          <span>Clinician Portal ↗</span>
         </a>
-        <a href="https://app.pattacare.com/signup" target="_blank" rel="noopener noreferrer" class="btn-start-pilot text-xs sm:text-sm font-medium text-teal-800 bg-white border border-teal-600/60 hover:bg-teal-50 hover:border-teal-700 px-3.5 py-2 rounded-lg transition-all shadow-2xs whitespace-nowrap">
-          Sign Up
+        <a href="#demo-form" class="btn btn-primary btn-sm text-xs sm:text-sm font-semibold text-white bg-brand-coral-500 hover:bg-brand-coral-600 px-3.5 sm:px-4 py-2 rounded-lg transition-all shadow-sm whitespace-nowrap header-demo-cta">
+          Book Hospital Demo
         </a>
-        <a href="#demo-form" class="btn btn-primary btn-sm text-xs sm:text-sm font-semibold text-white bg-brand-coral-500 hover:bg-brand-coral-600 px-4 py-2 rounded-lg transition-all shadow-sm whitespace-nowrap">
-          Book a Demo
-        </a>
-        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="nav-menu-list">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -272,80 +263,64 @@
     </div>
   </header>
 
-  <!-- 1. Hero Section: Enterprise RPM Platform -->
+  <!-- 1. Hero Section: Dedicated Indian Hospital B2B Post-Op Recovery -->
   <section class="hero-section" id="hero">
     <div class="container hero-container-grid">
-      <!-- Left Column: Value Proposition & 3-Metric Executive KPI Strip -->
+      <!-- Left Column: Value Proposition & Verified Hospital Trust Strip -->
       <div class="hero-content-col">
         <div class="badge-chip teal">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
           </svg>
-          ENTERPRISE REMOTE PATIENT MONITORING (RPM) PLATFORM
+          POST-OPERATIVE RECOVERY MONITORING (SURGICAL OPD &amp; DAY CARE)
         </div>
         <h1 class="hero-title">
-          Enterprise RPM That Closes the Gap
-          <span class="hero-title-accent">Between Hospital and Home.</span>
+          Surgery doesn’t end at discharge.
+          <span class="hero-title-accent">Your visibility shouldn’t either.</span>
         </h1>
         <p class="hero-description">
-          Cut 30-day readmissions and eliminate alarm fatigue with automated WhatsApp check-ins and device-agnostic telemetry.
+          Extend your hospital’s care into the critical first 30 days on WhatsApp. Drive superior patient satisfaction, protect surgical outcomes, and streamline nurse workflows with automated daily triage—zero apps to download.
         </p>
 
-        <!-- 3-Metric KPI Strip (Executive scannability in under 10 seconds) -->
-        <div class="hero-kpi-strip" aria-label="Key Clinical &amp; Operational Metrics">
-          <div class="hero-kpi-card">
-            <div class="hero-kpi-metric">92%</div>
-            <div class="hero-kpi-label">Patient Adherence via WhatsApp</div>
-          </div>
-          <div class="hero-kpi-card">
-            <div class="hero-kpi-metric">4x</div>
-            <div class="hero-kpi-label">Nurse Monitoring Capacity via NEWS2 Prioritization</div>
-          </div>
-          <div class="hero-kpi-card">
-            <div class="hero-kpi-metric">100%</div>
-            <div class="hero-kpi-label">EHR-Ready via HL7 FHIR R4 &amp; ABDM</div>
-          </div>
-        </div>
-
+        <!-- CTA Group -->
         <div class="hero-cta-group">
           <a href="#demo-form" class="btn btn-primary hero-cta-btn">
-            <span>Schedule Clinical Demo</span>
+            <span>Request Hospital Demo</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
-          <a href="#whitepaper-modal" class="btn btn-secondary hero-whitepaper-btn" id="open-whitepaper-btn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
+          <a href="#video-overview" class="btn btn-secondary hero-whitepaper-btn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6 3 20 12 6 21 6 3"></polygon>
             </svg>
-            <span>Download Clinical Whitepaper</span>
+            <span>Watch 2-Min Clinical Walkthrough</span>
           </a>
         </div>
 
-        <div class="hero-trust-badges">
-          <div class="hero-trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B6A7D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>ABDM / ABHA Ready</span>
+        <!-- Trust Strip: Verified Guarantees -->
+        <div class="hero-trust-badges" style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; font-size: 0.85rem; color: #475569;">
+          <div class="hero-trust-item" style="display: flex; align-items: center; gap: 0.4rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Zero App Downloads — 100% WhatsApp-Native</span>
           </div>
-          <span class="hero-trust-dot">•</span>
-          <div class="hero-trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B6A7D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Device-Agnostic Telemetry</span>
+          <div class="hero-trust-item" style="display: flex; align-items: center; gap: 0.4rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Surgeon Retains Authority — Deterministic Triage</span>
           </div>
-          <span class="hero-trust-dot">•</span>
-          <div class="hero-trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B6A7D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Cellular + WhatsApp UX</span>
+          <div class="hero-trust-item" style="display: flex; align-items: center; gap: 0.4rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Built on HL7 FHIR R4 Standards</span>
+          </div>
+          <div class="hero-trust-item" style="display: flex; align-items: center; gap: 0.4rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Complete Audit Trails for Quality &amp; Compliance</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Minimalist Clinical Cockpit Card -->
+      <!-- Right Column: Minimalist Clinical Cockpit Card (Indian Post-Op Surgical Case) -->
       <div class="hero-cockpit-col">
         <div class="cockpit-card hero-minimalist-cockpit">
           <div class="cockpit-header-bar">
@@ -356,7 +331,7 @@
             </div>
             <div class="cockpit-tag">
               <span class="pulse-dot-live"></span>
-              <span>CLINICAL TRIAGE COCKPIT • AUTOMATED SBAR</span>
+              <span>SURGICAL POST-OP RECOVERY • SBAR AI AGENT</span>
             </div>
             <div class="cockpit-status-tag">FHIR R4 LIVE</div>
           </div>
@@ -370,54 +345,54 @@
                 </svg>
               </div>
               <div class="wa-feed-title-wrap">
-                <div class="wa-feed-title">PattaCare Health Assistant <span class="wa-check-verified" title="Verified Medical Account">✓</span></div>
-                <div class="wa-feed-sub">Cellular BP Sync • Today 08:30 AM</div>
+                <div class="wa-feed-title">PattaCare Post-Op Assistant <span class="wa-check-verified" title="Verified Hospital Account">✓</span></div>
+                <div class="wa-feed-sub">Surgical Ward Follow-Up • Day 3 • 09:00 AM</div>
               </div>
-              <div class="wa-recipient-pill">David Chen (62M)</div>
+              <div class="wa-recipient-pill">Rajesh Kumar (52M)</div>
             </div>
 
             <div class="whatsapp-bubble bot hero-wa-bubble">
-              <span class="bubble-sender">PattaCare Protocol Bot</span>
-              Good morning David. Please confirm your morning BP &amp; vitals check:
+              <span class="bubble-sender">PattaCare Clinical Protocol Bot</span>
+              Namaste Mr. Rajesh Kumar. It is Post-Op Day 3 for your Laparoscopic Cholecystectomy. Please report your temperature, incision dressing status, and pain:
             </div>
 
             <!-- 2 simple tap-buttons -->
             <div class="wa-tap-buttons" role="group" aria-label="Interactive WhatsApp Response">
               <button type="button" class="wa-tap-btn wa-tap-ok active" id="hero-wa-tap-ok">
                 <span class="tap-icon">✓</span>
-                <span>128/82 mmHg — Feeling Good</span>
+                <span>37.1°C • Pain 3/10 — Tolerating Soft Diet, Dressing Dry</span>
               </button>
               <button type="button" class="wa-tap-btn wa-tap-alert" id="hero-wa-tap-symptom">
                 <span class="tap-icon">⚠️</span>
-                <span>Report Symptoms / Surges</span>
+                <span>Fever 38.4°C • Pain 7/10 — Nausea / Dressing Soakage</span>
               </button>
             </div>
           </div>
 
-          <!-- Bottom: Single-line hospital triage alert showing NEWS2 score and an auto-drafted SBAR note -->
+          <!-- Bottom: Single-line hospital triage alert showing NEWS2 score and an AI-drafted SBAR note -->
           <div class="cockpit-bottom-triage">
             <div class="triage-top-row">
               <div class="triage-pill-group">
-                <span class="badge-status-news2">NEWS2 Score: 0 (Normal)</span>
-                <span class="triage-patient-info">MRN #91-4821 • Essential HTN</span>
+                <span class="badge-status-news2">Status: Green (Routine POD-3)</span>
+                <span class="triage-patient-info">MRN #BLR-4821 • Lap Cholecystectomy</span>
               </div>
               <div class="triage-ehr-sync">
                 <span class="pulse-dot-green"></span>
-                <span>Epic EHR Synced</span>
+                <span>SBAR AI Agent Ready</span>
               </div>
             </div>
 
             <div class="sbar-single-line-container">
-              <span class="sbar-tag">SBAR</span>
+              <span class="sbar-tag">SBAR AI AGENT</span>
               <p class="sbar-single-text" id="hero-sbar-text">
-                <strong>Auto-Drafted SBAR:</strong> BP 128/82 mmHg within JNC-8 target. Adherence 100% (7/7). Zero red-flags. Synced to EHR.
+                <strong>SBAR AI Agent Auto-Draft (Surgeon Review Required):</strong> POD-3 Lap Cholecystectomy. Temp 37.1°C, tolerating oral fluids, incision dressing intact, mild pain 3/10. Readmission risk: Low. Synced to ward worklist.
               </p>
             </div>
           </div>
 
           <div class="cockpit-footer-bar">
-            <span>⚡ Automated Telemetry Routing: All vitals normal • Auto-Exported via HL7 FHIR R4</span>
-            <a href="#interactive-demo" class="cockpit-demo-link">Simulate Scenarios ➔</a>
+            <span>⚡ Rule-Based Triage: Zero diagnostic hallucination • Surgeon reviews &amp; signs note</span>
+            <a href="#care-loop" class="cockpit-demo-link">See Daily Loop ➔</a>
           </div>
         </div>
       </div>
@@ -490,11 +465,62 @@
         <!-- Quick Exploration Pills Below Visual -->
         <div class="ecosystem-footer-nav">
           <span>Explore platform modules:</span>
-          <a href="#rpm-showcase" class="eco-nav-chip">1. 4 RPM Clinical Verticals ➔</a>
-          <a href="#device-ecosystem" class="eco-nav-chip">2. Device Ingestion Ecosystem ➔</a>
-          <a href="#interactive-demo" class="eco-nav-chip">3. Live Triage Simulator ➔</a>
-          <a href="#care-personas" class="eco-nav-chip">4. Patients, Families &amp; Clinicians ➔</a>
-          <a href="#security-architecture" class="eco-nav-chip">5. Security &amp; EHR Standards ➔</a>
+          <a href="#capabilities" class="eco-nav-chip">1. Surgical Modules ➔</a>
+          <a href="#care-loop" class="eco-nav-chip">2. The 4-Step Daily Loop ➔</a>
+          <a href="#clinical-visibility" class="eco-nav-chip">3. Exception-Based Triage ➔</a>
+          <a href="#pilot" class="eco-nav-chip">4. 30-Day Hospital Pilot ➔</a>
+          <a href="#security-architecture" class="eco-nav-chip">5. Safety &amp; Governance ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Value Section: Why Leading Hospitals Deploy PattaCare -->
+  <section class="executive-value-section" id="executive-value" style="padding: 5.5rem 0; background: #FFFFFF; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto 3.5rem;">
+        <div class="badge-chip teal">EXECUTIVE VALUE &amp; COMMERCIAL ROI</div>
+        <h2 class="section-title">Why Leading Indian Hospitals Deploy PattaCare</h2>
+        <p style="color: var(--color-text-secondary); font-size: 1.05rem;">
+          Built for hospital leadership priorities: protecting surgical margins, elevating patient trust, eliminating nurse burnout, and delivering audit-ready quality compliance.
+        </p>
+      </div>
+
+      <div class="exec-value-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Card 1: Elevated Patient Satisfaction & Brand Loyalty -->
+        <div class="exec-value-card" style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: #E8F8F1; color: #047857; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
+            🌟
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">CMO &amp; Hospital Management</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.85rem; line-height: 1.3;">Turn Discharge into Lifelong Trust</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            When patients experience attentive, empathetic daily check-ins on WhatsApp long after discharge, their perception of care skyrockets—driving hospital brand equity, family loyalty, and positive Google reviews.
+          </p>
+        </div>
+
+        <!-- Card 2: Operational Relief & Nurse Efficiency -->
+        <div class="exec-value-card" style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: #EFF6FF; color: #1D4ED8; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
+            👩‍⚕️
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #1D4ED8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">CNO &amp; Nursing Leadership</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.85rem; line-height: 1.3;">Eliminate Phone Tag with Exception-Based Triage</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Replace hours of unreturned outbound phone calls with a prioritized Red/Amber/Green worklist. Ward nurses focus only on patients reporting pain spikes, wound soakage, or fever deviations.
+          </p>
+        </div>
+
+        <!-- Card 3: Protect Surgical Margins & Quality Audits -->
+        <div class="exec-value-card" style="background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: #FEF3C7; color: #B45309; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
+            🛡️
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">COO &amp; Medical Directors</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.85rem; line-height: 1.3;">Early Complication Detection &amp; Audit-Ready Records</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Intercept surgical site infections (SSIs) before they turn into emergency readmissions. Every triage check-in and doctor action is time-stamped for clinical quality records and hospital audit review.
+          </p>
         </div>
       </div>
     </div>
@@ -578,13 +604,89 @@
     </div>
   </section>
 
-  <!-- 3. The 4-Pillar RPM Platform Showcase -->
-  <section class="capabilities-section" id="rpm-showcase">
+  <!-- 3. The Platform Capabilities & Engineering Roadmap Showcase -->
+  <section class="capabilities-section" id="capabilities" style="position: relative;">
+    <div id="rpm-showcase" style="position: absolute; top: -85px;"></div>
     <div class="container">
+      <!-- Capabilities vs Roadmap Truth-in-Product Comparison Grid -->
+      <div class="capabilities-roadmap-banner" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-card);">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto 2.25rem;">
+          <div class="badge-chip teal">TRUTH-IN-PRODUCT INTEGRATION BOUNDARY</div>
+          <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--color-text-primary); margin-top: 0.5rem; margin-bottom: 0.65rem;">Platform Capabilities &amp; Engineering Pipeline</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.95rem; margin: 0;">
+            Transparent clinical engineering: clearly distinguishing what is live in today’s hospital pilot versus what is currently in active development.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <!-- Column 1: Available in Current Hospital Pilot (LIVE TODAY) -->
+          <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: var(--radius-lg); padding: 1.85rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; color: #166534; background: #DCFCE7; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">● Live in Hospital Pilot</span>
+              <span style="font-size: 0.82rem; font-weight: 700; color: #166534;">HL7 FHIR R4 Standard</span>
+            </div>
+            <h4 style="font-size: 1.15rem; font-weight: 700; color: #14532D; margin-bottom: 1rem;">Available in Current Hospital Deployment:</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: #166534;">
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>30-Day WhatsApp Recovery Check-Ins:</strong> Procedure-specific daily symptom &amp; vital questionnaires (General, Laparoscopic, Orthopedics).</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>Deterministic Multi-Tier Triage Engine:</strong> 100% rule-based routing (Green Routine / Amber Review / Red Urgent) with zero clinical hallucination.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>Care Coordinator &amp; Surgeon Worklist Cockpit:</strong> Prioritized patient queue sorted by exception severity with escalation timers.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>SBAR AI Agent Drafting:</strong> AI Agent drafts structured Situation-Background-Assessment-Recommendation clinical handover notes for surgeon review and sign-off.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>Complete Audit Trails &amp; Resolution Timestamps:</strong> Immutable digital logs recording alert acknowledgment, action taken, and surgeon signature for quality review.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #16A34A; font-weight: 700;">✓</span>
+                <span><strong>HL7 FHIR R4 Data Architecture:</strong> Universal observation data model ready for standardized clinical telemetry ingestion.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 2: In Pipeline / Engineering Roadmap -->
+          <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: var(--radius-lg); padding: 1.85rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; color: #475569; background: #E2E8F0; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">⏳ In Pipeline / Engineering Roadmap</span>
+              <span style="font-size: 0.82rem; font-weight: 600; color: #64748B;">Architecture Pipeline</span>
+            </div>
+            <h4 style="font-size: 1.15rem; font-weight: 700; color: #1E293B; margin-bottom: 1rem;">Active Development &amp; Ecosystem Integrations:</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: #475569;">
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #0284C7; font-weight: 700;">➔</span>
+                <span><strong>ABDM &amp; ABHA ID Auto-Linking:</strong> Integration gateway for national health ID consent manager and longitudinal health records in India.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #0284C7; font-weight: 700;">➔</span>
+                <span><strong>DPDP Act 2023 Certified Alignment:</strong> Purpose-specific consent revocation and Data Principal self-service management dashboard.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #0284C7; font-weight: 700;">➔</span>
+                <span><strong>Hospital Information System (HIS) API Adapters:</strong> Direct bilateral connectors for leading Indian HIS/EMR database engines.</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <span style="color: #0284C7; font-weight: 700;">➔</span>
+                <span><strong>Automated Medication &amp; Follow-Up OPD Nudges:</strong> Post-discharge prescription adherence tracking and automated surgical OPD revisit reminders.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="section-header">
-        <div class="badge-chip teal">4 CLINICAL VERTICALS</div>
-        <h2 class="section-title">Comprehensive Remote Patient Monitoring Platform</h2>
-        <p>Synthesizing clinical best practices across four dedicated healthcare verticals. From longitudinal chronic illness titration to high-acuity surgical oversight, medication adherence, and automated deterioration alerts.</p>
+        <div class="badge-chip teal">SURGICAL &amp; RECOVERY MODULES</div>
+        <h2 class="section-title">Specialty-Specific Recovery Continuity</h2>
+        <p>Purpose-built recovery protocols for Indian hospital surgical departments. From day-care laparoscopy to major joint arthroplasty, cardiac step-down, and chronic titration.</p>
       </div>
 
       <!-- Tab Navigation Buttons -->
@@ -737,7 +839,7 @@
                 <span class="postop-dot"></span>
                 <span><strong>Specialty Recovery Templates Included:</strong> Orthopedic (TKA/THA), Cardiovascular (CABG/Valve), Colorectal &amp; Bariatric Surgeries.</span>
               </div>
-              <span class="postop-ehr-badge">EHR SBAR Auto-Export Ready</span>
+              <span class="postop-ehr-badge">SBAR AI Agent Auto-Draft Ready</span>
             </div>
 
             <!-- Tab 2 KPI Metrics Strip -->
@@ -1095,6 +1197,69 @@
     </div>
   </section>
 
+  <!-- The Clinical Workflow: The 4-Step Daily Loop -->
+  <section class="care-loop-section" id="care-loop" style="padding: 5.5rem 0; background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto 3.5rem;">
+        <div class="badge-chip teal">CLINICAL RECOVERY CONTINUUM</div>
+        <h2 class="section-title">The 4-Step Daily Recovery Loop</h2>
+        <p style="color: var(--color-text-secondary); font-size: 1.05rem;">
+          How surgical care teams maintain continuous post-discharge oversight without adding administrative overhead to nurses or doctors.
+        </p>
+      </div>
+
+      <div class="daily-loop-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;">
+        <!-- Step 1 -->
+        <div class="loop-step-card" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; position: relative;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #E8F8F1; color: #047857; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.1rem;">
+            1
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">09:00 AM Daily Prompt</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">WhatsApp Check-In</h4>
+          <p style="color: var(--color-text-secondary); font-size: 0.88rem; line-height: 1.55; margin: 0;">
+            Patient or designated caregiver completes an interactive 60-second recovery checklist (Pain score, Temp in °C, Oral Intake, Dressing soakage) directly on WhatsApp.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="loop-step-card" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; position: relative;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #EFF6FF; color: #1D4ED8; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.1rem;">
+            2
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #1D4ED8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">Deterministic Engine</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">Rule-Based Triage</h4>
+          <p style="color: var(--color-text-secondary); font-size: 0.88rem; line-height: 1.55; margin: 0;">
+            Built-in surgical protocol rules evaluate answers based on procedure type and post-op day (Routine Green, Needs Review Amber, Urgent Red) with zero clinical hallucination.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="loop-step-card" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; position: relative;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #FEF3C7; color: #B45309; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.1rem;">
+            3
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">Ward Coordinator View</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">Prioritized Care Queue</h4>
+          <p style="color: var(--color-text-secondary); font-size: 0.88rem; line-height: 1.55; margin: 0;">
+            Ward nurses review patients sorted by risk exception. Routine recoveries stay green; only true physiological deviations surface with root-cause indicators.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="loop-step-card" style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; position: relative;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #F3E8FF; color: #7E22CE; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.1rem;">
+            4
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: #7E22CE; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">SBAR AI Agent Assistance</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;">Surgeon Review &amp; Sign-Off</h4>
+          <p style="color: var(--color-text-secondary); font-size: 0.88rem; line-height: 1.55; margin: 0;">
+            The SBAR AI Agent auto-drafts a standardized clinical summary (Situation, Background, Assessment, Recommendation); the operating surgeon reviews, modifies, and signs off.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 5. Clinical Visibility: 3-Step Sequence Comparing Traditional Care vs. PattaCare -->
   <section class="clinical-visibility-section" id="clinical-visibility" style="position: relative;">
     <div id="interactive-demo" style="position: absolute; top: -85px;"></div>
@@ -1201,7 +1366,7 @@
               </div>
               <div class="step-content">
                 <h4 class="step-heading">Instant EHR Integration</h4>
-                <p class="step-point">Pre-formatted SBAR notes ready for EHR sync</p>
+                <p class="step-point">SBAR AI Agent auto-drafted handover ready for surgeon review &amp; EHR sync</p>
                 <span class="step-detail-tag success">HL7 FHIR R4 Standard</span>
               </div>
             </div>
@@ -1296,11 +1461,11 @@
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Bi-Directional EHR Integration:</strong> Synchronizes patient rosters and exports structured SBAR summaries into Epic, Cerner, and MEDITECH.</span>
+              <span><strong>HL7 FHIR R4 Standard Architecture:</strong> Standardized data schema ready for seamless ingestion and future hospital information system adapters.</span>
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Billing &amp; CPT Code Tracking:</strong> Automated compliance tracking for RPM billing codes (e.g. CPT 99453, 99454, 99457, 99458) and ABDM registries.</span>
+              <span><strong>Immutable Audit Trails &amp; NABH Readiness:</strong> Time-stamped resolution logs of every alert triage and surgeon sign-off for clinical quality committee review.</span>
             </li>
           </ul>
         </div>
@@ -1308,13 +1473,13 @@
     </div>
   </section>
 
-  <!-- 7. Hospital Platform Architecture, Standards & Security -->
+  <!-- 7. Hospital Platform Architecture, Standards & Safety & Governance -->
   <section class="security-architecture-section" id="security-architecture">
     <div class="container">
       <div class="section-header">
         <div class="badge-chip teal">INSTITUTIONAL GOVERNANCE</div>
-        <h2 class="section-title">Enterprise Architecture, Interoperability &amp; Clinical Safety</h2>
-        <p>Engineered for enterprise health networks, multispecialty hospital groups, and regional health systems with zero compromise on data security, regulatory compliance, or clinical governance.</p>
+        <h2 class="section-title">Safety &amp; Governance</h2>
+        <p>Engineered for Indian surgical departments and enterprise hospital networks with zero compromise on clinical safety, patient privacy, or audit compliance.</p>
       </div>
 
       <div class="security-grid">
@@ -1323,35 +1488,73 @@
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h4>Deterministic Clinical Decision Support</h4>
-          <p>Zero generative hallucination risk in triage alerts. Built strictly with deterministic clinical threshold rules, NEWS2 guidelines, and licensed clinician sign-off protocols.</p>
+          <h4>Deterministic Clinical Triage</h4>
+          <p>Triage is strictly rule-based (zero diagnostic hallucination); AI is used solely to draft SBAR handover notes. All diagnostic decisions and interventions remain under licensed clinician authority.</p>
         </div>
 
-        <!-- Card 2: ABDM & FHIR Interoperability -->
+        <!-- Card 2: HL7 FHIR R4 Core Architecture -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h4>ABDM, ABHA &amp; HL7 FHIR R4 Standards</h4>
-          <p>Fully compliant with India's Ayushman Bharat Digital Mission (ABDM) and ABHA IDs, alongside HL7 FHIR R4 APIs to sync rosters and charts into Epic, Cerner, and MEDITECH.</p>
+          <h4>HL7 FHIR R4 Standard Data Model</h4>
+          <p>Built natively on the HL7 FHIR R4 standard data architecture. Standardized clinical observation models ensure vendor-agnostic hardware ingestion and future-proof hospital interoperability.</p>
         </div>
 
-        <!-- Card 3: Data Protection & Encryption -->
+        <!-- Card 3: Data Protection & In-Transit Security -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <h4>In-Transit &amp; At-Rest Encryption</h4>
-          <p>All clinical data and device telemetry streams are encrypted with TLS 1.3 in transit and AES-256 at rest across isolated enterprise hospital cloud tenants.</p>
+          <h4>In-Transit &amp; At-Rest Data Protection</h4>
+          <p>All clinical recovery logs, telemetry streams, and surgeon notes are protected with TLS 1.3 encryption in transit and AES-256 at rest across dedicated hospital cloud tenants hosted in India.</p>
         </div>
 
-        <!-- Card 4: Access Governance & Sovereignty -->
+        <!-- Card 4: Audit Trails & Engineering Pipeline -->
         <div class="security-card">
           <div class="security-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
           </div>
-          <h4>Multi-Market Tenancy &amp; DPDP / HIPAA Compliance</h4>
-          <p>Strict Role-Based Access Control (RBAC), multi-tenant data isolation, and immutable audit logs compliant with DPDP Act 2023 (India), HIPAA (USA), and GDPR (Europe).</p>
+          <h4>Audit Trails &amp; Compliance Pipeline</h4>
+          <p>Immutable digital logs of every patient check-in, alert, and doctor acknowledgment for NABH audit readiness. ABDM and DPDP Act certified alignment frameworks are actively in the engineering pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30-Day Hospital Departmental Pilot Section -->
+  <section class="hospital-pilot-section" id="pilot" style="padding: 5.5rem 0; background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%); border-bottom: 1px solid #A7F3D0;">
+    <div class="container">
+      <div class="pilot-card" style="max-width: 860px; margin: 0 auto; background: #FFFFFF; border: 2px solid #86EFAC; border-radius: var(--radius-xl); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);">
+        <div style="text-align: center; margin-bottom: 2.25rem;">
+          <span style="background: #DCFCE7; color: #166534; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;">Risk-Free Hospital Department Deployment</span>
+          <h2 style="font-size: 2rem; font-weight: 800; color: #14532D; margin-top: 0.85rem; margin-bottom: 0.75rem;">30-Day Surgical Department Pilot Offer</h2>
+          <p style="color: #475569; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+            Validate patient adherence, nurse time savings, and early alert efficacy in your own department with zero complex IT integration required.
+          </p>
+        </div>
+
+        <div class="pilot-grid">
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: var(--radius-md); padding: 1.25rem;">
+            <strong style="color: #0F172A; display: block; font-size: 1rem; margin-bottom: 0.35rem;">🎯 Pilot Scope</strong>
+            <p style="color: #64748B; font-size: 0.88rem; margin: 0; line-height: 1.5;">50 consecutive elective surgical patients across 2 operating surgeons (General, Laparoscopy, Ortho).</p>
+          </div>
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: var(--radius-md); padding: 1.25rem;">
+            <strong style="color: #0F172A; display: block; font-size: 1rem; margin-bottom: 0.35rem;">⚡ Rapid 5-Day Launch</strong>
+            <p style="color: #64748B; font-size: 0.88rem; margin: 0; line-height: 1.5;">Turnkey ward coordinator setup in 5 business days with zero complex HIS integration needed to start.</p>
+          </div>
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: var(--radius-md); padding: 1.25rem;">
+            <strong style="color: #0F172A; display: block; font-size: 1rem; margin-bottom: 0.35rem;">📊 Executive Deliverables</strong>
+            <p style="color: #64748B; font-size: 0.88rem; margin: 0; line-height: 1.5;">Weekly adherence reports, nurse time-savings metrics, and early alert logs to validate hospital ROI before rollout.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="#demo-form" class="btn btn-primary pilot-cta-btn">
+            <span>Apply for 30-Day Surgical Pilot</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <span style="display: block; font-size: 0.8rem; color: #64748B; margin-top: 0.75rem;">Limited to 3 surgical departments per hospital network per quarter.</span>
         </div>
       </div>
     </div>
@@ -1409,11 +1612,11 @@
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            <span>How does PattaCare integrate with hospital Electronic Health Records (EHR) and ABDM?</span>
+            <span>How does PattaCare integrate with hospital systems and data standards?</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>PattaCare provides standard HL7 FHIR R4 API connectors to synchronize patient rosters and post structured SBAR summaries into Epic, Cerner, MEDITECH, and regional hospital systems. In India, it natively integrates with the Ayushman Bharat Digital Mission (ABDM) and ABHA IDs.</p>
+            <p>PattaCare is built on the HL7 FHIR R4 standard data architecture, enabling standard observation modeling and clean export of structured SBAR clinical summaries. Direct Hospital Information System (HIS) API adapters and ABDM (Ayushman Bharat Digital Mission / ABHA ID auto-linking) are currently in active development on our engineering roadmap.</p>
           </div>
         </div>
       </div>
@@ -1455,11 +1658,11 @@
         <!-- Direct Clinical Liaison & Regional Contact Information -->
         <div class="direct-contact-card">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem;">
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--color-text-primary); font-weight: 700;">Direct Clinical Liaison Lines</h4>
-            <span style="font-size: 0.75rem; background: var(--color-teal-light); color: var(--color-teal-dark); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">Multi-Market</span>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--color-text-primary); font-weight: 700;">Direct Hospital Clinical Liaison</h4>
+            <span style="font-size: 0.75rem; background: var(--color-teal-light); color: var(--color-teal-dark); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">India Headquarters</span>
           </div>
           <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 1rem;">
-            Speak directly with a regional clinical operations advisor or request an institutional RFP package:
+            Connect directly with our Bengaluru clinical solutions team to schedule an on-site surgical department walkthrough or review pilot protocols:
           </p>
 
           <!-- Official Clinical Email -->
@@ -1476,28 +1679,12 @@
             <div class="regional-phone-item">
               <div class="region-badge">
                 <span style="font-size: 1.1rem;">🇮🇳</span>
-                <span>India (HQ &amp; APAC)</span>
+                <span>Bengaluru (HQ &amp; Clinical Operations)</span>
               </div>
               <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;">
                 <a href="tel:+919346317790" class="phone-link">+91 93463 17790</a>
                 <a href="tel:+917010642399" class="phone-link" style="font-size: 0.82rem; color: var(--color-teal); opacity: 0.9;">+91 70106 42399</a>
               </div>
-            </div>
-
-            <div class="regional-phone-item">
-              <div class="region-badge">
-                <span style="font-size: 1.1rem;">🇺🇸</span>
-                <span>USA (Clinical Solutions)</span>
-              </div>
-              <a href="tel:+16179539305" class="phone-link">+1 617 953-9305</a>
-            </div>
-
-            <div class="regional-phone-item">
-              <div class="region-badge">
-                <span style="font-size: 1.1rem;">🇨🇦</span>
-                <span>Canada (Health Networks)</span>
-              </div>
-              <a href="tel:+15198590693" class="phone-link">+1 519 859-0693</a>
             </div>
           </div>
 
@@ -1512,7 +1699,7 @@
         </div>
 
         <!-- Direct WhatsApp Contact Box with Live Click-to-Chat -->
-        <a href="https://wa.me/919346317790?text=Hello%20PattaCare%20Clinical%20Team%2C%20I%20would%20like%20to%20schedule%20an%20RPM%20clinical%20demonstration." target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+        <a href="https://wa.me/919346317790?text=Hello%20PattaCare%20Clinical%20Team%2C%20I%20would%20like%20to%20schedule%20a%20surgical%20post-op%20demonstration." target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
           <div style="background: #E8F8F1; border: 1px solid #A7F3D0; border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s;">
             <div style="width: 44px; height: 44px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: #FFF; flex-shrink: 0;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
@@ -1528,69 +1715,58 @@
         </a>
       </div>
 
-      <!-- Demo Form Card -->
+      <!-- Demo Form Card (5 Streamlined Indian B2B Fields) -->
       <div class="demo-form-card">
-        <h3 style="margin-bottom: 0.5rem;">Request Platform Demonstration</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Submit your details and a clinical solutions director will respond within 2 business hours.</p>
+        <h3 style="margin-bottom: 0.5rem;">Request Hospital Platform Demonstration</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Submit your details and an Indian clinical solutions director will respond within 2 business hours.</p>
 
         <form id="b2b-demo-form">
           <div class="form-row">
             <div class="form-group">
-              <label for="full-name">Full Name *</label>
-              <input type="text" id="full-name" class="form-control" placeholder="Dr. Sarah Jenkins" required>
+              <label for="full-name">Doctor / Administrator Name *</label>
+              <input type="text" id="full-name" class="form-control" placeholder="Dr. Sarah Jenkins / Dr. Rajesh V." required>
             </div>
             <div class="form-group">
-              <label for="work-email">Institutional Email *</label>
-              <input type="email" id="work-email" class="form-control" placeholder="s.jenkins@healthsystem.org" required>
+              <label for="work-email">Official Work Email *</label>
+              <input type="email" id="work-email" class="form-control" placeholder="s.jenkins@manipalhealth.org" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="organization-name">Hospital / Organization *</label>
-              <input type="text" id="organization-name" class="form-control" placeholder="Memorial Health Network" required>
+              <label for="organization-name">Hospital / Healthcare Group Name *</label>
+              <input type="text" id="organization-name" class="form-control" placeholder="Apollo / Fortis / Aster Hospitals" required>
             </div>
             <div class="form-group">
-              <label for="specialty">Target Clinical Vertical *</label>
+              <label for="specialty">Target Department *</label>
               <select id="specialty" class="form-control" required>
-                <option value="Chronic Care" selected>Chronic Disease Management (HTN, Diabetes, CHF)</option>
-                <option value="Post-Op Recovery">Post-Operative Recovery Continuity</option>
-                <option value="Medication Adherence">Medication Adherence &amp; Smart Dispensers</option>
-                <option value="Deterioration Alerts">Early Deterioration &amp; NEWS2 Surveillance</option>
-                <option value="Multi-Vertical RPM">Multi-Vertical RPM Program</option>
+                <option value="General Surgery" selected>General &amp; Laparoscopic Surgery</option>
+                <option value="Orthopedics">Orthopedics &amp; Joint Arthroplasty</option>
+                <option value="Day Care">Day Care / Ambulatory Surgery</option>
+                <option value="Cardiology">Cardiovascular Surgical Recovery</option>
+                <option value="Multi-Specialty">Multi-Specialty Surgical Network</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="patient-volume">Estimated Monthly Patient Volume</label>
-            <select id="patient-volume" class="form-control">
-              <option value="25-100">25 – 100 Patients / mo</option>
-              <option value="100-300">100 – 300 Patients / mo</option>
-              <option value="300-600">300 – 600 Patients / mo</option>
-              <option value="600+">600+ Patients / mo (Health Network)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Program Priorities or EHR System</label>
-            <textarea id="message" class="form-control" rows="3" placeholder="Tell us about your target programs (e.g. chronic HTN titration, post-op cardiac care, Epic/Cerner integration)..."></textarea>
+            <label for="phone-number">Official Mobile / WhatsApp Number (+91) *</label>
+            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210" required>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width: 100%;">
-            <span>Schedule Platform Demonstration</span>
+            <span>Schedule Hospital Demonstration</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
         </form>
-        <p class="text-xs text-slate-500 mt-3 text-center" style="font-size: 0.82rem; color: #64748B; margin-top: 0.85rem; text-align: center;">Looking to test with a single department? <a href="https://app.pattacare.com/signup" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:underline font-medium" style="color: var(--brand-teal-700); font-weight: 600; text-decoration: underline;">Create a free pilot account &rarr;</a></p>
 
         <!-- Success Message -->
-        <div id="form-success-message" style="display: none; padding: 2rem; text-align: center; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--color-teal);">
+        <div id="form-success-message" style="display: none; padding: 2rem; text-align: center; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--color-teal); margin-top: 1rem;">
           <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-teal-light); color: var(--color-teal-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h4 style="color: var(--color-text-primary); margin-bottom: 0.5rem;">Demonstration Scheduled!</h4>
-          <p style="font-size: 0.95rem; margin: 0;">Thank you for connecting with PattaCare. Our clinical solutions director will contact you within 2 hours to confirm your calendar invitation and customized RPM walkthrough.</p>
+          <p style="font-size: 0.95rem; margin: 0;">Thank you for connecting with PattaCare. Our clinical solutions director will contact you within 2 hours to confirm your calendar invitation and customized hospital walkthrough.</p>
         </div>
       </div>
     </div>
@@ -1615,15 +1791,13 @@
             </div>
           </div>
           <p>
-            Enterprise Remote Patient Monitoring (RPM) platform connecting hospital care teams, patients, and families through multi-device telemetry, cellular health hubs, and frictionless WhatsApp check-ins.
+            B2B post-operative recovery monitoring platform for Indian hospitals: WhatsApp-based recovery check-ins, rule-based triage, and SBAR AI Agent notes that surgeons review and sign off.
           </p>
 
           <!-- Direct Clinical Contact & Office in Footer -->
           <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.86rem;">
             <div>✉️ <a href="mailto:hi@pattacare.com" style="color: var(--color-teal); text-decoration: none; font-weight: 600;">hi@pattacare.com</a></div>
             <div style="color: #CBD5E1;">🇮🇳 India: <a href="tel:+919346317790" style="color: #CBD5E1; text-decoration: none;">+91 93463 17790</a> / <a href="tel:+917010642399" style="color: #CBD5E1; text-decoration: none;">+91 70106 42399</a></div>
-            <div style="color: #CBD5E1;">🇺🇸 USA: <a href="tel:+16179539305" style="color: #CBD5E1; text-decoration: none;">+1 617 953-9305</a></div>
-            <div style="color: #CBD5E1;">🇨🇦 Canada: <a href="tel:+15198590693" style="color: #CBD5E1; text-decoration: none;">+1 519 859-0693</a></div>
             <div style="color: #94A3B8; font-size: 0.8rem; margin-top: 0.35rem; line-height: 1.4;">
               📍 <span style="color: #CBD5E1;">HQ:</span> No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India
             </div>
@@ -1657,10 +1831,10 @@
         <div class="footer-col">
           <h5>Security &amp; Standards</h5>
           <ul class="footer-links">
-            <li><a href="#security-architecture">ABDM &amp; ABHA ID Integration</a></li>
-            <li><a href="#security-architecture">HL7 FHIR R4 EHR Interoperability</a></li>
+            <li><a href="#security-architecture">ABDM &amp; ABHA Architecture (Roadmap)</a></li>
+            <li><a href="#security-architecture">HL7 FHIR R4 Data Architecture</a></li>
             <li><a href="#security-architecture">TLS 1.3 &amp; AES-256 Encryption</a></li>
-            <li><a href="#security-architecture">DPDP, HIPAA &amp; GDPR Tenancy</a></li>
+            <li><a href="#security-architecture">DPDP Act Aligned Data Governance</a></li>
             <li><a href="#demo-form">Schedule Enterprise Demo</a></li>
           </ul>
         </div>

@@ -9,6 +9,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initAnnouncementStrip();
   initNavigation();
   initVideoPlayer();
   initHeroInteractive();
@@ -20,6 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initDemoForm();
 });
+
+/* Top Announcement Strip Dismissal (Session-Saved with try/catch) */
+function initAnnouncementStrip() {
+  const strip = document.getElementById('top-announcement-strip');
+  const dismissBtn = document.getElementById('dismiss-strip-btn');
+  if (!strip || !dismissBtn) return;
+
+  try {
+    if (sessionStorage.getItem('pattacare_strip_dismissed') === 'true') {
+      strip.style.display = 'none';
+      return;
+    }
+  } catch (e) {
+    // sessionStorage blocked or restricted; fail gracefully
+  }
+
+  dismissBtn.addEventListener('click', () => {
+    strip.style.display = 'none';
+    try {
+      sessionStorage.setItem('pattacare_strip_dismissed', 'true');
+    } catch (e) {
+      // sessionStorage blocked; fail gracefully
+    }
+  });
+}
 
 /* RPM 4-Vertical Tab Switcher */
 function initRpmTabs() {
@@ -403,7 +429,7 @@ function initDemoForm() {
   }
 }
 
-/* 6. Hero Interactive WhatsApp Buttons & Single-Line SBAR Triage Simulation */
+/* 6. Hero Interactive WhatsApp Buttons & SBAR AI Agent Triage Simulation */
 function initHeroInteractive() {
   const btnOk = document.getElementById('hero-wa-tap-ok');
   const btnSymptom = document.getElementById('hero-wa-tap-symptom');
@@ -415,9 +441,9 @@ function initHeroInteractive() {
   btnOk.addEventListener('click', () => {
     btnOk.classList.add('active');
     btnSymptom.classList.remove('active');
-    sbarText.innerHTML = '<strong>Auto-Drafted SBAR:</strong> BP 128/82 mmHg within JNC-8 target. Adherence 100% (7/7). Zero red-flags. Synced to EHR.';
+    sbarText.innerHTML = '<strong>SBAR AI Agent Auto-Draft (Surgeon Review Required):</strong> POD-3 Lap Cholecystectomy. Temp 37.1°C, tolerating oral fluids, incision dressing intact, mild pain 3/10. Readmission risk: Low. Synced to ward worklist.';
     if (news2Badge) {
-      news2Badge.textContent = 'NEWS2 Score: 0 (Normal)';
+      news2Badge.textContent = 'Status: Green (Routine POD-3)';
       news2Badge.style.color = '#065F46';
       news2Badge.style.backgroundColor = '#D1FAE5';
       news2Badge.style.borderColor = '#A7F3D0';
@@ -427,9 +453,9 @@ function initHeroInteractive() {
   btnSymptom.addEventListener('click', () => {
     btnSymptom.classList.add('active');
     btnOk.classList.remove('active');
-    sbarText.innerHTML = '<strong>Auto-Drafted SBAR:</strong> SBP surge >160 mmHg reported with mild cephalalgia. Escalation timer: 15m. Outreach call queued.';
+    sbarText.innerHTML = '<strong>SBAR AI Agent Auto-Draft (Surgeon Review Required):</strong> Escalation alert: Fever 38.4°C reported with severe pain 7/10 &amp; wound soakage. Escalation timer: 15m. Duty surgeon worklist queued.';
     if (news2Badge) {
-      news2Badge.textContent = 'NEWS2 Score: 3 (Watch Alert)';
+      news2Badge.textContent = 'Status: Amber (Needs Review)';
       news2Badge.style.color = '#92400E';
       news2Badge.style.backgroundColor = '#FEF3C7';
       news2Badge.style.borderColor = '#FDE68A';
