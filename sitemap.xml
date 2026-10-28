@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://pattacare.com/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -33,7 +33,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://pattacare.com/privacy/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://pattacare.com/terms/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
