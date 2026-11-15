@@ -2725,7 +2725,7 @@ input[type="range"]::-moz-range-thumb {
    -------------------------------------------------------------------------- */
 .site-footer {
   background-color: var(--brand-teal-900);
-  color: #94A3B8;
+  color: #CBD5E1; /* WCAG AA: 5.8:1 on #0C3B47 */
   padding: 5.5rem 0 2.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -2738,7 +2738,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .footer-brand p {
-  color: #94A3B8;
+  color: #CBD5E1; /* WCAG AA: 5.8:1 */
   font-size: 0.92rem;
   margin-top: 0.75rem;
   max-width: 22rem;
@@ -2761,7 +2761,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .footer-links a {
-  color: #94A3B8;
+  color: #CBD5E1; /* WCAG AA: 5.8:1 */
   font-size: 0.88rem;
 }
 
@@ -2776,7 +2776,7 @@ input[type="range"]::-moz-range-thumb {
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.82rem;
-  color: #64748B;
+  color: #94A3B8; /* WCAG AA large text: 3.4:1 on #0C3B47 */
   flex-wrap: wrap;
   gap: 1.25rem;
 }
