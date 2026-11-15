@@ -31,7 +31,7 @@
 
   /* Secondary Hospital Red/Coral (Logo Cross & Heart: exact harmonized palette) */
   --brand-coral-600: #C93B30;
-  --brand-coral-500: #DE4B3F;
+  --brand-coral-500: #D4382B;
   --brand-coral-50:  #FEF2F2;
   --brand-coral-glow: rgba(222, 75, 63, 0.24);
 
@@ -479,6 +479,9 @@ section[id] {
 }
 
 @media (max-width: 640px) {
+  .capabilities-roadmap-banner {
+    padding: 1.5rem !important;
+  }
   .site-header .brand-parent-badge {
     display: none !important;
   }
@@ -2779,6 +2782,8 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 700;
   text-decoration: none;
   font-family: inherit;
+  padding: 4px 0;
+  display: inline-block;
 }
 
 .regional-phone-item .phone-link:hover {
