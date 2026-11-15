@@ -142,6 +142,13 @@
             "contactType": "sales",
             "areaServed": "IN",
             "availableLanguage": ["English", "Hindi", "Tamil", "Kannada"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-617-953-9305",
+            "contactType": "customer service",
+            "areaServed": "US",
+            "availableLanguage": ["English"]
           }
         ]
       },
@@ -245,7 +252,7 @@
           </div>
           <div style="display: flex; flex-direction: column;">
             <span class="brand-name" style="font-size: 1.35rem; font-weight: 800; color: #DE4B3F; line-height: 1.1;">Patta<span style="color: var(--color-teal);">Care</span></span>
-            <span class="brand-subline header-tagline-text" style="font-size: 0.72rem; color: #94A3B8; font-weight: 600;">Care that continues after discharge.</span>
+            <span class="brand-subline header-tagline-text" style="font-size: 0.72rem; color: #64748B; font-weight: 600; letter-spacing: -0.01em;">Care that continues after discharge.</span>
           </div>
         </a>
       </div>
@@ -1710,6 +1717,15 @@
                 <a href="tel:+917010642399" class="phone-link" style="font-size: 0.82rem; color: var(--color-teal); opacity: 0.9;">+91 70106 42399</a>
               </div>
             </div>
+            <div class="regional-phone-item">
+              <div class="region-badge">
+                <span style="font-size: 1.1rem;">🇺🇸</span>
+                <span>USA (North America Support &amp; Partnerships)</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;">
+                <a href="tel:+16179539305" class="phone-link">+1 (617) 953-9305</a>
+              </div>
+            </div>
           </div>
 
           <!-- Company Office Address -->
@@ -1774,8 +1790,8 @@
           </div>
 
           <div class="form-group">
-            <label for="phone-number">Official Mobile / WhatsApp Number (+91) *</label>
-            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210" required>
+            <label for="phone-number">Official Mobile / WhatsApp Number (India / USA) *</label>
+            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210 or +1 (617) 953-9305" required>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -1802,16 +1818,24 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
-            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border-radius: 10px; padding: 4px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
-              <picture>
-                <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
-                <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
-                <img src="assets/images/patta-care-logo.png" alt="PattaCare — Hospital Post-Op Recovery &amp; RPM Platform India" loading="lazy" width="44" height="44" style="width: 100%; height: 100%; object-fit: contain;">
-              </picture>
-            </div>
-            <div>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #FFF; line-height: 1.1; display: block;">Patta<span style="color: #5EEAD4;">Care</span></span>
-              <span style="font-size: 0.76rem; color: #CBD5E1; font-weight: 600;">A <a href="https://alphaesai.com/" target="_blank" rel="noopener noreferrer" style="color: #5EEAD4; text-decoration: underline; font-weight: 700;">Alpha Esai Technologies</a> Company</span>
+            <a href="/" aria-label="PattaCare Home" style="text-decoration: none; display: inline-block;">
+              <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border-radius: 10px; padding: 4px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
+                <picture>
+                  <source srcset="assets/images/patta-care-logo.avif" type="image/avif">
+                  <source srcset="assets/images/patta-care-logo.webp" type="image/webp">
+                  <img src="assets/images/patta-care-logo.png" alt="PattaCare — Hospital Post-Op Recovery &amp; RPM Platform India" loading="lazy" width="44" height="44" style="width: 100%; height: 100%; object-fit: contain;">
+                </picture>
+              </div>
+            </a>
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <a href="/" aria-label="PattaCare Home" style="text-decoration: none; display: inline-block;">
+                <span style="font-size: 1.45rem; font-weight: 800; color: #FF6B5E; line-height: 1.1; display: block;">Patta<span style="color: #5EEAD4;">Care</span></span>
+              </a>
+              <span class="brand-parent-badge brand-parent-badge-dark">
+                <span class="parent-prefix">A</span>
+                <a href="https://alphaesai.com/" target="_blank" rel="noopener noreferrer" class="parent-link">Alpha Esai Technologies</a>
+                <span class="parent-suffix">Company</span>
+              </span>
             </div>
           </div>
           <p>
@@ -1822,6 +1846,7 @@
           <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.86rem;">
             <div>✉️ <a href="mailto:hi@pattacare.com" style="color: #5EEAD4; text-decoration: none; font-weight: 600;">hi@pattacare.com</a></div>
             <div style="color: #CBD5E1;">🇮🇳 India: <a href="tel:+919346317790" style="color: #CBD5E1; text-decoration: none;">+91 93463 17790</a> / <a href="tel:+917010642399" style="color: #CBD5E1; text-decoration: none;">+91 70106 42399</a></div>
+            <div style="color: #CBD5E1;">🇺🇸 USA: <a href="tel:+16179539305" style="color: #CBD5E1; text-decoration: none;">+1 (617) 953-9305</a></div>
             <div style="color: #CBD5E1; font-size: 0.8rem; margin-top: 0.35rem; line-height: 1.4;">
               📍 <span style="color: #CBD5E1;">HQ:</span> No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India
             </div>

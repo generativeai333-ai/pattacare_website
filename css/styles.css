@@ -419,6 +419,72 @@ section[id] {
   color: var(--brand-teal-600);
 }
 
+/* --------------------------------------------------------------------------
+   Unified Parent Brand Badge (Standardized across Header & Footer)
+   -------------------------------------------------------------------------- */
+.brand-parent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: -0.01em;
+  width: fit-content;
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-apple);
+}
+
+.brand-parent-badge .parent-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-parent-badge .parent-link:hover {
+  text-decoration: underline;
+}
+
+/* Header Light Variant */
+.brand-parent-badge-light {
+  background: rgba(20, 91, 107, 0.06);
+  border: 1px solid rgba(20, 91, 107, 0.16);
+  color: #475569;
+}
+
+.brand-parent-badge-light .parent-link {
+  color: var(--brand-teal-700);
+}
+
+.brand-parent-badge-light:hover {
+  background: rgba(20, 91, 107, 0.1);
+  border-color: rgba(20, 91, 107, 0.28);
+}
+
+/* Footer Dark Variant */
+.brand-parent-badge-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.32);
+  color: #CBD5E1;
+}
+
+.brand-parent-badge-dark .parent-link {
+  color: #5EEAD4;
+}
+
+.brand-parent-badge-dark:hover {
+  background: rgba(94, 234, 212, 0.14);
+  border-color: #5EEAD4;
+}
+
+@media (max-width: 640px) {
+  .site-header .brand-parent-badge {
+    display: none !important;
+  }
+}
+
+
 .brand-lockup-wrapper {
   display: flex;
   align-items: center;
