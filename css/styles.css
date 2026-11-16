@@ -2634,7 +2634,7 @@ input[type="range"]::-moz-range-thumb {
 
 .faq-item.active .faq-answer {
   padding-bottom: 1.4rem;
-  max-height: 320px;
+  max-height: 600px;
 }
 
 .faq-item.active {
@@ -4541,8 +4541,8 @@ html, body {
 }
 
 .pilot-cta-btn {
-  background: #059669 !important;
-  border-color: #059669 !important;
+  background: #047857 !important;
+  border-color: #047857 !important;
   padding: 0.85rem 2rem;
   font-size: 1rem;
   font-weight: 700;
