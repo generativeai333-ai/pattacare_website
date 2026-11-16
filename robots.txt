@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# LLM & AI Search Scraper Reference
+# https://pattacare.com/llm.txt
+
 # Host
 Host: https://pattacare.com
 
