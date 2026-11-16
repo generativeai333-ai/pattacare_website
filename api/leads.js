@@ -133,6 +133,7 @@ export default async function handler(req, res) {
     'https://pattacare.com',
     'https://www.pattacare.com',
     'http://localhost:3000',
+    'http://localhost:3005',
     'http://localhost:8080',
     'http://127.0.0.1:8080'
   ];
