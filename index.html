@@ -1929,6 +1929,9 @@
         <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Submit your details and an Indian clinical solutions director will respond within 2 business hours.</p>
 
         <form id="b2b-demo-form">
+          <!-- Honeypot anti-spam field (hidden from real users) -->
+          <input type="text" name="website" id="website" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
           <div class="form-row">
             <div class="form-group">
               <label for="full-name">Doctor / Administrator Name *</label>
@@ -1946,8 +1949,8 @@
               <input type="text" id="organization-name" class="form-control" placeholder="Apollo / Fortis / Aster Hospitals" required>
             </div>
             <div class="form-group">
-              <label for="specialty">Target Department *</label>
-              <select id="specialty" class="form-control" required>
+              <label for="specialty">Target Department</label>
+              <select id="specialty" class="form-control">
                 <option value="General Surgery" selected>General &amp; Laparoscopic Surgery</option>
                 <option value="Orthopedics">Orthopedics &amp; Joint Arthroplasty</option>
                 <option value="Day Care">Day Care / Ambulatory Surgery</option>
@@ -1958,14 +1961,20 @@
           </div>
 
           <div class="form-group">
-            <label for="phone-number">Official Mobile / WhatsApp Number (India / USA) *</label>
-            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210 or +1 (617) 953-9305" required>
+            <label for="phone-number">Official Mobile / WhatsApp Number (India / USA) <span style="font-size: 0.8rem; font-weight: normal; color: var(--color-text-secondary);">(Optional)</span></label>
+            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210 or +1 (617) 953-9305">
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <button type="submit" class="btn btn-primary" id="demo-submit-btn" style="width: 100%;">
             <span>Schedule Hospital Demonstration</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
+
+          <!-- Error Alert Container -->
+          <div id="form-error-message" style="display: none; padding: 0.85rem 1.15rem; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; color: #991B1B; font-size: 0.88rem; margin-top: 1rem; align-items: center; gap: 0.65rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span id="form-error-text">Unable to schedule demonstration. Please verify your details or email hi@pattacare.com.</span>
+          </div>
         </form>
 
         <!-- Success Message -->

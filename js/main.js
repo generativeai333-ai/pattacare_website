@@ -408,23 +408,97 @@ function initFaqAccordion() {
 function initDemoForm() {
   const form = document.getElementById('b2b-demo-form');
   const formSuccess = document.getElementById('form-success-message');
+  const formError = document.getElementById('form-error-message');
+  const formErrorText = document.getElementById('form-error-text');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
+
+      // Reset previous error state
+      if (formError) {
+        formError.style.display = 'none';
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+      // Extract form input values
+      const nameInput = document.getElementById('full-name');
+      const emailInput = document.getElementById('work-email');
+      const orgInput = document.getElementById('organization-name');
+      const deptInput = document.getElementById('specialty');
+      const phoneInput = document.getElementById('phone-number');
+      const honeypotInput = document.getElementById('website');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const organization = orgInput ? orgInput.value.trim() : '';
+      const department = deptInput ? deptInput.value : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const website = honeypotInput ? honeypotInput.value : '';
+
+      // Client-side quick check
+      if (!name || !email || !organization) {
+        if (formError && formErrorText) {
+          formErrorText.textContent = 'Please complete all required fields (Name, Work Email, Hospital Name).';
+          formError.style.display = 'flex';
+        }
+        return;
+      }
+
+      // Enter loading state with spinner
       if (submitBtn) {
-        submitBtn.innerHTML = '<span>Scheduling Demonstration...</span>';
+        submitBtn.innerHTML = `
+          <svg style="animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; margin-right: 8px;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+            <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+          </svg>
+          <span>Scheduling Demonstration...</span>`;
         submitBtn.disabled = true;
       }
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        if (formSuccess) {
-          formSuccess.style.display = 'block';
+      try {
+        const payload = {
+          name,
+          email,
+          organization,
+          department: department || 'General Surgery',
+          phone,
+          website
+        };
+
+        const res = await fetch('/api/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success) {
+          // Success transition
+          form.style.display = 'none';
+          if (formSuccess) {
+            formSuccess.style.display = 'block';
+          }
+        } else {
+          throw new Error(data.error || 'Server error occurred while submitting.');
         }
-      }, 700);
+      } catch (err) {
+        console.error('[DemoForm] Lead submission failed:', err);
+        if (formError && formErrorText) {
+          formErrorText.textContent = err.message || 'Unable to schedule demonstration. Please try again or email hi@pattacare.com.';
+          formError.style.display = 'flex';
+        }
+        if (submitBtn) {
+          submitBtn.innerHTML = originalBtnContent;
+          submitBtn.disabled = false;
+        }
+      }
     });
   }
 }
