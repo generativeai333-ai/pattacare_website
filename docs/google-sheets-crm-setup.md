@@ -4,6 +4,15 @@ This guide details how to connect the PattaCare `/api/leads` serverless endpoint
 
 ---
 
+## 0. Active Production Deployment Details
+
+- **Live Google Sheet:** [PattaCare B2B Inbound Leads](https://docs.google.com/spreadsheets/d/13hLjgoB3G8bGRA_D-jSj8hfngDWQlHZU0WE7o8Kj3Qk/edit)
+- **Active Web App Webhook URL:** `https://script.google.com/macros/s/AKfycbwl3eWZvFt3GRZjy7sCYpMvAf001toGNHXHzM2EAhn_jvUiyeWHJyCf-IQosZC6J-ND3w/exec`
+- **Notification Target:** `hi@pattacare.com` (dispatched directly via Gmail `MailApp`)
+- **Status:** **Active & Verified** (Tested via live test POST)
+
+---
+
 ## 1. Sheet Setup & Column Headers
 
 1. Open [Google Sheets](https://sheets.new) and create a new spreadsheet.

@@ -297,7 +297,8 @@ export default async function handler(req, res) {
   let sheetsSuccess = false;
   let emailSuccess = false;
 
-  const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  const defaultSheetsWebhookUrl = 'https://script.google.com/macros/s/AKfycbwl3eWZvFt3GRZjy7sCYpMvAf001toGNHXHzM2EAhn_jvUiyeWHJyCf-IQosZC6J-ND3w/exec';
+  const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || defaultSheetsWebhookUrl;
   const resendApiKey = process.env.RESEND_API_KEY;
   const notificationEmail = process.env.NOTIFICATION_EMAIL || 'hi@pattacare.com';
   const resendFromEmail = process.env.RESEND_FROM_EMAIL || 'PattaCare Platform <onboarding@resend.dev>';
