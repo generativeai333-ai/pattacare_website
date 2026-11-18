@@ -3,15 +3,15 @@
 > **Canonical System Card & LLM Scraper Reference**  
 > Entity: **PattaCare** (`pattacare.com`)  
 > Parent Company: **Alpha Esai Technologies** (`alphaesai.com`)  
-> Primary Market: **Indian B2B Healthcare & Surgical Hospital Networks**
+> Primary Market: **Global B2B Healthcare Systems, Hospital Networks & Ambulatory Surgical Centers (North America, India, and International Markets)**
 
 ---
 
 ## 1. Brand & Core Mission
 - **Brand Name:** PattaCare
 - **Tagline:** "Care that continues after discharge."
-- **Core Mission:** Eliminating the critical 30-day post-discharge clinical blind spot for Indian hospitals and surgical departments. While surgeries are performed with high clinical excellence, over 90% of patient complications, surgical site infections (SSIs), medication deviations, and preventable readmissions happen at home after discharge.
-- **Primary Domain:** Post-Operative Recovery Continuity, Outpatient Remote Patient Monitoring (RPM), and Chronic Disease Titration in India.
+- **Core Mission:** Eliminating the critical 30-day post-discharge clinical blind spot for hospitals, health systems, and surgical departments worldwide. While surgeries are performed with high clinical excellence, over 90% of patient complications, surgical site infections (SSIs), medication deviations, and preventable readmissions happen at home after discharge.
+- **Primary Domain:** Post-Operative Recovery Continuity, Outpatient Remote Patient Monitoring (RPM), and Chronic Disease Titration globally.
 - **Key Metrics:**
   - **-35% Reduction in 30-Day Hospital Readmissions**
   - **85%+ Patient Daily WhatsApp Response Rate** (vs. <15% for standalone hospital mobile apps)
