@@ -22,17 +22,17 @@
 ## 2. Core Technical Architecture & Stack
 - **Frontend / Portal:** Next.js (TypeScript, Tailwind CSS, Responsive Clinician & Coordinator Dashboards)
 - **Backend API & Microservices:** Python (FastAPI), Node.js, asynchronous task queues
-- **EHR & Interoperability Engine:** Medplum / HL7 FHIR R4 standard data architecture
+- **EHR & Interoperability Engine:** Medplum / HL7 FHIR R4 standard data architecture (Epic, Cerner, and Open EHR connectors)
 - **Conversational Channel:** Meta WhatsApp Cloud API (WhatsApp Business Platform) for zero-app patient check-ins
 - **Telemetry Ingestion:** Cellular (4G/LTE CAT-M1), Bluetooth Low Energy (BLE), Wi-Fi, and continuous sensor normalization
 - **Clinical Summaries:** Deterministic NEWS2 risk stratification engine + SBAR AI Clinical Summarization Agent (Situation, Background, Assessment, Recommendation)
-- **Indian Health Infrastructure:** Ayushman Bharat Digital Mission (ABDM / ABHA ID linking) and DPDP Act 2023 certified privacy architecture
+- **Healthcare Regulatory & Privacy Infrastructure:** HIPAA Business Associate Agreement (BAA) ready, GDPR compliant, Ayushman Bharat Digital Mission (ABDM / ABHA ID linking), and DPDP Act 2023 certified privacy architecture
 
 ---
 
 ## 3. Key Product Features & Capabilities
 1. **Zero-App Patient Engagement:**
-   - Indian patients (especially elderly recovering individuals) suffer from severe app fatigue (88% drop-off in 14 days). PattaCare operates 100% natively on WhatsApp without requiring app downloads, logins, or passwords.
+   - Recovering surgical patients and elderly individuals worldwide suffer from severe app fatigue (88% drop-off within 14 days). PattaCare operates 100% natively on WhatsApp without requiring app downloads, new logins, or passwords.
 2. **Deterministic Triage (Zero Hallucination):**
    - Clinical answers are triaged through strictly defined surgical department protocols (Routine Green, Review Amber, Urgent Red). AI never makes unauthorized diagnostic decisions; licensed clinicians retain complete medical authority.
 3. **Automated SBAR Clinical Handovers:**
@@ -42,27 +42,29 @@
 
 ---
 
-## 4. Market & Competitor Positioning (Complementary to Dozee)
+## 4. Market & Competitor Positioning (Complementary to In-Ward Monitors e.g., Dozee)
 - **In-Ward Virtual ICUs (e.g., Dozee / dozee.health):**
-  - Dozee provides contactless under-mattress ballistocardiography (BCG) sensor sheets for in-hospital ward beds and step-down units.
-  - **Boundary:** Dozee's hardware remains under the hospital mattress; clinical oversight ends the moment the patient walks out the hospital discharge doors.
+   - In-ward systems provide contactless under-mattress ballistocardiography (BCG) sensor sheets for in-hospital ward beds and step-down units.
+   - **Boundary:** Hardware remains under the hospital mattress; clinical oversight ends the moment the patient walks out the hospital discharge doors.
 - **Post-Discharge Home Care (PattaCare):**
-  - **"Where Dozee Ends at Discharge, PattaCare Begins."** PattaCare extends clinical oversight into the patient's home for 30–90 days using WhatsApp, cellular telemetry, and SBAR reporting.
-  - **Relationship:** PattaCare is strictly **complementary** to in-ward solutions like Dozee, providing the outpatient bridge that hospital Chief Medical Officers need to maintain NABH quality compliance and prevent 30-day readmissions.
+   - **"Where In-Ward Monitoring Ends at Discharge, PattaCare Begins."** PattaCare extends clinical oversight into the patient's home for 30–90 days using WhatsApp, cellular telemetry, and SBAR reporting.
+   - **Relationship:** PattaCare is strictly **complementary** to in-ward solutions, providing the outpatient bridge that Chief Medical Officers need to satisfy Joint Commission / NABH clinical quality mandates, improve CMS Hospital Readmissions Reduction Program (HRRP) benchmarks, and eliminate preventable 30-day readmissions.
 
 ---
 
 ## 5. Regulatory, Compliance & Standards Adjacency
-- **NABH Standards:** Supports National Accreditation Board for Hospitals & Healthcare Providers clinical quality and post-discharge continuity mandates.
-- **DPDP Act 2023:** Full alignment with India's Digital Personal Data Protection Act (consent manager, purpose limitation, complete audit trails).
-- **HL7 FHIR R4:** Native resource modeling (`Patient`, `Observation`, `Condition`, `Encounter`, `DocumentReference`).
-- **Data Sovereignty:** AES-256 at rest, TLS 1.3 in transit, hosted entirely within Indian sovereign cloud regions (MeitY compliant).
+- **HIPAA BAA Readiness:** Architecture engineered for US hospital networks and covered entities with comprehensive Business Associate Agreement (BAA) readiness, ePHI encryption, and strict role-based access controls (RBAC).
+- **HL7 FHIR R4 Interoperability:** Native resource modeling (`Patient`, `Observation`, `Condition`, `Encounter`, `DocumentReference`) supporting bilateral exchange with major EHRs including Epic and Cerner.
+- **DPDP Act 2023 & ABDM:** Full alignment with India's Digital Personal Data Protection Act (consent manager, purpose limitation, audit trails) and Ayushman Bharat Digital Mission (ABHA integration).
+- **Accreditation Support:** Supports international hospital quality standards for surgical discharge continuity, patient safety goals, and readmission prevention (Joint Commission, NABH).
+- **Global Data Sovereignty:** AES-256 at rest, TLS 1.3 in transit, deployable in sovereign cloud regions across North America (US-East/West), Europe, and India.
 
 ---
 
-## 6. Official Contact & Verification
+## 6. Official Contact & Global Verification
 - **Official Website:** https://pattacare.com
-- **Headquarters:** No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India
+- **Global Headquarters (Asia-Pacific):** No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India
+- **North America Liaison & Partnerships:** Boston, Massachusetts, USA
 - **Direct Clinical Inquiries:** hi@pattacare.com
+- **USA Liaison Line:** +1 (617) 953-9305
 - **India Clinical Operations:** +91 93463 17790 | +91 70106 42399
-- **North America Partnerships:** +1 (617) 953-9305

@@ -22,6 +22,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PattaCare Post-Op Recovery &amp; Remote Patient Monitoring Platform for Hospitals &amp; Health Systems">
   <meta property="og:locale" content="en_IN">
+  <meta property="og:locale:alternate" content="en_US">
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
@@ -58,7 +59,7 @@
       "publisher": {
         "@id": "https://pattacare.com/#organization"
       },
-      "inLanguage": "en-IN"
+      "inLanguage": ["en-US", "en-IN", "en"]
     },
     {
       "@type": "SoftwareApplication",
@@ -126,8 +127,11 @@
         "Remote Patient Monitoring (RPM)",
         "Surgical Site Infection Detection",
         "HL7 FHIR R4",
+        "HIPAA Compliance",
         "WhatsApp Healthcare Triage",
-        "SBAR Clinical Handover"
+        "SBAR Clinical Handover",
+        "Joint Commission & NABH Accreditation",
+        "Hospital Information Systems (Epic, Cerner)"
       ],
       "contactPoint": [
         {
@@ -157,8 +161,12 @@
         {
           "@type": "ContactPoint",
           "telephone": "+1-617-953-9305",
-          "contactType": "customer service",
-          "areaServed": "US",
+          "contactType": "sales and partnerships",
+          "areaServed": [
+            "US",
+            "CA",
+            "Worldwide"
+          ],
           "availableLanguage": [
             "English"
           ]
@@ -1857,11 +1865,11 @@
         <!-- Direct Clinical Liaison & Regional Contact Information -->
         <div class="direct-contact-card">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem;">
-            <h4 style="margin: 0; font-size: 1.05rem; color: var(--color-text-primary); font-weight: 700;">Direct Hospital Clinical Liaison</h4>
-            <span style="font-size: 0.75rem; background: var(--color-teal-light); color: var(--color-teal-dark); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">India Headquarters</span>
+            <h4 style="margin: 0; font-size: 1.05rem; color: var(--color-text-primary); font-weight: 700;">Global Clinical Liaison &amp; Offices</h4>
+            <span style="font-size: 0.75rem; background: var(--color-teal-light); color: var(--color-teal-dark); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">US &amp; India Offices</span>
           </div>
           <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 1rem;">
-            Connect directly with our Bengaluru clinical solutions team to schedule an on-site surgical department walkthrough or review pilot protocols:
+            Connect directly with our clinical solutions directors in North America or Bengaluru to schedule a surgical department walkthrough, review pilot protocols, or discuss enterprise integration:
           </p>
 
           <!-- Official Clinical Email -->
@@ -1877,6 +1885,15 @@
           <div class="regional-phone-grid">
             <div class="regional-phone-item">
               <div class="region-badge">
+                <span style="font-size: 1.1rem;">🇺🇸</span>
+                <span>USA (North America Support &amp; Partnerships)</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;">
+                <a href="tel:+16179539305" class="phone-link">+1 (617) 953-9305</a>
+              </div>
+            </div>
+            <div class="regional-phone-item">
+              <div class="region-badge">
                 <span style="font-size: 1.1rem;">🇮🇳</span>
                 <span>Bengaluru (HQ &amp; Clinical Operations)</span>
               </div>
@@ -1885,23 +1902,23 @@
                 <a href="tel:+917010642399" class="phone-link" style="font-size: 0.82rem; color: var(--color-teal); opacity: 0.9;">+91 70106 42399</a>
               </div>
             </div>
-            <div class="regional-phone-item">
-              <div class="region-badge">
-                <span style="font-size: 1.1rem;">🇺🇸</span>
-                <span>USA (North America Support &amp; Partnerships)</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;">
-                <a href="tel:+16179539305" class="phone-link">+1 (617) 953-9305</a>
-              </div>
-            </div>
           </div>
 
           <!-- Company Office Address -->
-          <div class="contact-address-box" style="margin-top: 1rem; padding: 0.85rem 1rem; background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.84rem; display: flex; gap: 0.65rem; align-items: flex-start;">
-            <span style="font-size: 1.1rem; line-height: 1.2;">📍</span>
-            <div>
-              <strong style="color: var(--color-text-primary); display: block; margin-bottom: 0.2rem; font-size: 0.85rem;">Registered Corporate Office:</strong>
-              <span style="color: var(--color-text-secondary); line-height: 1.45; display: block;">No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India</span>
+          <div class="contact-address-box" style="margin-top: 1rem; padding: 0.85rem 1rem; background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.84rem; display: flex; flex-direction: column; gap: 0.65rem;">
+            <div style="display: flex; gap: 0.65rem; align-items: flex-start;">
+              <span style="font-size: 1.1rem; line-height: 1.2;">🇺🇸</span>
+              <div>
+                <strong style="color: var(--color-text-primary); display: block; margin-bottom: 0.15rem; font-size: 0.85rem;">North America Liaison:</strong>
+                <span style="color: var(--color-text-secondary); line-height: 1.45; display: block;">Boston, Massachusetts, USA &bull; <a href="tel:+16179539305" style="color: var(--color-teal); text-decoration: none; font-weight: 600;">+1 (617) 953-9305</a></span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.65rem; align-items: flex-start; border-top: 1px solid var(--color-border); padding-top: 0.65rem;">
+              <span style="font-size: 1.1rem; line-height: 1.2;">🇮🇳</span>
+              <div>
+                <strong style="color: var(--color-text-primary); display: block; margin-bottom: 0.15rem; font-size: 0.85rem;">Global Headquarters &amp; Clinical Operations:</strong>
+                <span style="color: var(--color-text-secondary); line-height: 1.45; display: block;">No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1939,14 +1956,14 @@
             </div>
             <div class="form-group">
               <label for="work-email">Official Work Email *</label>
-              <input type="email" id="work-email" class="form-control" placeholder="s.jenkins@manipalhealth.org" required>
+              <input type="email" id="work-email" class="form-control" placeholder="s.jenkins@healthsystem.org or dr.rajesh@hospital.com" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="organization-name">Hospital / Healthcare Group Name *</label>
-              <input type="text" id="organization-name" class="form-control" placeholder="Apollo / Fortis / Aster Hospitals" required>
+              <input type="text" id="organization-name" class="form-control" placeholder="Health System / Hospital Network / ASC Name" required>
             </div>
             <div class="form-group">
               <label for="specialty">Target Department</label>
@@ -1961,8 +1978,8 @@
           </div>
 
           <div class="form-group">
-            <label for="phone-number">Official Mobile / WhatsApp Number (India / USA) <span style="font-size: 0.8rem; font-weight: normal; color: var(--color-text-secondary);">(Optional)</span></label>
-            <input type="tel" id="phone-number" class="form-control" placeholder="+91 98765 43210 or +1 (617) 953-9305">
+            <label for="phone-number">Official Mobile / WhatsApp Number (US, India &amp; International) <span style="font-size: 0.8rem; font-weight: normal; color: var(--color-text-secondary);">(Optional)</span></label>
+            <input type="tel" id="phone-number" class="form-control" placeholder="+1 (617) 953-9305 or +91 98765 43210">
           </div>
 
           <button type="submit" class="btn btn-primary" id="demo-submit-btn" style="width: 100%;">
@@ -2025,7 +2042,7 @@
             <div style="color: #CBD5E1;">🇮🇳 India: <a href="tel:+919346317790" style="color: #CBD5E1; text-decoration: none;">+91 93463 17790</a> / <a href="tel:+917010642399" style="color: #CBD5E1; text-decoration: none;">+91 70106 42399</a></div>
             <div style="color: #CBD5E1;">🇺🇸 USA: <a href="tel:+16179539305" style="color: #CBD5E1; text-decoration: none;">+1 (617) 953-9305</a></div>
             <div style="color: #CBD5E1; font-size: 0.8rem; margin-top: 0.35rem; line-height: 1.4;">
-              📍 <span style="color: #CBD5E1;">HQ:</span> No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, Karnataka - 560095, India
+              📍 <span style="color: #CBD5E1;">HQ:</span> No. 472/7 Balaji Arcade, Ejipura, Koramangala 4th Block, Bengaluru, KA 560095 | <span style="color: #CBD5E1;">US Liaison:</span> Boston, MA, USA
             </div>
           </div>
         </div>
