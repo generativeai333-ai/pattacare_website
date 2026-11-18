@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initVideoPlayer();
   initHeroInteractive();
+  initHeroSimulator();
   initWhitepaperModal();
   initDeviceDrawer();
   initRpmTabs();
@@ -535,6 +536,144 @@ function initHeroInteractive() {
       news2Badge.style.borderColor = '#FDE68A';
     }
   });
+}
+
+/* 6.5. Hero Dynamic 5-Tab Clinical Simulator (Auto-Rotating, Manual Tabs, Hover Pause) */
+function initHeroSimulator() {
+  const container = document.getElementById('hero-simulator-container');
+  if (!container) return;
+
+  const tabs = container.querySelectorAll('.sim-tab-pill');
+  const slides = container.querySelectorAll('.sim-slide');
+  const scenarioTag = document.getElementById('hero-cockpit-scenario-tag');
+  const sbarText = document.getElementById('hero-sbar-text');
+  const news2Badge = container.querySelector('.cockpit-bottom-triage .badge-status-news2');
+  const patientInfo = container.querySelector('.cockpit-bottom-triage .triage-patient-info');
+
+  if (!tabs.length || !slides.length) return;
+
+  const scenarios = [
+    {
+      tag: 'SURGICAL POST-OP RECOVERY • SBAR AI AGENT',
+      badgeText: 'Status: Green (Routine POD-3)',
+      badgeClass: 'green',
+      patientInfo: 'MRN #BLR-4821 • Lap Cholecystectomy',
+      sbar: '<strong>SBAR AI Agent Auto-Draft (Surgeon Review Required):</strong> POD-3 Lap Cholecystectomy. Temp 37.1°C, tolerating oral fluids, incision dressing intact, mild pain 3/10. Readmission risk: Low. Synced to ward worklist.'
+    },
+    {
+      tag: 'TRANSITIONAL CARE STEP-DOWN • SBAR AI AGENT',
+      badgeText: 'Status: Green (Wound Closure Verified)',
+      badgeClass: 'green',
+      patientInfo: 'MRN #BLR-3914 • Day 14 Step-Down',
+      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> POD-14 Step-Down Review. Antibiotic course complete. Incision photo confirmed dry without erythema or soakage. Recovery trajectory optimal.'
+    },
+    {
+      tag: 'HOSPITAL@HOME • VIRTUAL WARD TELEMETRY',
+      badgeText: 'Status: Amber (NEWS2 Alert: 4)',
+      badgeClass: 'amber',
+      patientInfo: 'MRN #BLR-5109 • Acute Virtual Ward',
+      sbar: '<strong>SBAR AI Agent Auto-Draft (Urgent Escalation):</strong> SpO2 dropped to 91% on room air. NEWS2 Score: 4 (Amber). Escalation timer active (10m). Ward Nurse Coordinator notified for tele-triage.'
+    },
+    {
+      tag: 'CARDIOVASCULAR & HTN TITRATION • RPM',
+      badgeText: 'Status: Green (BP Controlled)',
+      badgeClass: 'green',
+      patientInfo: 'MRN #BLR-2270 • Essential HTN Titration',
+      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> Cellular BP cuff reading 132/82 mmHg. Morning surge avoided; 8-day Time-in-Range targets achieved. Routine cardiology review queued.'
+    },
+    {
+      tag: 'DIABETES & GLYCEMIC PROTOCOL • RPM',
+      badgeText: 'Status: Green (Euglycemic Fasting)',
+      badgeClass: 'green',
+      patientInfo: 'MRN #BLR-6032 • Type 2 Glycemic RPM',
+      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> Fasting blood glucose 105 mg/dL within optimal target range (80–120 mg/dL). Zero hypoglycemic events detected. Bilateral EHR sync complete.'
+    }
+  ];
+
+  let currentSlide = 0;
+  let autoTimer = null;
+  const ROTATE_INTERVAL = 5000; // 5000ms (5 seconds)
+
+  function setSlide(index) {
+    if (index < 0 || index >= slides.length) return;
+    currentSlide = index;
+
+    // Update active tab & aria
+    tabs.forEach((tab, i) => {
+      const isActive = i === index;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update slides with smooth fade-in animation
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.add('active');
+        slide.classList.remove('fade-in');
+        // Force reflow to restart CSS keyframe animation
+        void slide.offsetWidth;
+        slide.classList.add('fade-in');
+      } else {
+        slide.classList.remove('active', 'fade-in');
+      }
+    });
+
+    // Sync cockpit headers & SBAR triage note
+    const scenario = scenarios[index];
+    if (scenario) {
+      if (scenarioTag) scenarioTag.textContent = scenario.tag;
+      if (sbarText) sbarText.innerHTML = scenario.sbar;
+      if (patientInfo) patientInfo.textContent = scenario.patientInfo;
+      if (news2Badge) {
+        news2Badge.textContent = scenario.badgeText;
+        if (scenario.badgeClass === 'amber') {
+          news2Badge.style.color = '#92400E';
+          news2Badge.style.backgroundColor = '#FEF3C7';
+          news2Badge.style.borderColor = '#FDE68A';
+        } else {
+          news2Badge.style.color = '#065F46';
+          news2Badge.style.backgroundColor = '#D1FAE5';
+          news2Badge.style.borderColor = '#A7F3D0';
+        }
+      }
+    }
+  }
+
+  function startAutoRotate() {
+    stopAutoRotate();
+    autoTimer = setInterval(() => {
+      const nextSlide = (currentSlide + 1) % slides.length;
+      setSlide(nextSlide);
+    }, ROTATE_INTERVAL);
+  }
+
+  function stopAutoRotate() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Manual Override: Click on tabs
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      setSlide(i);
+      startAutoRotate(); // reset 5-second interval timer
+    });
+  });
+
+  // Pause on Hover
+  container.addEventListener('mouseenter', () => {
+    stopAutoRotate();
+  });
+
+  container.addEventListener('mouseleave', () => {
+    startAutoRotate();
+  });
+
+  // Start initial rotation cycle
+  startAutoRotate();
 }
 
 /* 7. Clinical Whitepaper Modal Handler */

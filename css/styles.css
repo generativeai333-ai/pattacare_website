@@ -942,6 +942,131 @@ section[id] {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   Hero WhatsApp 5-Tab Clinical Simulator
+   ========================================================================== */
+.sim-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.95rem;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sim-nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.sim-tab-pill {
+  border-radius: 20px;
+  background: #EDF2F7;
+  border: 1px solid #CBD5E1;
+  color: #475569;
+  font-size: 0.74rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.25;
+}
+
+.sim-tab-pill:hover {
+  background: #E2E8F0;
+  color: var(--color-teal);
+  border-color: #94A3B8;
+}
+
+.sim-tab-pill.active {
+  background: var(--color-teal);
+  color: #FFFFFF;
+  border-color: var(--color-teal);
+  box-shadow: 0 2px 6px rgba(20, 91, 107, 0.25);
+}
+
+.sim-slide {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.sim-slide.active {
+  display: flex;
+}
+
+.sim-slide.fade-in {
+  animation: simFadeIn 400ms ease-out forwards;
+}
+
+@keyframes simFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.whatsapp-bubble.user {
+  background: #DCFCE7;
+  color: #14532D;
+  border: 1px solid #86EFAC;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 10px;
+  align-self: flex-end;
+  max-width: 90%;
+  margin-left: auto;
+}
+
+.whatsapp-bubble.system {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.bubble-sender.patient {
+  color: #15803D;
+}
+
+.bubble-sender.system {
+  color: #B45309;
+}
+
+.wa-photo-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px dashed #86EFAC;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  margin-bottom: 0.2rem;
+}
+
+.wa-photo-preview .photo-status {
+  background: #16A34A;
+  color: #FFFFFF;
+  padding: 0.08rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 /* Minimalist Cockpit Top: Simulated WhatsApp prompt */
 .cockpit-top-whatsapp {
   padding: 1.25rem 1.4rem;

@@ -422,9 +422,18 @@
         </div>
       </div>
 
-      <!-- Right Column: Minimalist Clinical Cockpit Card (Post-Op Surgical Case) -->
+      <!-- Right Column: Minimalist Clinical Cockpit Card (Interactive 5-Tab Simulator) -->
       <div class="hero-cockpit-col">
-        <div class="cockpit-card hero-minimalist-cockpit">
+        <div class="cockpit-card hero-minimalist-cockpit" id="hero-simulator-container">
+          <!-- 5-Tab Clinical Simulator Navigation Bar -->
+          <nav class="sim-nav-tabs" role="tablist" aria-label="Clinical Use Case Simulator">
+            <button type="button" class="sim-tab-pill active" role="tab" aria-selected="true" data-slide="0">Post-Op</button>
+            <button type="button" class="sim-tab-pill" role="tab" aria-selected="false" data-slide="1">Step-Down</button>
+            <button type="button" class="sim-tab-pill" role="tab" aria-selected="false" data-slide="2">Hospital@Home</button>
+            <button type="button" class="sim-tab-pill" role="tab" aria-selected="false" data-slide="3">Cardio / HTN</button>
+            <button type="button" class="sim-tab-pill" role="tab" aria-selected="false" data-slide="4">Diabetes / CGM</button>
+          </nav>
+
           <div class="cockpit-header-bar">
             <div class="cockpit-dots">
               <span class="cockpit-dot red"></span>
@@ -433,41 +442,151 @@
             </div>
             <div class="cockpit-tag">
               <span class="pulse-dot-live"></span>
-              <span>SURGICAL POST-OP RECOVERY • SBAR AI AGENT</span>
+              <span id="hero-cockpit-scenario-tag">SURGICAL POST-OP RECOVERY • SBAR AI AGENT</span>
             </div>
-            <div class="cockpit-status-tag">FHIR R4 LIVE</div>
+            <div class="cockpit-status-tag" id="hero-cockpit-status-tag">FHIR R4 LIVE</div>
           </div>
 
-          <!-- Top: Simulated WhatsApp prompt with 2 simple tap-buttons -->
+          <!-- Top: Simulated WhatsApp prompt with 5 Dynamic Clinical Slides -->
           <div class="cockpit-top-whatsapp">
-            <div class="wa-feed-header">
-              <div class="whatsapp-badge-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                </svg>
+            <!-- SLIDE 1 (Post-Op: Active by default) -->
+            <div class="sim-slide active" data-slide="0">
+              <div class="wa-feed-header">
+                <div class="whatsapp-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div class="wa-feed-title-wrap">
+                  <div class="wa-feed-title">PattaCare Post-Op Assistant <span class="wa-check-verified" title="Verified Hospital Account">✓</span></div>
+                  <div class="wa-feed-sub">Surgical Ward Follow-Up • Day 3 • 09:00 AM</div>
+                </div>
+                <div class="wa-recipient-pill">Rajesh Kumar (52M)</div>
               </div>
-              <div class="wa-feed-title-wrap">
-                <div class="wa-feed-title">PattaCare Post-Op Assistant <span class="wa-check-verified" title="Verified Hospital Account">✓</span></div>
-                <div class="wa-feed-sub">Surgical Ward Follow-Up • Day 3 • 09:00 AM</div>
+
+              <div class="whatsapp-bubble bot hero-wa-bubble">
+                <span class="bubble-sender">PattaCare Clinical Protocol Bot</span>
+                Namaste Mr. Rajesh Kumar. It is Post-Op Day 3 for your Laparoscopic Cholecystectomy. Please report your temperature, incision dressing status, and pain:
               </div>
-              <div class="wa-recipient-pill">Rajesh Kumar (52M)</div>
+
+              <!-- 2 simple tap-buttons -->
+              <div class="wa-tap-buttons" role="group" aria-label="Interactive WhatsApp Response">
+                <button type="button" class="wa-tap-btn wa-tap-ok active" id="hero-wa-tap-ok">
+                  <span class="tap-icon">✓</span>
+                  <span>37.1°C • Pain 3/10 — Tolerating Soft Diet, Dressing Dry</span>
+                </button>
+                <button type="button" class="wa-tap-btn wa-tap-alert" id="hero-wa-tap-symptom">
+                  <span class="tap-icon">⚠️</span>
+                  <span>Fever 38.4°C • Pain 7/10 — Nausea / Dressing Soakage</span>
+                </button>
+              </div>
             </div>
 
-            <div class="whatsapp-bubble bot hero-wa-bubble">
-              <span class="bubble-sender">PattaCare Clinical Protocol Bot</span>
-              Namaste Mr. Rajesh Kumar. It is Post-Op Day 3 for your Laparoscopic Cholecystectomy. Please report your temperature, incision dressing status, and pain:
+            <!-- SLIDE 2 (Step-Down) -->
+            <div class="sim-slide" data-slide="1">
+              <div class="wa-feed-header">
+                <div class="whatsapp-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div class="wa-feed-title-wrap">
+                  <div class="wa-feed-title">PattaCare Step-Down Assistant <span class="wa-check-verified" title="Verified Hospital Account">✓</span></div>
+                  <div class="wa-feed-sub">Discharge Recovery Review • Day 14 • 10:15 AM</div>
+                </div>
+                <div class="wa-recipient-pill">Sunita M. (46F)</div>
+              </div>
+
+              <div class="whatsapp-bubble bot hero-wa-bubble">
+                <span class="bubble-sender">PattaCare Protocol Bot</span>
+                Day 14 Post-Discharge: Have you finished your prescribed antibiotics? Please upload a final photo of your incision.
+              </div>
+
+              <div class="whatsapp-bubble user hero-wa-bubble">
+                <span class="bubble-sender patient">Patient Reply</span>
+                <div class="wa-photo-preview">
+                  <span class="photo-icon">📷</span>
+                  <span class="photo-name">Incision_POD14_final.jpg</span>
+                  <span class="photo-status">Uploaded</span>
+                </div>
+                <div style="margin-top: 0.25rem;">Yes, finished.</div>
+              </div>
             </div>
 
-            <!-- 2 simple tap-buttons -->
-            <div class="wa-tap-buttons" role="group" aria-label="Interactive WhatsApp Response">
-              <button type="button" class="wa-tap-btn wa-tap-ok active" id="hero-wa-tap-ok">
-                <span class="tap-icon">✓</span>
-                <span>37.1°C • Pain 3/10 — Tolerating Soft Diet, Dressing Dry</span>
-              </button>
-              <button type="button" class="wa-tap-btn wa-tap-alert" id="hero-wa-tap-symptom">
-                <span class="tap-icon">⚠️</span>
-                <span>Fever 38.4°C • Pain 7/10 — Nausea / Dressing Soakage</span>
-              </button>
+            <!-- SLIDE 3 (Hospital@Home) -->
+            <div class="sim-slide" data-slide="2">
+              <div class="wa-feed-header">
+                <div class="whatsapp-badge-icon" style="background: #FEE2E2; color: #DC2626;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="wa-feed-title-wrap">
+                  <div class="wa-feed-title">PattaCare Virtual Ward <span class="wa-check-verified" title="Hospital at Home Live">✓</span></div>
+                  <div class="wa-feed-sub">Acute Home Telemetry • Real-Time Stream • 11:20 AM</div>
+                </div>
+                <div class="wa-recipient-pill" style="background: #FEE2E2; color: #991B1B; border-color: #FECACA;">David R. (64M)</div>
+              </div>
+
+              <div class="whatsapp-bubble system hero-wa-bubble">
+                <span class="bubble-sender system">Continuous Cellular Oximetry</span>
+                🚨 Cellular Alert: SpO2 dropped to 91%. NEWS2 Score: 4 (Amber).
+              </div>
+
+              <div class="whatsapp-bubble bot hero-wa-bubble">
+                <span class="bubble-sender">PattaCare Triage Engine</span>
+                Alert escalated to Ward Nurse Coordinator.
+              </div>
+            </div>
+
+            <!-- SLIDE 4 (Cardio / HTN) -->
+            <div class="sim-slide" data-slide="3">
+              <div class="wa-feed-header">
+                <div class="whatsapp-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div class="wa-feed-title-wrap">
+                  <div class="wa-feed-title">PattaCare Cardio RPM <span class="wa-check-verified" title="Verified Cardiology Service">✓</span></div>
+                  <div class="wa-feed-sub">Blood Pressure Titration • Cellular Sync • 08:15 AM</div>
+                </div>
+                <div class="wa-recipient-pill">Amit P. (58M)</div>
+              </div>
+
+              <div class="whatsapp-bubble system hero-wa-bubble">
+                <span class="bubble-sender system">Cellular BP Monitor Gateway</span>
+                Cellular BP Cuff Synced: 132/82 mmHg.
+              </div>
+
+              <div class="whatsapp-bubble bot hero-wa-bubble">
+                <span class="bubble-sender">PattaCare Titration Protocol</span>
+                Morning surge avoided. 8-day Time-in-Range target met.
+              </div>
+            </div>
+
+            <!-- SLIDE 5 (Diabetes / CGM) -->
+            <div class="sim-slide" data-slide="4">
+              <div class="wa-feed-header">
+                <div class="whatsapp-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div class="wa-feed-title-wrap">
+                  <div class="wa-feed-title">PattaCare Glycemic RPM <span class="wa-check-verified" title="Verified Endocrinology Service">✓</span></div>
+                  <div class="wa-feed-sub">Metabolic &amp; Glucose Protocol • Cellular CGM • 07:45 AM</div>
+                </div>
+                <div class="wa-recipient-pill">Robert T. (61M)</div>
+              </div>
+
+              <div class="whatsapp-bubble system hero-wa-bubble">
+                <span class="bubble-sender system">Cellular Glucometer Stream</span>
+                Cellular Glucometer Synced: Fasting 105 mg/dL.
+              </div>
+
+              <div class="whatsapp-bubble bot hero-wa-bubble">
+                <span class="bubble-sender">PattaCare Glycemic Protocol</span>
+                Excellent glycemic control. Logged to EMR.
+              </div>
             </div>
           </div>
 
