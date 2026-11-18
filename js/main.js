@@ -538,60 +538,40 @@ function initHeroInteractive() {
   });
 }
 
-/* 6.5. Hero Dynamic 5-Tab Clinical Simulator (Auto-Rotating, Manual Tabs, Hover Pause) */
+/* 6.5. Hero Dynamic 4-Tab Enterprise Clinical Use Cases Simulator */
 function initHeroSimulator() {
-  const container = document.getElementById('hero-simulator-container');
+  const container = document.getElementById('hero-usecase-container') || document.getElementById('hero-simulator-container');
   if (!container) return;
 
-  const tabs = container.querySelectorAll('.sim-tab-pill');
-  const slides = container.querySelectorAll('.sim-slide');
-  const scenarioTag = document.getElementById('hero-cockpit-scenario-tag');
-  const sbarText = document.getElementById('hero-sbar-text');
-  const news2Badge = container.querySelector('.cockpit-bottom-triage .badge-status-news2');
-  const patientInfo = container.querySelector('.cockpit-bottom-triage .triage-patient-info');
+  const tabs = container.querySelectorAll('.use-case-tab-pill, .sim-tab-pill');
+  const slides = container.querySelectorAll('.use-case-slide, .sim-slide');
+  const scenarioTag = document.getElementById('use-case-header-tag') || document.getElementById('hero-cockpit-scenario-tag');
+  const statusTag = document.getElementById('use-case-status-tag') || document.getElementById('hero-cockpit-status-tag');
 
   if (!tabs.length || !slides.length) return;
 
   const scenarios = [
     {
-      tag: 'SURGICAL POST-OP RECOVERY • SBAR AI AGENT',
-      badgeText: 'Status: Green (Routine POD-3)',
-      badgeClass: 'green',
-      patientInfo: 'MRN #BLR-4821 • Lap Cholecystectomy',
-      sbar: '<strong>SBAR AI Agent Auto-Draft (Surgeon Review Required):</strong> POD-3 Lap Cholecystectomy. Temp 37.1°C, tolerating oral fluids, incision dressing intact, mild pain 3/10. Readmission risk: Low. Synced to ward worklist.'
+      tag: 'SURGICAL POST-OP RECOVERY • CLINICAL USE CASE',
+      status: 'FHIR R4 LIVE'
     },
     {
-      tag: 'TRANSITIONAL CARE STEP-DOWN • SBAR AI AGENT',
-      badgeText: 'Status: Green (Wound Closure Verified)',
-      badgeClass: 'green',
-      patientInfo: 'MRN #BLR-3914 • Day 14 Step-Down',
-      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> POD-14 Step-Down Review. Antibiotic course complete. Incision photo confirmed dry without erythema or soakage. Recovery trajectory optimal.'
+      tag: 'TRANSITIONAL CARE MANAGEMENT • CLINICAL USE CASE',
+      status: 'WHATSAPP ACTIVE'
     },
     {
-      tag: 'HOSPITAL@HOME • VIRTUAL WARD TELEMETRY',
-      badgeText: 'Status: Amber (NEWS2 Alert: 4)',
-      badgeClass: 'amber',
-      patientInfo: 'MRN #BLR-5109 • Acute Virtual Ward',
-      sbar: '<strong>SBAR AI Agent Auto-Draft (Urgent Escalation):</strong> SpO2 dropped to 91% on room air. NEWS2 Score: 4 (Amber). Escalation timer active (10m). Ward Nurse Coordinator notified for tele-triage.'
+      tag: 'HOSPITAL@HOME VIRTUAL WARD • CLINICAL USE CASE',
+      status: 'CELLULAR LIVE'
     },
     {
-      tag: 'CARDIOVASCULAR & HTN TITRATION • RPM',
-      badgeText: 'Status: Green (BP Controlled)',
-      badgeClass: 'green',
-      patientInfo: 'MRN #BLR-2270 • Essential HTN Titration',
-      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> Cellular BP cuff reading 132/82 mmHg. Morning surge avoided; 8-day Time-in-Range targets achieved. Routine cardiology review queued.'
-    },
-    {
-      tag: 'DIABETES & GLYCEMIC PROTOCOL • RPM',
-      badgeText: 'Status: Green (Euglycemic Fasting)',
-      badgeClass: 'green',
-      patientInfo: 'MRN #BLR-6032 • Type 2 Glycemic RPM',
-      sbar: '<strong>SBAR AI Agent Auto-Draft:</strong> Fasting blood glucose 105 mg/dL within optimal target range (80–120 mg/dL). Zero hypoglycemic events detected. Bilateral EHR sync complete.'
+      tag: 'CHRONIC DISEASE TITRATION • CLINICAL USE CASE',
+      status: 'TELEMETRY SYNCED'
     }
   ];
 
   let currentSlide = 0;
   let autoTimer = null;
+  let isHovered = false;
   const ROTATE_INTERVAL = 5000; // 5000ms (5 seconds)
 
   function setSlide(index) {
@@ -618,29 +598,17 @@ function initHeroSimulator() {
       }
     });
 
-    // Sync cockpit headers & SBAR triage note
+    // Sync cockpit headers
     const scenario = scenarios[index];
     if (scenario) {
       if (scenarioTag) scenarioTag.textContent = scenario.tag;
-      if (sbarText) sbarText.innerHTML = scenario.sbar;
-      if (patientInfo) patientInfo.textContent = scenario.patientInfo;
-      if (news2Badge) {
-        news2Badge.textContent = scenario.badgeText;
-        if (scenario.badgeClass === 'amber') {
-          news2Badge.style.color = '#92400E';
-          news2Badge.style.backgroundColor = '#FEF3C7';
-          news2Badge.style.borderColor = '#FDE68A';
-        } else {
-          news2Badge.style.color = '#065F46';
-          news2Badge.style.backgroundColor = '#D1FAE5';
-          news2Badge.style.borderColor = '#A7F3D0';
-        }
-      }
+      if (statusTag) statusTag.textContent = scenario.status;
     }
   }
 
   function startAutoRotate() {
     stopAutoRotate();
+    if (isHovered || (container.matches && container.matches(':hover'))) return;
     autoTimer = setInterval(() => {
       const nextSlide = (currentSlide + 1) % slides.length;
       setSlide(nextSlide);
@@ -659,16 +627,22 @@ function initHeroSimulator() {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
       setSlide(i);
-      startAutoRotate(); // reset 5-second interval timer
+      if (!isHovered && !(container.matches && container.matches(':hover'))) {
+        startAutoRotate();
+      } else {
+        stopAutoRotate();
+      }
     });
   });
 
   // Pause on Hover
   container.addEventListener('mouseenter', () => {
+    isHovered = true;
     stopAutoRotate();
   });
 
   container.addEventListener('mouseleave', () => {
+    isHovered = false;
     startAutoRotate();
   });
 
